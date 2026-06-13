@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --navy: #0d1b2a;
+  --navy2: #13283c;
+  --navy3: #1a3248;
+  --orange: #e8620a;
+  --orange-soft: #f47b25;
+  --orange-deep: #cc5208;
+  --orange-tint: #fff1e8;
+  --orange-tint2: #fde8d6;
+  --gold: #b8860b;
+  --white: #ffffff;
+  --off: #f6f8fb;
+  --off2: #eef2f7;
+  --clean-bg: #f2f6f4;
+  --ink: #16202e;
+  --ink-soft: #33414f;
+  --muted: #5e6b7a;
+  --faint: #9aa5b2;
+  --border: #d9e0e9;
+  --border-strong: #bcc7d4;
+  --green: #0a8a5a;
+  --green-tint: #e8f8f1;
+  --r: 16px;
+  --rs: 10px;
+  --rl: 24px;
+  --sh: 0 6px 28px rgba(13, 27, 42, 0.08);
+  --sh2: 0 16px 50px rgba(13, 27, 42, 0.12);
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 98, 10, 0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(232, 98, 10, 0); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+  }
+
+  .animate-marquee {
+    animation: marquee-scroll 26s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee-scroll 24s linear infinite;
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s ease-in-out infinite;
+  }
+
+  .font-serif-num {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
