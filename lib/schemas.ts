@@ -107,6 +107,90 @@ const footerSchema = z.object({
   extra: z.string(),
 });
 
+// ── About page ─────────────────────────────────────────────────────────────
+
+const aboutStatSchema = z.object({ val: z.string(), label: z.string() });
+
+export const aboutPageSchema = z.object({
+  hero: z.object({
+    eyebrow: z.string(),
+    h1: z.array(z.string()),
+    h1Italic: z.string(),
+    subtitle: z.string(),
+    primaryCta: ctaSchema,
+    secondaryCta: ctaSchema,
+    stats: z.array(aboutStatSchema),
+    image: z.string().url(),
+    overlay: z.object({
+      bigStat: z.string(),
+      bigLabel: z.string(),
+      miniStats: z.array(aboutStatSchema),
+    }),
+  }),
+  trustBar: z.array(
+    z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
+  ),
+  whoWeAre: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    headingItalic: z.string(),
+    paragraphs: z.array(z.string()),
+    highlights: z.array(
+      z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
+    ),
+    image: z.string().url(),
+    badge: z.object({ num: z.string(), label: z.string() }),
+  }),
+  howItWorks: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    subtitle: z.string(),
+    steps: z.array(
+      z.object({ num: z.string(), title: z.string(), desc: z.string() }),
+    ),
+  }),
+  whyChooseUs: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    subtitle: z.string(),
+    cards: z.array(
+      z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
+    ),
+    image: z.string().url(),
+    stats: z.array(aboutStatSchema),
+  }),
+  values: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    subtitle: z.string(),
+    items: z.array(
+      z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
+    ),
+    disclosure: z.string(),
+  }),
+  cta: z.object({
+    eyebrow: z.string(),
+    headingLines: z.array(z.string()),
+    headingItalic: z.string(),
+    body: z.string(),
+    buttonLabel: z.string(),
+    buttonHref: z.string(),
+    contactEyebrow: z.string(),
+    contacts: z.array(
+      z.object({
+        icon: z.string(),
+        label: z.string(),
+        value: z.string(),
+        href: z.string(),
+      }),
+    ),
+  }),
+});
+
+export type AboutPageContent = z.infer<typeof aboutPageSchema>;
+
+// ── Home page ───────────────────────────────────────────────────────────────
+
 export const homePageSchema = z.object({
   navLinks: z.array(navLinkSchema),
   hero: heroSchema,
