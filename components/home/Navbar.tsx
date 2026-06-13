@@ -19,7 +19,7 @@ export default function Navbar({ navLinks }: { navLinks: NavLink[] }) {
         {navLinks.map((link) => (
           <li key={link.href}>
             <Link
-              href={`/${link.href}`}
+              href={link.href}
               className="group relative text-[15px] font-semibold tracking-[-0.1px] text-[color:var(--ink-soft)] hover:text-[color:var(--ink)] transition-colors duration-200 py-1"
             >
               {link.label}
