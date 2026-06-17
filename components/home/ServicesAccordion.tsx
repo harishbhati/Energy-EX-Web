@@ -152,28 +152,15 @@ export default function ServicesAccordion() {
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-[22px]">
-          <div
-            className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center"
-            style={{ color: 'var(--orange)' }}
-          >
+          <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center text-brand-orange">
             What we do
           </div>
           <h2
-            className="font-serif-num mb-4"
-            style={{
-              fontSize: '44px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-0.5px',
-              lineHeight: 1.12,
-            }}
+            className="font-serif-num mb-4 text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]"
           >
             Everything your business needs, under one roof
           </h2>
-          <p
-            className="mx-auto max-w-[560px]"
-            style={{ fontSize: '17px', color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300 }}
-          >
+          <p className="mx-auto max-w-[560px] text-[17px] text-muted leading-[1.7] font-light">
             Click any service to explore. From electricity to solar, we find the best deal and
             manage the full journey.
           </p>
@@ -202,13 +189,7 @@ export default function ServicesAccordion() {
                 {/* Row head */}
                 <div className="flex items-center gap-6 px-8 py-7">
                   <div
-                    className="font-serif-num flex-shrink-0 w-14"
-                    style={{
-                      fontSize: '42px',
-                      fontWeight: 700,
-                      color: 'var(--orange)',
-                      lineHeight: 1,
-                    }}
+                    className="font-serif-num flex-shrink-0 w-14 text-[42px] font-bold text-brand-orange leading-none"
                   >
                     {svc.num}
                   </div>
@@ -220,13 +201,7 @@ export default function ServicesAccordion() {
                   </div>
                   <div className="flex-1">
                     <h3
-                      className="font-serif-num flex items-center gap-[10px] mb-[3px]"
-                      style={{
-                        fontSize: '26px',
-                        fontWeight: 600,
-                        color: 'var(--ink)',
-                        letterSpacing: '-0.3px',
-                      }}
+                      className="font-serif-num flex items-center gap-[10px] mb-[3px] text-[26px] font-semibold text-ink tracking-[-0.3px]"
                     >
                       {svc.title}
                       {svc.badge && (
@@ -238,7 +213,7 @@ export default function ServicesAccordion() {
                         </span>
                       )}
                     </h3>
-                    <p style={{ fontSize: '14.5px', color: 'var(--muted)', fontWeight: 300 }}>
+                    <p className="text-[14.5px] text-muted font-light">
                       {svc.subtitle}
                     </p>
                   </div>
@@ -277,33 +252,24 @@ export default function ServicesAccordion() {
                         {svc.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[12px] font-medium rounded-[30px] px-[13px] py-[5px]"
-                            style={{
-                              color: 'var(--ink-soft)',
-                              background: 'var(--off)',
-                              border: '1px solid var(--border)',
-                            }}
+                            className="text-xs font-medium rounded-[30px] px-[13px] py-[5px] text-ink-soft bg-off border border-[color:var(--border)]"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <p
-                        className="mb-[18px]"
-                        style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.7 }}
-                      >
+                      <p className="mb-[18px] text-sm text-muted leading-[1.7]">
                         {svc.description}
                       </p>
                       <a
                         href={svc.linkHref}
-                        className="inline-flex items-center gap-1.5 font-semibold hover:gap-2 transition-all duration-200"
-                        style={{ fontSize: '14px', color: 'var(--orange)' }}
+                        className="inline-flex items-center gap-1.5 font-semibold hover:gap-2 transition-all duration-200 text-sm text-brand-orange"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {svc.linkText}
                       </a>
                     </div>
-                    <div className="rounded-[var(--r)] overflow-hidden" style={{ height: '160px' }}>
+                    <div className="rounded-[var(--r)] overflow-hidden h-[160px]">
                       <img
                         src={svc.image}
                         alt={svc.imageAlt}

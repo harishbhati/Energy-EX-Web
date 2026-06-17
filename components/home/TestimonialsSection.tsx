@@ -47,32 +47,19 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <div className="px-14 py-10" style={{ background: '#FCFAF7' }}>
+    <div className="px-14 py-10 bg-[#FCFAF7]">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div
-            className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center"
-            style={{ color: 'var(--orange)' }}
-          >
+          <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center text-brand-orange">
             What our clients say
           </div>
           <h2
-            className="font-serif-num mb-4"
-            style={{
-              fontSize: '44px',
-              fontWeight: 700,
-              color: 'var(--navy)',
-              letterSpacing: '-0.5px',
-              lineHeight: 1.12,
-            }}
+            className="font-serif-num mb-4 text-[44px] font-bold text-navy tracking-[-0.5px] leading-[1.12]"
           >
             Loved by 10,000+ UK businesses
           </h2>
-          <p
-            className="mx-auto max-w-[560px]"
-            style={{ fontSize: '17px', color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300 }}
-          >
+          <p className="mx-auto max-w-[560px] text-[17px] text-muted leading-[1.7] font-light">
             Don&apos;t just take our word for it — here&apos;s what our clients say.
           </p>
         </div>
@@ -105,41 +92,28 @@ export default function TestimonialsSection() {
                   el.style.transform = 'translateY(0)';
                 }}
               >
-                <div className="flex items-center gap-[3px] mb-4" style={{ color: 'var(--orange)' }}>
+                <div className="flex items-center gap-[3px] mb-4 text-brand-orange">
                   {[0, 1, 2, 3, 4].map((s) => (
                     <Star key={s} size={14} fill="currentColor" strokeWidth={0} />
                   ))}
                 </div>
                 <p
-                  className="font-serif-num mb-[22px] italic"
-                  style={{
-                    fontSize: '18px',
-                    color: 'var(--ink)',
-                    lineHeight: 1.6,
-                    fontWeight: 500,
-                  }}
+                  className="font-serif-num mb-[22px] italic text-[18px] text-ink leading-[1.6] font-medium"
                 >
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div
-                  className="mb-[18px]"
-                  style={{ height: '1px', background: 'var(--border)' }}
-                />
+                <div className="mb-[18px] h-px bg-[color:var(--border)]" />
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center text-[14px] font-bold flex-shrink-0 font-serif-num"
-                    style={{
-                      background: 'var(--orange-tint)',
-                      color: 'var(--orange-deep)',
-                    }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 font-serif-num bg-orange-tint text-brand-orange-deep"
                   >
                     {t.initials}
                   </div>
                   <div>
-                    <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--ink)' }}>
+                    <div className="text-sm font-bold text-ink">
                       {t.name}
                     </div>
-                    <div style={{ fontSize: '12px', color: 'var(--muted)' }}>{t.role}</div>
+                    <div className="text-xs text-muted">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -151,12 +125,8 @@ export default function TestimonialsSection() {
         <div className="flex items-center justify-center gap-3 mt-8">
           <button
             onClick={() => go(cur - 1)}
-            className="w-11 h-11 rounded-full flex items-center justify-center text-[16px] cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white"
-            style={{
-              background: '#fff',
-              border: '1.5px solid var(--border-strong)',
-              color: 'var(--ink)',
-            }}
+            className="w-11 h-11 rounded-full flex items-center justify-center text-base cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white bg-white text-ink"
+            style={{ border: '1.5px solid var(--border-strong)' }}
           >
             ←
           </button>
@@ -177,12 +147,8 @@ export default function TestimonialsSection() {
           </div>
           <button
             onClick={() => go(cur + 1)}
-            className="w-11 h-11 rounded-full flex items-center justify-center text-[16px] cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white"
-            style={{
-              background: '#fff',
-              border: '1.5px solid var(--border-strong)',
-              color: 'var(--ink)',
-            }}
+            className="w-11 h-11 rounded-full flex items-center justify-center text-base cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white bg-white text-ink"
+            style={{ border: '1.5px solid var(--border-strong)' }}
           >
             →
           </button>

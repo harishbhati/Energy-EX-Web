@@ -45,48 +45,23 @@ const bottomStats = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="px-14 py-[88px]" style={{ background: 'var(--off)' }}>
+    <section className="px-14 py-[88px] bg-off">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-[52px]">
           <div className="flex items-center justify-center gap-[10px] mb-[18px]">
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
-            <span
-              className="font-bold uppercase tracking-[2px]"
-              style={{ fontSize: '11px', color: 'var(--orange)' }}
-            >
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
+            <span className="font-bold uppercase tracking-[2px] text-[11px] text-brand-orange">
               Why choose us
             </span>
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
           </div>
           <h2
-            className="font-serif-num mb-4"
-            style={{
-              fontSize: '46px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-1px',
-              lineHeight: 1.1,
-            }}
+            className="font-serif-num mb-4 text-[46px] font-semibold text-ink tracking-[-1px] leading-[1.1]"
           >
             The Energyex difference
           </h2>
-          <p
-            className="mx-auto"
-            style={{
-              fontSize: '17px',
-              color: 'var(--muted)',
-              lineHeight: 1.7,
-              maxWidth: '500px',
-              fontWeight: 300,
-            }}
-          >
+          <p className="mx-auto text-[17px] text-muted leading-[1.7] max-w-[500px] font-light">
             Six reasons businesses keep coming back — and referring their peers.
           </p>
         </div>
@@ -100,11 +75,8 @@ export default function WhyChooseUs() {
             {cards.map((card) => (
               <div
                 key={card.title}
-                className="group relative bg-white rounded-[var(--r)] overflow-hidden transition-all duration-250 cursor-default"
-                style={{
-                  border: '1px solid var(--border)',
-                  padding: '24px 22px',
-                }}
+                className="group relative bg-white rounded-[var(--r)] overflow-hidden transition-all duration-250 cursor-default border border-[color:var(--border)]"
+                style={{ padding: '24px 22px' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'var(--orange)';
                   e.currentTarget.style.boxShadow = '0 6px 24px rgba(232,98,10,0.1)';
@@ -116,26 +88,19 @@ export default function WhyChooseUs() {
               >
                 {/* Animated orange top bar — scale from left on group hover */}
                 <div
-                  className="absolute top-0 left-0 right-0 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"
-                  style={{ height: '3px', background: 'var(--orange)' }}
+                  className="absolute top-0 left-0 right-0 h-[3px] bg-brand-orange scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"
                 />
 
                 <div
-                  className="w-10 h-10 rounded-[10px] flex items-center justify-center mb-4"
-                  style={{
-                    background: 'var(--orange-tint)',
-                    border: '1px solid rgba(232,98,10,0.15)',
-                  }}
+                  className="w-10 h-10 rounded-[10px] flex items-center justify-center mb-4 bg-orange-tint"
+                  style={{ border: '1px solid rgba(232,98,10,0.15)' }}
                 >
-                  <card.Icon size={18} style={{ color: 'var(--orange)' }} />
+                  <card.Icon size={18} className="text-brand-orange" />
                 </div>
-                <h3
-                  className="font-semibold mb-2"
-                  style={{ fontSize: '14.5px', color: 'var(--ink)', lineHeight: 1.3 }}
-                >
+                <h3 className="font-semibold mb-2 text-[14.5px] text-ink leading-[1.3]">
                   {card.title}
                 </h3>
-                <p style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.65 }}>
+                <p className="text-[13px] text-muted leading-[1.65]">
                   {card.desc}
                 </p>
               </div>
@@ -160,12 +125,10 @@ export default function WhyChooseUs() {
             {/* Stats at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-7">
               <div
-                className="grid gap-[1px]"
+                className="grid gap-[1px] rounded-[14px] overflow-hidden"
                 style={{
                   gridTemplateColumns: 'repeat(3,1fr)',
                   background: 'rgba(255,255,255,0.08)',
-                  borderRadius: '14px',
-                  overflow: 'hidden',
                 }}
               >
                 {bottomStats.map((s) => (
@@ -174,22 +137,10 @@ export default function WhyChooseUs() {
                     className="text-center"
                     style={{ padding: '20px 14px' }}
                   >
-                    <div
-                      className="font-serif-num"
-                      style={{
-                        fontSize: '28px',
-                        fontWeight: 700,
-                        color: '#fff',
-                        letterSpacing: '-1px',
-                        lineHeight: 1,
-                      }}
-                    >
+                    <div className="font-serif-num text-[28px] font-bold text-white tracking-[-1px] leading-none">
                       {s.val}
                     </div>
-                    <div
-                      className="mt-1.5 font-medium"
-                      style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)' }}
-                    >
+                    <div className="mt-1.5 font-medium text-[11px] text-white/50">
                       {s.label}
                     </div>
                   </div>

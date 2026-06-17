@@ -25,47 +25,24 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section style={{ background: 'var(--off)' }} className="px-14 py-[88px]">
+    <section className="bg-off px-14 py-[88px]">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-[56px]">
           <div className="flex items-center justify-center gap-[10px] mb-[18px]">
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
-            <span
-              className="font-bold uppercase tracking-[2px]"
-              style={{ fontSize: '11px', color: 'var(--orange)' }}
-            >
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
+            <span className="font-bold uppercase tracking-[2px] text-[11px] text-brand-orange">
               How it works
             </span>
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
           </div>
           <h2
-            className="font-serif-num mb-4"
-            style={{
-              fontSize: '46px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-1px',
-              lineHeight: 1.1,
-            }}
+            className="font-serif-num mb-4 text-[46px] font-semibold text-ink tracking-[-1px] leading-[1.1]"
           >
             From first call to real savings
           </h2>
           <p
-            className="mx-auto"
-            style={{
-              fontSize: '17px',
-              color: 'var(--muted)',
-              lineHeight: 1.7,
-              maxWidth: '520px',
-              fontWeight: 300,
-            }}
+            className="mx-auto text-[17px] text-muted leading-[1.7] max-w-[520px] font-light"
           >
             A simple four-step process that puts you in complete control — with us doing all the
             work.
@@ -77,11 +54,8 @@ export default function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="group relative bg-white rounded-[var(--rl)] overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1"
-              style={{
-                border: '1px solid var(--border)',
-                padding: '32px 28px',
-              }}
+              className="group relative bg-white rounded-[var(--rl)] overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 border border-[color:var(--border)]"
+              style={{ padding: '32px 28px' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow = '0 12px 36px rgba(232,98,10,0.12)';
                 e.currentTarget.style.borderColor = 'rgba(232,98,10,0.3)';
@@ -93,34 +67,21 @@ export default function HowItWorks() {
             >
               {/* Orange gradient top bar — replaces ::before */}
               <div
-                className="absolute top-0 left-0 right-0"
-                style={{
-                  height: '3px',
-                  background: 'linear-gradient(90deg,var(--orange),var(--orange-soft))',
-                }}
+                className="absolute top-0 left-0 right-0 h-[3px]"
+                style={{ background: 'linear-gradient(90deg,var(--orange),var(--orange-soft))' }}
               />
 
               {/* Step number */}
               <div
-                className="font-serif-num mb-5"
-                style={{
-                  fontSize: '50px',
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  color: 'var(--orange-tint2)',
-                  letterSpacing: '-2px',
-                }}
+                className="font-serif-num mb-5 text-[50px] font-bold leading-none text-orange-tint2 tracking-[-2px]"
               >
                 {step.num}
               </div>
 
-              <h3
-                className="font-semibold mb-[10px]"
-                style={{ fontSize: '17px', color: 'var(--ink)', lineHeight: 1.3 }}
-              >
+              <h3 className="font-semibold mb-[10px] text-[17px] text-ink leading-[1.3]">
                 {step.title}
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.7 }}>
+              <p className="text-sm text-muted leading-[1.7]">
                 {step.desc}
               </p>
             </div>

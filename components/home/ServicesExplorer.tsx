@@ -137,25 +137,14 @@ export default function ServicesExplorer() {
   const cols = active.statsGrid || 'repeat(3,1fr)';
 
   return (
-    <div className="px-14 py-7" style={{ background: 'var(--off)' }}>
+    <div className="px-14 py-7 bg-off">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-9">
-          <div
-            className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[10px]"
-            style={{ color: 'var(--orange)' }}
-          >
+          <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[10px] text-brand-orange">
             Explore our services
           </div>
-          <h2
-            className="font-serif-num"
-            style={{
-              fontSize: '34px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-0.5px',
-            }}
-          >
+          <h2 className="font-serif-num text-[34px] font-semibold text-ink tracking-[-0.5px]">
             Find what your business needs
           </h2>
         </div>
@@ -166,7 +155,7 @@ export default function ServicesExplorer() {
             <button
               key={tab.id}
               onClick={() => setActiveId(tab.id)}
-              className="inline-flex items-center gap-[7px] rounded-[40px] px-5 py-[9px] text-[14px] font-semibold cursor-pointer transition-all duration-200"
+              className="inline-flex items-center gap-[7px] rounded-[40px] px-5 py-[9px] text-sm font-semibold cursor-pointer transition-all duration-200"
               style={
                 activeId === tab.id
                   ? { background: 'var(--orange)', color: '#fff', border: '1.5px solid var(--orange)' }
@@ -186,8 +175,8 @@ export default function ServicesExplorer() {
         >
           {/* Visual */}
           <div
-            className="rounded-[var(--rl)] overflow-hidden relative border"
-            style={{ minHeight: '340px', borderColor: 'var(--border)' }}
+            className="rounded-[var(--rl)] overflow-hidden relative border border-[color:var(--border)]"
+            style={{ minHeight: '340px' }}
           >
             <img
               src={active.image}
@@ -201,13 +190,10 @@ export default function ServicesExplorer() {
               }}
             />
             <div className="absolute bottom-0 left-0 right-0 p-7 z-[2]">
-              <h3
-                className="font-serif-num text-white mb-[5px]"
-                style={{ fontSize: '28px', fontWeight: 600 }}
-              >
+              <h3 className="font-serif-num text-white mb-[5px] text-[28px] font-semibold">
                 {active.imageTitle}
               </h3>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
+              <p className="text-sm text-white/70">
                 {active.imageSubtitle}
               </p>
             </div>
@@ -224,14 +210,7 @@ export default function ServicesExplorer() {
               }}
             >
               <h4
-                className="font-serif-num mb-5"
-                style={{
-                  fontSize: '20px',
-                  fontWeight: 600,
-                  color: 'var(--ink)',
-                  letterSpacing: '-0.2px',
-                  lineHeight: 1.25,
-                }}
+                className="font-serif-num mb-5 text-[20px] font-semibold text-ink leading-[1.25] tracking-[-0.2px]"
               >
                 {active.cardTitle}
               </h4>
@@ -239,25 +218,12 @@ export default function ServicesExplorer() {
                 {active.stats.map((s) => (
                   <div key={s.label} className="text-center">
                     <div
-                      className="font-serif-num"
-                      style={{
-                        fontSize: '30px',
-                        fontWeight: 700,
-                        color: 'var(--orange)',
-                        lineHeight: 1.05,
-                        letterSpacing: '-0.5px',
-                      }}
+                      className="font-serif-num text-[30px] font-bold text-brand-orange leading-[1.05] tracking-[-0.5px]"
                     >
                       {s.value}
                     </div>
                     <div
-                      className="mt-1.5 font-semibold uppercase"
-                      style={{
-                        fontSize: '11px',
-                        color: 'var(--muted)',
-                        letterSpacing: '0.4px',
-                        lineHeight: 1.3,
-                      }}
+                      className="mt-1.5 font-semibold uppercase text-[11px] text-muted leading-[1.3] tracking-[0.4px]"
                     >
                       {s.label}
                     </div>
@@ -269,13 +235,12 @@ export default function ServicesExplorer() {
             {/* Link button */}
             <a
               href={active.linkHref}
-              className="rounded-[var(--r)] px-6 py-5 flex items-center justify-between transition-all duration-200"
-              style={{ background: 'var(--navy)', color: '#fff' }}
+              className="rounded-[var(--r)] px-6 py-5 flex items-center justify-between transition-all duration-200 bg-navy text-white"
               onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--navy2)')}
               onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--navy)')}
             >
-              <span style={{ fontSize: '15px', fontWeight: 600 }}>{active.linkText}</span>
-              <ArrowRight size={18} style={{ color: 'var(--orange-soft)', flexShrink: 0 }} />
+              <span className="text-[15px] font-semibold">{active.linkText}</span>
+              <ArrowRight size={18} className="text-brand-orange-soft flex-shrink-0" />
             </a>
           </div>
         </div>

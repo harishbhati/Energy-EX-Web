@@ -33,49 +33,33 @@ export default function WhoWeAre() {
         <div>
           {/* Eyebrow */}
           <div className="flex items-center gap-[10px] mb-[18px]">
-            <span
-              className="block flex-shrink-0"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
-            <span
-              className="font-bold uppercase tracking-[2px]"
-              style={{ fontSize: '11px', color: 'var(--orange)' }}
-            >
+            <span className="block flex-shrink-0 w-[22px] h-[2px] bg-brand-orange" />
+            <span className="font-bold uppercase tracking-[2px] text-[11px] text-brand-orange">
               Who we are
             </span>
           </div>
 
           <h2
-            className="font-serif-num mb-[22px]"
-            style={{
-              fontSize: '46px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-1px',
-              lineHeight: 1.1,
-            }}
+            className="font-serif-num mb-[22px] text-[46px] font-semibold text-ink tracking-[-1px] leading-[1.1]"
           >
             Not a price comparison site.{' '}
-            <em className="italic" style={{ color: 'var(--orange)' }}>
+            <em className="italic text-brand-orange">
               A partner.
             </em>
           </h2>
 
-          <p className="mb-4" style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.75 }}>
+          <p className="mb-4 text-base text-muted leading-[1.75]">
             Energyex is an independent UK energy brokerage, founded in 2021 and built on 13 years
             of sector experience. We help businesses of all sizes — from single-site SMEs to
             multi-property portfolios — cut their energy bills and remove the hassle of managing
             contracts.
           </p>
-          <p className="mb-4" style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.75 }}>
+          <p className="mb-4 text-base text-muted leading-[1.75]">
             We&apos;re not tied to any supplier, which means our advice is always independent. Our
             revenue comes from the supplier when you switch — so you pay nothing for our service,
             ever.
           </p>
-          <p
-            className="mb-[40px]"
-            style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.75 }}
-          >
+          <p className="mb-[40px] text-base text-muted leading-[1.75]">
             We work with 30+ approved UK energy suppliers, comparing real quotes and presenting only
             the best options for your specific business. Then we handle everything — from switching
             to billing queries to renewals.
@@ -86,11 +70,7 @@ export default function WhoWeAre() {
             {highlights.map((h) => (
               <div
                 key={h.title}
-                className="group flex items-start gap-4 rounded-[var(--r)] px-5 py-[18px] cursor-default transition-all duration-200 bg-white hover:-translate-y-0.5"
-                style={{
-                  border: '1px solid var(--border)',
-                  boxShadow: '0 2px 8px rgba(13,27,42,0.04)',
-                }}
+                className="group flex items-start gap-4 rounded-[var(--r)] px-5 py-[18px] cursor-default transition-all duration-200 bg-white hover:-translate-y-0.5 border border-[color:var(--border)] shadow-[0_2px_8px_rgba(13,27,42,0.04)]"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'var(--orange)';
                   e.currentTarget.style.boxShadow = '0 4px 18px rgba(232,98,10,0.1)';
@@ -101,19 +81,15 @@ export default function WhoWeAre() {
                 }}
               >
                 <div
-                  className="w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:[background:var(--orange)]"
-                  style={{ background: 'var(--orange-tint)' }}
+                  className="w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:[background:var(--orange)] bg-orange-tint"
                 >
-                  <h.Icon size={18} className="group-hover:text-white" style={{ color: 'var(--orange)' }} />
+                  <h.Icon size={18} className="group-hover:text-white text-brand-orange" />
                 </div>
                 <div>
-                  <h4
-                    className="font-semibold mb-[3px]"
-                    style={{ fontSize: '14.5px', color: 'var(--ink)' }}
-                  >
+                  <h4 className="font-semibold mb-[3px] text-[14.5px] text-ink">
                     {h.title}
                   </h4>
-                  <p style={{ fontSize: '13.5px', color: 'var(--muted)', lineHeight: 1.6 }}>
+                  <p className="text-[13.5px] text-muted leading-[1.6]">
                     {h.desc}
                   </p>
                 </div>
@@ -126,38 +102,25 @@ export default function WhoWeAre() {
         <div className="relative">
           {/* Badge */}
           <div
-            className="absolute z-[3] rounded-[var(--r)] text-center"
+            className="absolute z-[3] rounded-[var(--r)] text-center bg-navy shadow-[0_8px_32px_rgba(13,27,42,0.28)]"
             style={{
               top: '-18px',
               left: '-18px',
-              background: 'var(--navy)',
               padding: '18px 24px',
-              boxShadow: '0 8px 32px rgba(13,27,42,0.28)',
             }}
           >
             <div
-              className="font-serif-num"
-              style={{
-                fontSize: '34px',
-                fontWeight: 700,
-                color: 'var(--orange-soft)',
-                lineHeight: 1,
-                letterSpacing: '-1px',
-              }}
+              className="font-serif-num text-[34px] font-bold text-brand-orange-soft leading-none tracking-[-1px]"
             >
               13+
             </div>
-            <div
-              className="font-semibold uppercase mt-1"
-              style={{ fontSize: '10px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.8px' }}
-            >
+            <div className="font-semibold uppercase mt-1 text-[10px] text-white/45 tracking-[0.8px]">
               Years expertise
             </div>
           </div>
 
           <div
-            className="rounded-[var(--rl)] overflow-hidden"
-            style={{ height: '520px', boxShadow: '0 16px 48px rgba(13,27,42,0.12)' }}
+            className="rounded-[var(--rl)] overflow-hidden h-[520px] shadow-[0_16px_48px_rgba(13,27,42,0.12)]"
           >
             <img
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&fit=crop"

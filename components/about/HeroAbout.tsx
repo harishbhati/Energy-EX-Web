@@ -18,58 +18,36 @@ export default function HeroAbout() {
       style={{ gridTemplateColumns: '1fr 1fr', minHeight: '600px' }}
     >
       {/* Left — navy */}
-      <div
-        className="relative flex flex-col justify-center"
-        style={{ background: 'var(--navy)', padding: '80px 56px', zIndex: 2 }}
-      >
+      <div className="relative flex flex-col justify-center bg-navy z-[2]" style={{ padding: '80px 56px' }}>
         {/* Skewed edge bleeding into image (replicates hero-left::after) */}
         <div
-          className="absolute top-0 bottom-0 pointer-events-none"
+          className="absolute top-0 bottom-0 pointer-events-none bg-navy z-[1]"
           style={{
             right: '-40px',
             width: '80px',
-            background: 'var(--navy)',
             transform: 'skewX(-3deg)',
-            zIndex: 1,
           }}
         />
 
         {/* Eyebrow pill */}
         <div
-          className="inline-flex items-center gap-2 rounded-[40px] mb-[22px] self-start"
+          className="inline-flex items-center gap-2 rounded-[40px] mb-[22px] self-start text-brand-orange-soft font-bold uppercase tracking-[1.5px] text-[11.5px] border border-[rgba(232,98,10,0.3)]"
           style={{
             background: 'rgba(232,98,10,0.15)',
-            color: 'var(--orange-soft)',
-            fontSize: '11.5px',
-            fontWeight: 700,
-            letterSpacing: '1.5px',
-            textTransform: 'uppercase',
             padding: '6px 14px',
-            border: '1px solid rgba(232,98,10,0.3)',
           }}
         >
-          <span
-            className="w-[6px] h-[6px] rounded-full flex-shrink-0"
-            style={{ background: 'var(--orange)' }}
-          />
+          <span className="w-[6px] h-[6px] rounded-full flex-shrink-0 bg-brand-orange" />
           About Energyex
         </div>
 
         {/* H1 */}
         <h1
-          className="font-serif-num text-white mb-5"
-          style={{
-            fontSize: '58px',
-            fontWeight: 600,
-            lineHeight: 1.08,
-            letterSpacing: '-1.5px',
-            position: 'relative',
-            zIndex: 2,
-          }}
+          className="font-serif-num text-white mb-5 text-[58px] font-semibold leading-[1.08] tracking-[-1.5px] relative z-[2]"
         >
           Your Energy.
           <br />
-          <em className="italic" style={{ color: 'var(--orange-soft)' }}>
+          <em className="italic text-brand-orange-soft">
             Our Expertise.
           </em>
           <br />
@@ -78,15 +56,7 @@ export default function HeroAbout() {
 
         {/* Subtitle */}
         <p
-          className="mb-9"
-          style={{
-            fontSize: '16px',
-            lineHeight: 1.7,
-            color: 'rgba(255,255,255,0.62)',
-            maxWidth: '430px',
-            position: 'relative',
-            zIndex: 2,
-          }}
+          className="mb-9 text-base leading-[1.7] text-white/[0.62] max-w-[430px] relative z-[2]"
         >
           An independent UK energy consultancy — founded in 2021 and backed by 13 years of energy
           expertise. We&apos;re not tied to any supplier — we work entirely for you, finding the
@@ -94,32 +64,20 @@ export default function HeroAbout() {
         </p>
 
         {/* CTAs */}
-        <div
-          className="flex gap-[14px] flex-wrap mb-10"
-          style={{ position: 'relative', zIndex: 2 }}
-        >
+        <div className="flex gap-[14px] flex-wrap mb-10 relative z-[2]">
           <a
             href="/quote"
-            className="inline-block font-bold rounded-[var(--rs)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--orange-deep)]"
-            style={{
-              background: 'var(--orange)',
-              color: '#fff',
-              padding: '13px 26px',
-              fontSize: '14.5px',
-              boxShadow: '0 6px 24px rgba(232,98,10,0.35)',
-            }}
+            className="inline-block font-bold rounded-[var(--rs)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--orange-deep)] bg-brand-orange text-white text-[14.5px] shadow-[0_6px_24px_rgba(232,98,10,0.35)]"
+            style={{ padding: '13px 26px' }}
           >
             Get a Free Quote
           </a>
           <a
             href="/our-services"
-            className="inline-block font-semibold rounded-[var(--rs)] transition-all duration-200"
+            className="inline-block font-semibold rounded-[var(--rs)] transition-all duration-200 text-white/[0.85] text-[14.5px] border border-white/[0.18]"
             style={{
               background: 'rgba(255,255,255,0.08)',
-              color: 'rgba(255,255,255,0.85)',
               padding: '13px 26px',
-              fontSize: '14.5px',
-              border: '1px solid rgba(255,255,255,0.18)',
             }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.background = 'rgba(255,255,255,0.14)')
@@ -133,27 +91,17 @@ export default function HeroAbout() {
         </div>
 
         {/* Stats */}
-        <div className="flex gap-7" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="flex gap-7 relative z-[2]">
           {stats.map((s) => (
             <div
               key={s.label}
               className="pl-[14px]"
               style={{ borderLeft: '2px solid rgba(232,98,10,0.45)' }}
             >
-              <strong
-                className="block font-black"
-                style={{ fontSize: '26px', color: '#fff', letterSpacing: '-1px', lineHeight: 1 }}
-              >
+              <strong className="block font-black text-[26px] text-white tracking-[-1px] leading-none">
                 {s.val}
               </strong>
-              <span
-                className="font-medium uppercase"
-                style={{
-                  fontSize: '11px',
-                  color: 'rgba(255,255,255,0.45)',
-                  letterSpacing: '0.5px',
-                }}
-              >
+              <span className="font-medium uppercase text-[11px] text-white/45 tracking-[0.5px]">
                 {s.label}
               </span>
             </div>
@@ -179,60 +127,29 @@ export default function HeroAbout() {
         />
         {/* Glassmorphism stat card */}
         <div
-          className="absolute z-[3] rounded-[18px]"
+          className="absolute z-[3] rounded-[18px] backdrop-blur-[20px] border border-white/20"
           style={{
             bottom: '40px',
             right: '40px',
             background: 'rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.2)',
             padding: '24px 28px',
             maxWidth: '260px',
           }}
         >
-          <div
-            className="font-serif-num"
-            style={{
-              fontSize: '44px',
-              fontWeight: 700,
-              color: '#fff',
-              lineHeight: 1,
-              letterSpacing: '-2px',
-            }}
-          >
+          <div className="font-serif-num text-[44px] font-bold text-white leading-none tracking-[-2px]">
             £0
           </div>
-          <div
-            style={{
-              fontSize: '12px',
-              color: 'rgba(255,255,255,0.7)',
-              fontWeight: 600,
-              marginTop: '4px',
-              marginBottom: '16px',
-            }}
-          >
+          <div className="text-xs text-white/70 font-semibold mt-1 mb-4">
             Upfront cost to you
           </div>
-          <div
-            style={{ height: '1px', background: 'rgba(255,255,255,0.15)', marginBottom: '16px' }}
-          />
+          <div className="h-px bg-white/[0.15] mb-4" />
           <div className="flex justify-between">
             {miniStats.map((m) => (
               <div key={m.label}>
-                <strong
-                  className="block font-black"
-                  style={{
-                    fontSize: '20px',
-                    color: '#fff',
-                    letterSpacing: '-0.5px',
-                    lineHeight: 1,
-                  }}
-                >
+                <strong className="block font-black text-[20px] text-white tracking-[-0.5px] leading-none">
                   {m.val}
                 </strong>
-                <span
-                  style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', fontWeight: 500 }}
-                >
+                <span className="text-[11px] text-white/55 font-medium">
                   {m.label}
                 </span>
               </div>

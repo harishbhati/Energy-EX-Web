@@ -52,11 +52,11 @@ const chips: Chip[] = [
 function InfoCardHeader({ Icon, title }: { Icon: LucideIcon; title: string }) {
   return (
     <div
-      className="flex items-center gap-3"
-      style={{ background: 'var(--navy2)', padding: '16px 22px' }}
+      className="flex items-center gap-3 py-4 px-[22px]"
+      style={{ background: 'var(--navy2)' }}
     >
-      <Icon size={20} style={{ color: 'var(--orange-soft)', flexShrink: 0 }} />
-      <h3 className="font-semibold text-white" style={{ fontSize: '14px' }}>
+      <Icon size={20} className="text-brand-orange-soft flex-shrink-0" />
+      <h3 className="font-semibold text-white text-sm">
         {title}
       </h3>
     </div>
@@ -68,15 +68,10 @@ export default function ContactSidebar() {
     <div className="flex flex-col gap-5">
       {/* Direct Contact */}
       <div
-        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)]"
-        style={{
-          borderRadius: 'var(--r)',
-          boxShadow: 'var(--sh)',
-          border: '1px solid rgba(13,27,42,0.07)',
-        }}
+        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)] rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]"
       >
         <InfoCardHeader Icon={Phone} title="Direct Contact" />
-        <div style={{ padding: '20px 22px' }}>
+        <div className="py-5 px-[22px]">
           {contactItems.map((item, i) => (
             <div
               key={item.label}
@@ -87,33 +82,26 @@ export default function ContactSidebar() {
                 paddingTop: i === 0 ? '0' : '14px',
               }}
             >
-              <div
-                className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center rounded-[var(--rs)]"
-                style={{ background: 'var(--orange-tint)' }}
-              >
-                <item.Icon size={18} style={{ color: 'var(--orange)' }} />
+              <div className="w-[38px] h-[38px] flex-shrink-0 flex items-center justify-center rounded-[var(--rs)] bg-orange-tint">
+                <item.Icon size={18} className="text-brand-orange" />
               </div>
               <div className="flex-1">
-                <div
-                  className="font-bold uppercase mb-[3px]"
-                  style={{ fontSize: '11px', letterSpacing: '0.8px', color: 'var(--faint)' }}
-                >
+                <div className="font-bold uppercase mb-[3px] text-[11px] tracking-[0.8px] text-faint">
                   {item.label}
                 </div>
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="block font-semibold transition-colors duration-200 hover:[color:var(--orange)]"
-                    style={{ fontSize: '14.5px', color: 'var(--ink)', lineHeight: 1.4 }}
+                    className="block font-semibold transition-colors duration-200 hover:[color:var(--orange)] text-[14.5px] text-ink leading-[1.4]"
                   >
                     {item.primary}
                   </a>
                 ) : (
-                  <div className="font-semibold" style={{ fontSize: '14.5px', color: 'var(--ink)', lineHeight: 1.4 }}>
+                  <div className="font-semibold text-[14.5px] text-ink leading-[1.4]">
                     {item.primary}
                   </div>
                 )}
-                <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '2px' }}>
+                <div className="text-xs text-muted mt-[2px]">
                   {item.sub}
                 </div>
               </div>
@@ -124,44 +112,34 @@ export default function ContactSidebar() {
 
       {/* Find Us */}
       <div
-        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)]"
-        style={{
-          borderRadius: 'var(--r)',
-          boxShadow: 'var(--sh)',
-          border: '1px solid rgba(13,27,42,0.07)',
-        }}
+        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)] rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]"
       >
         <InfoCardHeader Icon={Map} title="Find Us" />
-        <div style={{ padding: '20px 22px' }}>
+        <div className="py-5 px-[22px]">
           {/* Map placeholder */}
           <div
-            className="flex flex-col items-center justify-center gap-2 relative overflow-hidden rounded-[var(--rs)] mb-4"
+            className="flex flex-col items-center justify-center gap-2 relative overflow-hidden rounded-[var(--rs)] mb-4 h-[140px] bg-[color:var(--border)] border border-dashed border-[color:var(--border-strong)]"
             style={{
-              height: '140px',
-              background: 'var(--border)',
-              border: '1px dashed var(--border-strong)',
               backgroundImage:
                 'repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(176,187,204,0.25) 28px,rgba(176,187,204,0.25) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(176,187,204,0.25) 28px,rgba(176,187,204,0.25) 29px)',
             }}
           >
             {/* Pin shape */}
             <div
-              className="relative z-[1] flex items-center justify-center"
+              className="relative z-[1] flex items-center justify-center bg-brand-orange shadow-[0_4px_12px_rgba(232,98,10,0.4)]"
               style={{
                 width: '32px',
                 height: '32px',
-                background: 'var(--orange)',
                 borderRadius: '50% 50% 50% 0',
                 transform: 'rotate(-45deg)',
-                boxShadow: '0 4px 12px rgba(232,98,10,0.4)',
               }}
             >
-              <div style={{ width: '10px', height: '10px', background: '#fff', borderRadius: '50%' }} />
+              <div className="w-[10px] h-[10px] bg-white rounded-full" />
             </div>
-            <p className="font-semibold relative z-[1]" style={{ fontSize: '12.5px', color: 'var(--ink)' }}>
+            <p className="font-semibold relative z-[1] text-[12.5px] text-ink">
               Energyex HQ
             </p>
-            <p className="relative z-[1] text-center px-4" style={{ fontSize: '11px', color: 'var(--muted)' }}>
+            <p className="relative z-[1] text-center px-4 text-[11px] text-muted">
               Suite 7 Airport House, Purley Way, Croydon, CR0 0XZ
             </p>
           </div>
@@ -169,8 +147,7 @@ export default function ContactSidebar() {
             href="https://maps.google.com/?q=Airport+House+Purley+Way+Croydon+CR0+0XZ"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-[6px] font-semibold transition-colors duration-200 hover:underline"
-            style={{ fontSize: '13px', color: 'var(--orange)' }}
+            className="flex items-center justify-center gap-[6px] font-semibold transition-colors duration-200 hover:underline text-[13px] text-brand-orange"
           >
             <MapPin size={13} />
             Open in Google Maps
@@ -188,31 +165,30 @@ export default function ContactSidebar() {
       >
         {/* Decorative blob */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none rounded-full"
           style={{
             bottom: '-20px',
             right: '-20px',
             width: '100px',
             height: '100px',
             background: 'rgba(232,98,10,0.12)',
-            borderRadius: '50%',
           }}
         />
-        <h3 className="font-serif-num text-white mb-[6px]" style={{ fontSize: '20px', fontWeight: 600 }}>
+        <h3 className="font-serif-num text-white mb-[6px] text-[20px] font-semibold">
           What Happens Next?
         </h3>
-        <p className="mb-[18px]" style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.6 }}>
+        <p className="mb-[18px] text-[13.5px] text-white/60 leading-[1.6]">
           Once you submit your enquiry, here&apos;s what to expect from our team.
         </p>
         <div className="flex flex-col gap-[10px]">
           {responseItems.map((r) => (
             <div key={r.text} className="flex items-center gap-[10px]">
               <div
-                className="flex-shrink-0 rounded-full"
-                style={{ width: '8px', height: '8px', background: r.color }}
+                className="flex-shrink-0 rounded-full w-[8px] h-[8px]"
+                style={{ background: r.color }}
               />
-              <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.78)' }}>
-                <strong style={{ color: '#fff' }}>{r.text}</strong> {r.sub}
+              <span className="text-[13px] text-white/[0.78]">
+                <strong className="text-white">{r.text}</strong> {r.sub}
               </span>
             </div>
           ))}
@@ -221,28 +197,15 @@ export default function ContactSidebar() {
 
       {/* We Can Help With */}
       <div
-        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)]"
-        style={{
-          borderRadius: 'var(--r)',
-          boxShadow: 'var(--sh)',
-          border: '1px solid rgba(13,27,42,0.07)',
-        }}
+        className="bg-white overflow-hidden transition-shadow duration-250 hover:[box-shadow:0_8px_40px_rgba(13,27,42,0.16)] rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]"
       >
         <InfoCardHeader Icon={Info} title="We Can Help With" />
-        <div style={{ padding: '20px 22px' }}>
+        <div className="py-5 px-[22px]">
           <div className="flex flex-wrap gap-2">
             {chips.map((chip) => (
               <span
                 key={chip.label}
-                className="inline-flex items-center gap-[6px] rounded-[20px] cursor-default transition-all duration-200 hover:[background:var(--orange-tint)] hover:[color:var(--orange)] hover:[border-color:rgba(232,98,10,0.25)]"
-                style={{
-                  padding: '5px 12px',
-                  background: 'var(--off)',
-                  border: '1px solid var(--border)',
-                  fontSize: '12px',
-                  fontWeight: 500,
-                  color: 'var(--ink-soft)',
-                }}
+                className="inline-flex items-center gap-[6px] rounded-[20px] cursor-default transition-all duration-200 hover:[background:var(--orange-tint)] hover:[color:var(--orange)] hover:[border-color:rgba(232,98,10,0.25)] px-3 py-[5px] bg-off border border-[color:var(--border)] text-xs font-medium text-ink-soft"
               >
                 <chip.Icon size={12} />
                 {chip.label}

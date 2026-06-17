@@ -28,14 +28,8 @@ export default function SuppliersMarquee() {
   const doubled = [...suppliers, ...suppliers];
 
   return (
-    <div
-      className="py-9 border-t border-b border-[color:var(--border)]"
-      style={{ background: '#fff' }}
-    >
-      <div
-        className="text-center font-bold uppercase tracking-[2px] mb-8"
-        style={{ fontSize: '11px', color: 'var(--faint)' }}
-      >
+    <div className="py-9 border-t border-b border-[color:var(--border)] bg-white">
+      <div className="text-center font-bold uppercase tracking-[2px] mb-8 text-[11px] text-faint">
         Comparing the best deals from 30+ approved UK suppliers
       </div>
 
@@ -57,22 +51,12 @@ export default function SuppliersMarquee() {
           {doubled.map((s, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 rounded-[var(--r)] px-[26px] py-4 whitespace-nowrap"
-              style={{
-                background: 'var(--off)',
-                border: '1px solid var(--border)',
-              }}
+              className="flex items-center gap-3 rounded-[var(--r)] px-[26px] py-4 whitespace-nowrap bg-off border border-[color:var(--border)]"
             >
-              <div
-                className="w-9 h-9 rounded-[9px] flex items-center justify-center flex-shrink-0"
-                style={{ background: '#fff', border: '1px solid var(--border)' }}
-              >
+              <div className="w-9 h-9 rounded-[9px] flex items-center justify-center flex-shrink-0 bg-white border border-[color:var(--border)]">
                 <s.Icon size={18} style={{ color: s.color }} />
               </div>
-              <span
-                className="font-bold"
-                style={{ fontSize: '15px', color: 'var(--ink-soft)' }}
-              >
+              <span className="font-bold text-[15px] text-ink-soft">
                 {s.name}
               </span>
             </div>

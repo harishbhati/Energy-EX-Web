@@ -12,11 +12,8 @@ const items: TrustItem[] = [
 export default function ContactTrustBar() {
   return (
     <section
-      className="bg-white"
-      style={{
-        padding: '48px 40px',
-        borderTop: '1px solid var(--border)',
-      }}
+      className="bg-white border-t border-[color:var(--border)]"
+      style={{ padding: '48px 40px' }}
     >
       <div
         className="max-w-[1160px] mx-auto grid gap-8"
@@ -25,21 +22,15 @@ export default function ContactTrustBar() {
         {items.map((item) => (
           <div key={item.title} className="text-center">
             <div
-              className="w-[52px] h-[52px] mx-auto mb-3 flex items-center justify-center rounded-[12px]"
-              style={{
-                background: 'var(--orange-tint)',
-                border: '1px solid rgba(232,98,10,0.22)',
-              }}
+              className="w-[52px] h-[52px] mx-auto mb-3 flex items-center justify-center rounded-[12px] bg-orange-tint"
+              style={{ border: '1px solid rgba(232,98,10,0.22)' }}
             >
-              <item.Icon size={24} style={{ color: 'var(--orange)', strokeWidth: 1.8 }} />
+              <item.Icon size={24} className="text-brand-orange" style={{ strokeWidth: 1.8 }} />
             </div>
-            <h4
-              className="font-bold mb-[5px]"
-              style={{ fontSize: '14.5px', color: 'var(--ink)' }}
-            >
+            <h4 className="font-bold mb-[5px] text-[14.5px] text-ink">
               {item.title}
             </h4>
-            <p style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.6 }}>
+            <p className="text-[13px] text-muted leading-[1.6]">
               {item.desc}
             </p>
           </div>
