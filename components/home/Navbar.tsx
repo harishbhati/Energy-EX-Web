@@ -5,8 +5,7 @@ type NavLink = { label: string; href: string; active?: boolean };
 export default function Navbar({ navLinks }: { navLinks: NavLink[] }) {
   return (
     <nav
-      className="sticky top-0 z-[200] grid grid-cols-[1fr_auto_1fr] items-center px-14 border-b border-[color:var(--border)]"
-      style={{ height: '74px', background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(20px)' }}
+      className="sticky top-0 z-[200] grid grid-cols-[1fr_auto_1fr] items-center px-14 border-b border-[color:var(--border)] h-[74px] bg-white/[0.97] backdrop-blur-[20px]"
     >
       <Link
         href="/"
@@ -32,8 +31,7 @@ export default function Navbar({ navLinks }: { navLinks: NavLink[] }) {
       <div className="justify-self-end">
         <Link
           href="/quote"
-          className="text-white text-[14.5px] font-semibold px-6 py-[11px] rounded-[var(--rs)] hover:bg-[color:var(--orange-deep)] hover:-translate-y-px transition-all duration-200 inline-block"
-          style={{ background: 'var(--orange)', boxShadow: '0 4px 16px rgba(232,98,10,0.28)' }}
+          className="text-white text-[14.5px] font-semibold px-6 py-[11px] rounded-[var(--rs)] hover:bg-[color:var(--orange-deep)] hover:-translate-y-px transition-all duration-200 inline-block bg-brand-orange shadow-[0_4px_16px_rgba(232,98,10,0.28)]"
         >
           Get a Free Quote
         </Link>

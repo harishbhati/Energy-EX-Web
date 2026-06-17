@@ -24,20 +24,16 @@ const values: Value[] = [
 
 export default function ValuesSection() {
   return (
-    <section
-      className="px-14 py-[88px] relative overflow-hidden"
-      style={{ background: 'var(--navy)' }}
-    >
+    <section className="px-14 py-[88px] relative overflow-hidden bg-navy">
       {/* Subtle radial glow */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none rounded-full"
         style={{
           top: '-300px',
           left: '50%',
           transform: 'translateX(-50%)',
           width: '800px',
           height: '800px',
-          borderRadius: '50%',
           background: 'radial-gradient(circle,rgba(232,98,10,0.07),transparent 65%)',
         }}
       />
@@ -46,41 +42,19 @@ export default function ValuesSection() {
         {/* Header */}
         <div className="text-center mb-[52px]">
           <div className="flex items-center justify-center gap-[10px] mb-[18px]">
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
-            <span
-              className="font-bold uppercase tracking-[2px]"
-              style={{ fontSize: '11px', color: 'var(--orange)' }}
-            >
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
+            <span className="font-bold uppercase tracking-[2px] text-[11px] text-brand-orange">
               Our values
             </span>
-            <span
-              className="block"
-              style={{ width: '22px', height: '2px', background: 'var(--orange)' }}
-            />
+            <span className="block w-[22px] h-[2px] bg-brand-orange" />
           </div>
           <h2
-            className="font-serif-num text-white mb-4"
-            style={{
-              fontSize: '46px',
-              fontWeight: 600,
-              letterSpacing: '-1px',
-              lineHeight: 1.1,
-            }}
+            className="font-serif-num text-white mb-4 text-[46px] font-semibold tracking-[-1px] leading-[1.1]"
           >
             What we stand for
           </h2>
           <p
-            className="mx-auto"
-            style={{
-              fontSize: '17px',
-              color: 'rgba(255,255,255,0.45)',
-              lineHeight: 1.7,
-              maxWidth: '500px',
-              fontWeight: 300,
-            }}
+            className="mx-auto text-[17px] text-white/45 leading-[1.7] max-w-[500px] font-light"
           >
             Three principles that guide every decision, every quote, and every client relationship.
           </p>
@@ -116,22 +90,12 @@ export default function ValuesSection() {
                   border: '1px solid rgba(232,98,10,0.3)',
                 }}
               >
-                <v.Icon size={20} style={{ color: 'var(--orange-soft)' }} />
+                <v.Icon size={20} className="text-brand-orange-soft" />
               </div>
-              <h3
-                className="font-semibold mb-[10px]"
-                style={{ fontSize: '18px', color: '#fff', lineHeight: 1.2 }}
-              >
+              <h3 className="font-semibold mb-[10px] text-[18px] text-white leading-[1.2]">
                 {v.title}
               </h3>
-              <p
-                style={{
-                  fontSize: '14.5px',
-                  color: 'rgba(255,255,255,0.48)',
-                  lineHeight: 1.75,
-                  fontWeight: 300,
-                }}
-              >
+              <p className="text-[14.5px] text-white/[0.48] leading-[1.75] font-light">
                 {v.desc}
               </p>
             </div>
@@ -147,11 +111,9 @@ export default function ValuesSection() {
             padding: '20px 24px',
           }}
         >
-          <Info size={16} style={{ color: 'rgba(255,255,255,0.3)', flexShrink: 0, marginTop: '2px' }} />
-          <p
-            style={{ fontSize: '13px', color: 'rgba(255,255,255,0.32)', lineHeight: 1.65 }}
-          >
-            <strong style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>How we get paid: </strong>
+          <Info size={16} className="text-white/30 flex-shrink-0 mt-[2px]" />
+          <p className="text-[13px] text-white/[0.32] leading-[1.65]">
+            <strong className="text-white/50 font-semibold">How we get paid: </strong>
             Energyex earns a commission from the energy supplier when you complete a switch through us.
             This commission is built into the rate and is disclosed in full before you approve any contract.
             You pay nothing directly to Energyex — ever.

@@ -69,36 +69,22 @@ export default function StatsSection() {
       >
         {/* Left: text */}
         <div>
-          <div
-            className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px]"
-            style={{ color: 'var(--orange)' }}
-          >
+          <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-brand-orange">
             Why Energyex
           </div>
           <h2
-            className="font-serif-num mb-[18px]"
-            style={{
-              fontSize: '40px',
-              fontWeight: 600,
-              color: 'var(--ink)',
-              letterSpacing: '-0.5px',
-              lineHeight: 1.12,
-            }}
+            className="font-serif-num mb-[18px] text-[40px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]"
           >
             13 years of expertise. One promise.
           </h2>
-          <p
-            className="mb-7 max-w-[560px]"
-            style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300 }}
-          >
+          <p className="mb-7 max-w-[560px] text-base text-muted leading-[1.7] font-light">
             Founded in 2021 and led by 13 years of hands-on energy experience, we&apos;re
             independent, expert, and completely committed to your business — not to any supplier.
             When we say we&apos;ll find you the best deal and stay with you, we mean it.
           </p>
           <a
             href="/about-us"
-            className="inline-flex items-center gap-[7px] font-semibold hover:gap-2 transition-all duration-200"
-            style={{ fontSize: '14px', color: 'var(--orange)', textDecoration: 'none' }}
+            className="inline-flex items-center gap-[7px] font-semibold hover:gap-2 transition-all duration-200 text-sm text-brand-orange no-underline"
           >
             About Energyex →
           </a>
@@ -126,33 +112,21 @@ export default function StatsSection() {
             >
               <div className="flex items-baseline gap-0.5 mb-2">
                 <span
-                  className="sv font-serif-num"
-                  style={{
-                    fontSize: '50px',
-                    fontWeight: 600,
-                    color: 'var(--orange)',
-                    lineHeight: 1,
-                    letterSpacing: '-1px',
-                    transition: 'color 250ms',
-                  }}
+                  className="sv font-serif-num text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
+                  style={{ transition: 'color 250ms' }}
                 >
                   {stat.useComma ? counts[i].toLocaleString() : counts[i]}
                 </span>
                 <span
-                  className="sv font-bold"
-                  style={{ fontSize: '22px', color: 'var(--orange)', transition: 'color 250ms' }}
+                  className="sv font-bold text-[22px] text-brand-orange"
+                  style={{ transition: 'color 250ms' }}
                 >
                   {stat.suffix}
                 </span>
               </div>
               <div
-                className="sl"
-                style={{
-                  fontSize: '13px',
-                  color: 'var(--muted)',
-                  lineHeight: 1.5,
-                  transition: 'color 250ms',
-                }}
+                className="sl text-[13px] text-muted leading-[1.5]"
+                style={{ transition: 'color 250ms' }}
               >
                 {stat.label}
               </div>
@@ -172,33 +146,21 @@ export default function StatsSection() {
             >
               <div className="flex items-baseline gap-0.5 mb-2">
                 <span
-                  className="sv font-serif-num"
-                  style={{
-                    fontSize: '50px',
-                    fontWeight: 600,
-                    color: 'var(--orange)',
-                    lineHeight: 1,
-                    letterSpacing: '-1px',
-                    transition: 'color 250ms',
-                  }}
+                  className="sv font-serif-num text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
+                  style={{ transition: 'color 250ms' }}
                 >
                   {stat.val}
                 </span>
                 <span
-                  className="sv font-bold"
-                  style={{ fontSize: '22px', color: 'var(--orange)', transition: 'color 250ms' }}
+                  className="sv font-bold text-[22px] text-brand-orange"
+                  style={{ transition: 'color 250ms' }}
                 >
                   {stat.suffix}
                 </span>
               </div>
               <div
-                className="sl"
-                style={{
-                  fontSize: '13px',
-                  color: 'var(--muted)',
-                  lineHeight: 1.5,
-                  transition: 'color 250ms',
-                }}
+                className="sl text-[13px] text-muted leading-[1.5]"
+                style={{ transition: 'color 250ms' }}
               >
                 {stat.label}
               </div>

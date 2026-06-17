@@ -49,16 +49,10 @@ export default function JourneySection() {
           }}
         />
         <div className="absolute inset-0 flex flex-col justify-end p-[52px]">
-          <div
-            className="mb-[10px] font-bold uppercase tracking-[2px]"
-            style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)' }}
-          >
+          <div className="mb-[10px] font-bold uppercase tracking-[2px] text-[11px] text-white/50">
             Our experience
           </div>
-          <div
-            className="font-serif-num mb-[22px]"
-            style={{ fontSize: '30px', fontWeight: 600, color: '#fff', lineHeight: 1.2 }}
-          >
+          <div className="font-serif-num mb-[22px] text-[30px] font-semibold text-white leading-[1.2]">
             13 years of energy expertise — now helping UK businesses take control of costs
           </div>
           <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
@@ -69,20 +63,12 @@ export default function JourneySection() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-[var(--rs)] p-[14px] text-center"
-                style={{
-                  background: 'rgba(255,255,255,0.1)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                }}
+                className="rounded-[var(--rs)] p-[14px] text-center bg-white/10 backdrop-blur-[8px] border border-white/[0.12]"
               >
-                <div
-                  className="font-serif-num"
-                  style={{ fontSize: '24px', fontWeight: 600, color: '#fff', lineHeight: 1 }}
-                >
+                <div className="font-serif-num text-[24px] font-semibold text-white leading-none">
                   {s.num}
                 </div>
-                <div style={{ fontSize: '10.5px', color: 'rgba(255,255,255,0.5)', marginTop: '4px' }}>
+                <div className="text-[10.5px] text-white/50 mt-1">
                   {s.label}
                 </div>
               </div>
@@ -92,25 +78,12 @@ export default function JourneySection() {
       </div>
 
       {/* Right: steps */}
-      <div
-        className="flex flex-col justify-center px-14 py-16"
-        style={{ background: 'var(--off)' }}
-      >
-        <div
-          className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px]"
-          style={{ color: 'var(--orange)' }}
-        >
+      <div className="flex flex-col justify-center px-14 py-16 bg-off">
+        <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-brand-orange">
           Our difference · How it works
         </div>
         <h2
-          className="font-serif-num mb-[30px]"
-          style={{
-            fontSize: '34px',
-            fontWeight: 600,
-            color: 'var(--ink)',
-            letterSpacing: '-0.5px',
-            lineHeight: 1.12,
-          }}
+          className="font-serif-num mb-[30px] text-[34px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]"
         >
           We don&apos;t just get you a deal. We manage the whole journey.
         </h2>
@@ -147,26 +120,17 @@ export default function JourneySection() {
               <div className="pb-[26px] pt-[6px]">
                 {/* color must be in className, not inline style, so group-hover: can override it */}
                 <h4
-                  className="mb-1 font-semibold transition-colors duration-[250ms] group-hover:[color:var(--orange)]"
-                  style={{ fontSize: '15px' }}
+                  className="mb-1 font-semibold transition-colors duration-[250ms] group-hover:[color:var(--orange)] text-[15px]"
                 >
                   {step.title}
                 </h4>
-                <p
-                  style={{
-                    fontSize: '13px',
-                    color: 'var(--muted)',
-                    lineHeight: 1.6,
-                    fontWeight: 300,
-                  }}
-                >
+                <p className="text-[13px] text-muted leading-[1.6] font-light">
                   {step.description}
                 </p>
                 {step.badge && (
                   <span
-                    className="inline-block mt-[7px] px-[9px] py-[2px] rounded font-semibold"
+                    className="inline-block mt-[7px] px-[9px] py-[2px] rounded font-semibold text-[10px]"
                     style={{
-                      fontSize: '10px',
                       background: 'var(--orange-tint)',
                       color: 'var(--orange)',
                       border: '1px solid rgba(232,98,10,0.18)',

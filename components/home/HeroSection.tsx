@@ -60,10 +60,7 @@ export default function HeroSection({
   }, []);
 
   return (
-    <div
-      className="relative overflow-hidden px-14 py-12"
-      style={{ background: 'var(--navy)' }}
-    >
+    <div className="relative overflow-hidden px-14 py-12 bg-navy">
       {/* Background image */}
       <div
         className="absolute inset-0"
@@ -84,13 +81,12 @@ export default function HeroSection({
       />
       {/* Orange glow */}
       <div
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none rounded-full"
         style={{
           bottom: '-200px',
           left: '-100px',
           width: '600px',
           height: '600px',
-          borderRadius: '50%',
           background: 'radial-gradient(circle,rgba(232,98,10,0.16) 0%,transparent 62%)',
         }}
       />
@@ -107,40 +103,27 @@ export default function HeroSection({
           }}
         >
           <span
-            className="w-[6px] h-[6px] rounded-full flex-shrink-0 animate-pulse-ring"
-            style={{ background: 'var(--orange)' }}
+            className="w-[6px] h-[6px] rounded-full flex-shrink-0 animate-pulse-ring bg-brand-orange"
           />
           {eyebrow}
         </div>
 
         {/* H1 */}
         <h1
-          className="text-white mb-5 mx-auto max-w-[880px]"
-          style={{
-            fontSize: '62px',
-            fontWeight: 600,
-            lineHeight: 1.05,
-            letterSpacing: '-1px',
-          }}
+          className="text-white mb-5 mx-auto max-w-[880px] text-[62px] font-semibold leading-[1.05] tracking-[-1px]"
         >
           {titlePart1}{' '}
-          <em className="italic" style={{ color: 'var(--orange-soft)' }}>
+          <em className="italic text-brand-orange-soft">
             {titlePart2}
           </em>
         </h1>
 
         {/* Subtitle */}
         <p
-          className="mx-auto mb-9 max-w-[560px]"
-          style={{
-            fontSize: '17px',
-            color: 'rgba(255,255,255,0.6)',
-            lineHeight: 1.75,
-            fontWeight: 300,
-          }}
+          className="mx-auto mb-9 max-w-[560px] text-[17px] text-white/60 leading-[1.75] font-light"
         >
           {subtitleStart}{' '}
-          <strong style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
+          <strong className="text-white/[0.85] font-medium">
             {subtitleBold}
           </strong>{' '}
           {subtitleEnd}
@@ -150,18 +133,13 @@ export default function HeroSection({
         <div className="flex items-center justify-center gap-4 flex-wrap mb-10">
           <a
             href={primaryCtaHref}
-            className="inline-flex items-center gap-2 text-white text-[15px] font-semibold rounded-[var(--rs)] px-[34px] py-[15px] hover:bg-[color:var(--orange-deep)] hover:-translate-y-0.5 transition-all duration-[250ms]"
-            style={{ background: 'var(--orange)', boxShadow: '0 8px 28px rgba(232,98,10,0.35)' }}
+            className="inline-flex items-center gap-2 text-white text-[15px] font-semibold rounded-[var(--rs)] px-[34px] py-[15px] hover:bg-[color:var(--orange-deep)] hover:-translate-y-0.5 transition-all duration-[250ms] bg-brand-orange shadow-[0_8px_28px_rgba(232,98,10,0.35)]"
           >
             {primaryCtaLabel}
           </a>
           <a
             href={secondaryCtaHref}
-            className="inline-flex items-center gap-[7px] text-[15px] font-medium hover:text-white transition-all duration-200 rounded-[var(--rs)] px-[26px] py-[14px] cursor-pointer"
-            style={{
-              color: 'rgba(255,255,255,0.7)',
-              border: '1px solid rgba(255,255,255,0.2)',
-            }}
+            className="inline-flex items-center gap-[7px] text-[15px] font-medium hover:text-white transition-all duration-200 rounded-[var(--rs)] px-[26px] py-[14px] cursor-pointer text-white/70 border border-white/20"
             onMouseEnter={(e) =>
               (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)')
             }
@@ -186,35 +164,15 @@ export default function HeroSection({
             >
               <div className="flex items-baseline gap-0.5 justify-center mb-1">
                 <span
-                  className="font-serif-num"
-                  style={{
-                    fontSize: '40px',
-                    fontWeight: 600,
-                    color: '#fff',
-                    lineHeight: 1,
-                    letterSpacing: '-0.5px',
-                  }}
+                  className="font-serif-num text-[40px] font-semibold text-white leading-none tracking-[-0.5px]"
                 >
                   {stat.useComma ? counts[i].toLocaleString() : counts[i]}
                 </span>
-                <span
-                  style={{
-                    fontSize: '18px',
-                    fontWeight: 700,
-                    color: 'var(--orange-soft)',
-                  }}
-                >
+                <span className="text-[18px] font-bold text-brand-orange-soft">
                   {stat.suffix}
                 </span>
               </div>
-              <div
-                style={{
-                  fontSize: '11px',
-                  color: 'rgba(255,255,255,0.4)',
-                  letterSpacing: '0.5px',
-                  textTransform: 'uppercase',
-                }}
-              >
+              <div className="text-[11px] text-white/40 tracking-[0.5px] uppercase">
                 {stat.label}
               </div>
             </div>

@@ -7,8 +7,8 @@ const stats = [
 export default function HeroContact() {
   return (
     <section
-      className="relative overflow-hidden text-center"
-      style={{ background: 'var(--navy)', padding: '80px 40px 72px' }}
+      className="relative overflow-hidden text-center bg-navy"
+      style={{ padding: '80px 40px 72px' }}
     >
       {/* Radial glows */}
       <div
@@ -28,49 +28,34 @@ export default function HeroContact() {
         }}
       />
 
-      <div className="relative z-[1] mx-auto" style={{ maxWidth: '700px' }}>
+      <div className="relative z-[1] mx-auto max-w-[700px]">
         {/* Eyebrow badge */}
         <div
-          className="inline-flex items-center gap-2 rounded-[20px] mb-6"
+          className="inline-flex items-center gap-2 rounded-[20px] mb-6 text-brand-orange-soft font-semibold tracking-[0.8px] uppercase text-xs border border-[rgba(232,98,10,0.35)]"
           style={{
             background: 'rgba(232,98,10,0.15)',
-            border: '1px solid rgba(232,98,10,0.35)',
-            color: 'var(--orange-soft)',
-            fontSize: '12px',
-            fontWeight: 600,
-            letterSpacing: '0.8px',
-            textTransform: 'uppercase',
             padding: '6px 14px',
           }}
         >
-          <span
-            className="w-[6px] h-[6px] rounded-full flex-shrink-0 animate-pulse-ring"
-            style={{ background: 'var(--orange-soft)' }}
-          />
+          <span className="w-[6px] h-[6px] rounded-full flex-shrink-0 animate-pulse-ring bg-brand-orange-soft" />
           Talk to an Expert
         </div>
 
         {/* H1 */}
         <h1
-          className="font-serif-num text-white mb-[18px]"
-          style={{ fontSize: 'clamp(38px,5vw,58px)', fontWeight: 600, lineHeight: 1.12, letterSpacing: '-0.5px' }}
+          className="font-serif-num text-white mb-[18px] font-semibold leading-[1.12] tracking-[-0.5px]"
+          style={{ fontSize: 'clamp(38px,5vw,58px)' }}
         >
           Let&apos;s Reduce Your
           <br />
-          <em className="italic" style={{ color: 'var(--orange-soft)' }}>
+          <em className="italic text-brand-orange-soft">
             Energy Costs Together
           </em>
         </h1>
 
         {/* Subtitle */}
         <p
-          className="mx-auto"
-          style={{
-            fontSize: '17px',
-            color: 'rgba(255,255,255,0.68)',
-            maxWidth: '520px',
-            lineHeight: 1.7,
-          }}
+          className="mx-auto text-[17px] text-white/[0.68] max-w-[520px] leading-[1.7]"
         >
           Our energy procurement specialists are ready to help. Whether you&apos;re looking to cut
           bills, switch suppliers, or manage utilities across your portfolio — we respond within 24
@@ -79,14 +64,7 @@ export default function HeroContact() {
 
         {/* Stats row */}
         <div
-          className="flex overflow-hidden mx-auto mt-12"
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: 'var(--r)',
-            backdropFilter: 'blur(8px)',
-            maxWidth: '560px',
-          }}
+          className="flex overflow-hidden mx-auto mt-12 rounded-[var(--r)] backdrop-blur-[8px] max-w-[560px] bg-white/[0.06] border border-white/10"
         >
           {stats.map((s, i) => (
             <div
@@ -97,16 +75,10 @@ export default function HeroContact() {
                 borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
               }}
             >
-              <span
-                className="block font-serif-num"
-                style={{ fontSize: '26px', fontWeight: 700, color: 'var(--orange-soft)' }}
-              >
+              <span className="block font-serif-num text-[26px] font-bold text-brand-orange-soft">
                 {s.num}
               </span>
-              <span
-                className="block mt-0.5 uppercase"
-                style={{ fontSize: '11.5px', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.6px' }}
-              >
+              <span className="block mt-0.5 uppercase text-[11.5px] text-white/50 tracking-[0.6px]">
                 {s.label}
               </span>
             </div>

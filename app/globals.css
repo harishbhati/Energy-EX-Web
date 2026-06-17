@@ -1,6 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-navy:              #0d1b2a;
+  --color-navy-2:            #13283c;
+  --color-navy-3:            #1a3248;
+  --color-brand-orange:      #e8620a;
+  --color-brand-orange-soft: #f47b25;
+  --color-brand-orange-deep: #cc5208;
+  --color-orange-tint:       #fff1e8;
+  --color-orange-tint2:      #fde8d6;
+  --color-gold:              #b8860b;
+  --color-off:               #f6f8fb;
+  --color-off-2:             #eef2f7;
+  --color-clean-bg:          #f2f6f4;
+  --color-ink:               #16202e;
+  --color-ink-soft:          #33414f;
+  --color-muted:             #5e6b7a;
+  --color-faint:             #9aa5b2;
+  --color-border-color:      #d9e0e9;
+  --color-border-strong:     #bcc7d4;
+  --color-brand-green:       #0a8a5a;
+  --color-green-tint:        #e8f8f1;
+
+  --radius-rs: 10px;
+  --radius-r:  16px;
+  --radius-rl: 24px;
+
+  --shadow-sh:  0 6px 28px rgba(13, 27, 42, 0.08);
+  --shadow-sh2: 0 16px 50px rgba(13, 27, 42, 0.12);
+}
+
 :root {
   --navy: #0d1b2a;
   --navy2: #13283c;

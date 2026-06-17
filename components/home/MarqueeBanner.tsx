@@ -26,17 +26,13 @@ export default function MarqueeBanner() {
         {doubled.map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-[10px] px-[34px] whitespace-nowrap"
-            style={{ borderRight: '1px solid rgba(255,255,255,0.25)' }}
+            className="flex items-center gap-[10px] px-[34px] whitespace-nowrap border-r border-white/25"
           >
-            <Sparkle size={11} style={{ color: 'rgba(255,255,255,0.75)', flexShrink: 0 }} />
-            <span
-              className="italic"
-              style={{ fontSize: '14px', color: '#fff', fontWeight: 500 }}
-            >
-              {item.bold && <b style={{ fontWeight: 700 }}>{item.bold}</b>}
+            <Sparkle size={11} className="text-white/75 flex-shrink-0" />
+            <span className="italic text-sm text-white font-medium">
+              {item.bold && <b className="font-bold">{item.bold}</b>}
               {item.text}
-              {item.boldEnd && <b style={{ fontWeight: 700 }}>{item.boldEnd}</b>}
+              {item.boldEnd && <b className="font-bold">{item.boldEnd}</b>}
               {item.textEnd}
             </span>
           </div>

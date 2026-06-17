@@ -12,7 +12,7 @@ const items: TrustItem[] = [
 
 export default function TrustBar() {
   return (
-    <section style={{ background: 'var(--off)', borderBottom: '1px solid var(--border)' }}>
+    <section className="bg-off border-b border-[color:var(--border)]">
       <div className="max-w-[1180px] mx-auto px-14 py-7">
         <div className="flex items-center justify-between gap-6 flex-wrap">
           {items.map((item, i) => (
@@ -20,25 +20,21 @@ export default function TrustBar() {
               {/* Divider */}
               {i > 0 && (
                 <div
-                  className="hidden md:block self-stretch flex-shrink-0"
-                  style={{ width: '1px', background: 'var(--border)', marginRight: '14px' }}
+                  className="hidden md:block self-stretch flex-shrink-0 w-px bg-[color:var(--border)] mr-[14px]"
                 />
               )}
               {/* Icon box */}
               <div
-                className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center flex-shrink-0"
-                style={{ background: 'var(--orange-tint)', border: '1px solid rgba(232,98,10,0.15)' }}
+                className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center flex-shrink-0 bg-orange-tint"
+                style={{ border: '1px solid rgba(232,98,10,0.15)' }}
               >
-                <item.Icon size={18} style={{ color: 'var(--orange)' }} />
+                <item.Icon size={18} className="text-brand-orange" />
               </div>
               <div>
-                <div
-                  className="font-semibold"
-                  style={{ fontSize: '13.5px', color: 'var(--ink)', lineHeight: 1.2 }}
-                >
+                <div className="font-semibold text-[13.5px] text-ink leading-[1.2]">
                   {item.title}
                 </div>
-                <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '1px' }}>
+                <div className="text-xs text-muted mt-[1px]">
                   {item.desc}
                 </div>
               </div>

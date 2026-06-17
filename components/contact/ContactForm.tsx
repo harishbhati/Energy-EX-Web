@@ -137,46 +137,37 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div
-        className="bg-white overflow-hidden"
-        style={{ borderRadius: 'var(--r)', boxShadow: 'var(--sh)', border: '1px solid rgba(13,27,42,0.07)' }}
-      >
+      <div className="bg-white overflow-hidden rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]">
         {/* Form header */}
-        <div className="flex items-center gap-[14px]" style={{ background: 'var(--navy)', padding: '24px 32px' }}>
-          <div
-            className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0"
-            style={{ background: 'rgba(232,98,10,0.2)' }}
-          >
-            <MessageSquare size={22} style={{ color: 'var(--orange-soft)', strokeWidth: 2 }} />
+        <div className="flex items-center gap-[14px] bg-navy py-6 px-8">
+          <div className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0 bg-[rgba(232,98,10,0.2)]">
+            <MessageSquare size={22} className="text-brand-orange-soft" style={{ strokeWidth: 2 }} />
           </div>
           <div>
-            <h2 className="font-serif-num text-white" style={{ fontSize: '22px', fontWeight: 600 }}>
+            <h2 className="font-serif-num text-white text-[22px] font-semibold">
               Your Enquiry
             </h2>
-            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>
+            <p className="text-[13px] text-white/55 mt-[2px]">
               We typically respond same business day
             </p>
           </div>
         </div>
 
         {/* Success body */}
-        <div className="text-center" style={{ padding: '40px 32px' }}>
-          <div
-            className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-            style={{ background: '#EAF7EE' }}
-          >
+        <div className="text-center py-[40px] px-[32px]">
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 bg-[#EAF7EE]">
             <CheckCircle size={30} style={{ color: '#28A745', strokeWidth: 2.5 }} />
           </div>
-          <h3 className="font-serif-num mb-[10px]" style={{ fontSize: '26px', fontWeight: 600, color: 'var(--ink)' }}>
+          <h3 className="font-serif-num mb-[10px] text-[26px] font-semibold text-ink">
             Message Received!
           </h3>
-          <p style={{ fontSize: '14.5px', color: 'var(--muted)', lineHeight: 1.7 }}>
+          <p className="text-[14.5px] text-muted leading-[1.7]">
             Thank you for getting in touch. One of our energy specialists will reach out within 24
             hours — usually the same business day.
             <br />
             <br />
             In the meantime, feel free to call us on{' '}
-            <strong style={{ color: 'var(--ink)' }}>0203 727 2588</strong>.
+            <strong className="text-ink">0203 727 2588</strong>.
           </p>
         </div>
       </div>
@@ -184,41 +175,32 @@ export default function ContactForm() {
   }
 
   return (
-    <div
-      className="bg-white overflow-hidden"
-      style={{ borderRadius: 'var(--r)', boxShadow: 'var(--sh)', border: '1px solid rgba(13,27,42,0.07)' }}
-    >
+    <div className="bg-white overflow-hidden rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]">
       {/* Form header */}
-      <div className="flex items-center gap-[14px]" style={{ background: 'var(--navy)', padding: '24px 32px' }}>
-        <div
-          className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0"
-          style={{ background: 'rgba(232,98,10,0.2)' }}
-        >
-          <MessageSquare size={22} style={{ color: 'var(--orange-soft)', strokeWidth: 2 }} />
+      <div className="flex items-center gap-[14px] bg-navy" style={{ padding: '24px 32px' }}>
+        <div className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0 bg-[rgba(232,98,10,0.2)]">
+          <MessageSquare size={22} className="text-brand-orange-soft" style={{ strokeWidth: 2 }} />
         </div>
         <div>
-          <h2 className="font-serif-num text-white" style={{ fontSize: '22px', fontWeight: 600 }}>
+          <h2 className="font-serif-num text-white text-[22px] font-semibold">
             Your Enquiry
           </h2>
-          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>
+          <p className="text-[13px] text-white/55 mt-[2px]">
             We typically respond same business day
           </p>
         </div>
       </div>
 
       {/* Form body */}
-      <div style={{ padding: '32px' }}>
+      <div className="p-8">
 
         {/* Row 1: Name */}
         <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
           {(['firstName', 'lastName'] as const).map((f, i) => (
             <div key={f}>
-              <label
-                className="block font-semibold uppercase mb-[7px]"
-                style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-              >
+              <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
                 {i === 0 ? 'First Name' : 'Last Name'}{' '}
-                <span style={{ color: 'var(--orange)' }}>*</span>
+                <span className="text-brand-orange">*</span>
               </label>
               <input
                 type="text"
@@ -236,11 +218,8 @@ export default function ContactForm() {
         {/* Row 2: Email + Phone */}
         <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
           <div>
-            <label
-              className="block font-semibold uppercase mb-[7px]"
-              style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-            >
-              Email Address <span style={{ color: 'var(--orange)' }}>*</span>
+            <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
+              Email Address <span className="text-brand-orange">*</span>
             </label>
             <input
               type="email"
@@ -253,10 +232,7 @@ export default function ContactForm() {
             />
           </div>
           <div>
-            <label
-              className="block font-semibold uppercase mb-[7px]"
-              style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-            >
+            <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Phone Number
             </label>
             <input
@@ -274,10 +250,7 @@ export default function ContactForm() {
         {/* Row 3: Company + Service */}
         <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
           <div>
-            <label
-              className="block font-semibold uppercase mb-[7px]"
-              style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-            >
+            <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Company Name
             </label>
             <input
@@ -291,11 +264,8 @@ export default function ContactForm() {
             />
           </div>
           <div>
-            <label
-              className="block font-semibold uppercase mb-[7px]"
-              style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-            >
-              Service Interest <span style={{ color: 'var(--orange)' }}>*</span>
+            <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
+              Service Interest <span className="text-brand-orange">*</span>
             </label>
             <div className="relative">
               <select
@@ -327,11 +297,8 @@ export default function ContactForm() {
 
         {/* Enquiry textarea */}
         <div className="mb-4">
-          <label
-            className="block font-semibold uppercase mb-[7px]"
-            style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-          >
-            Your Enquiry <span style={{ color: 'var(--orange)' }}>*</span>
+          <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
+            Your Enquiry <span className="text-brand-orange">*</span>
           </label>
           <textarea
             placeholder="Tell us about your energy usage, number of sites, current supplier, or anything else that would help us assist you…"
@@ -346,12 +313,9 @@ export default function ContactForm() {
 
         {/* File attachment */}
         <div className="mb-4">
-          <label
-            className="block font-semibold uppercase mb-[7px]"
-            style={{ fontSize: '12.5px', color: 'var(--ink)', letterSpacing: '0.2px' }}
-          >
+          <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
             Attach Your Bill{' '}
-            <span style={{ color: 'var(--muted)', fontWeight: 500, textTransform: 'none', letterSpacing: 0 }}>
+            <span className="text-muted font-medium normal-case tracking-normal">
               (optional — helps us quote faster)
             </span>
           </label>
@@ -387,14 +351,14 @@ export default function ContactForm() {
                 className="w-10 h-10 rounded-[var(--rs)] flex items-center justify-center flex-shrink-0"
                 style={{ background: dragging ? 'rgba(232,98,10,0.18)' : 'var(--orange-tint)' }}
               >
-                <Paperclip size={20} style={{ color: 'var(--orange)' }} />
+                <Paperclip size={20} className="text-brand-orange" />
               </div>
               <div>
-                <div className="font-semibold" style={{ fontSize: '13.5px', color: 'var(--ink)' }}>
-                  <span style={{ color: 'var(--orange)', textDecoration: 'underline' }}>Click to attach</span>{' '}
+                <div className="font-semibold text-[13.5px] text-ink">
+                  <span className="text-brand-orange underline">Click to attach</span>{' '}
                   or drag &amp; drop
                 </div>
-                <div style={{ fontSize: '11.5px', color: 'var(--muted)', marginTop: '2px' }}>
+                <div className="text-[11.5px] text-muted mt-[2px]">
                   PDF, JPG, PNG, HEIC, DOCX, XLSX, CSV · up to 10MB each · max 5 files
                 </div>
               </div>
@@ -409,8 +373,8 @@ export default function ContactForm() {
                 return (
                   <div
                     key={`${f.name}-${i}`}
-                    className="flex items-center gap-[10px] bg-white rounded-[var(--rs)]"
-                    style={{ border: '1px solid var(--border)', padding: '9px 12px' }}
+                    className="flex items-center gap-[10px] bg-white rounded-[var(--rs)] border border-[color:var(--border)]"
+                    style={{ padding: '9px 12px' }}
                   >
                     <div
                       className="w-[34px] h-[34px] flex-shrink-0 flex items-center justify-center rounded-[6px] text-white font-bold"
@@ -419,21 +383,17 @@ export default function ContactForm() {
                       {label}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div
-                        className="font-semibold truncate"
-                        style={{ fontSize: '13px', color: 'var(--ink)' }}
-                      >
+                      <div className="font-semibold truncate text-[13px] text-ink">
                         {f.name}
                       </div>
-                      <div style={{ fontSize: '11px', color: 'var(--muted)', marginTop: '1px' }}>
+                      <div className="text-[11px] text-muted mt-[1px]">
                         {fileSize(f.size)}
                       </div>
                     </div>
                     <button
                       type="button"
                       onClick={(e) => { e.stopPropagation(); removeFile(i); }}
-                      className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#FADBD8] hover:text-[#C0392B]"
-                      style={{ background: 'var(--off)', color: 'var(--muted)', border: 'none', cursor: 'pointer' }}
+                      className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#FADBD8] hover:text-[#C0392B] bg-off text-muted border-none cursor-pointer"
                     >
                       <X size={13} />
                     </button>
@@ -444,7 +404,7 @@ export default function ContactForm() {
           )}
 
           {fileError && (
-            <p style={{ fontSize: '12px', color: '#C0392B', marginTop: '8px' }}>{fileError}</p>
+            <p className="text-xs text-[#C0392B] mt-2">{fileError}</p>
           )}
         </div>
 
@@ -464,15 +424,14 @@ export default function ContactForm() {
           />
           <label
             htmlFor="consent"
-            className="cursor-pointer"
-            style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.5 }}
+            className="cursor-pointer text-[13px] text-muted leading-[1.5]"
           >
             I agree to Energyex processing my data to respond to this enquiry. View our{' '}
-            <a href="/privacy-policy" style={{ color: 'var(--orange)' }}>
+            <a href="/privacy-policy" className="text-brand-orange">
               Privacy Policy
             </a>{' '}
             and{' '}
-            <a href="/complaints" style={{ color: 'var(--orange)' }}>
+            <a href="/complaints" className="text-brand-orange">
               Complaints Procedure
             </a>
             .
@@ -483,17 +442,10 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={handleSubmit}
-          className="w-full flex items-center justify-center gap-[10px] font-bold transition-all duration-250 hover:-translate-y-0.5"
+          className="w-full flex items-center justify-center gap-[10px] font-bold transition-all duration-250 hover:-translate-y-0.5 bg-brand-orange text-white text-[15px] border-none cursor-pointer rounded-[var(--rs)] shadow-[0_4px_16px_rgba(232,98,10,0.30)]"
           style={{
-            background: 'var(--orange)',
-            color: '#fff',
-            fontSize: '15px',
             letterSpacing: '0.3px',
-            border: 'none',
-            cursor: 'pointer',
             padding: '14px 24px',
-            borderRadius: 'var(--rs)',
-            boxShadow: '0 4px 16px rgba(232,98,10,0.30)',
           }}
           onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--orange-soft)')}
           onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--orange)')}
@@ -503,10 +455,7 @@ export default function ContactForm() {
         </button>
 
         {/* Security note */}
-        <div
-          className="flex items-center justify-center gap-[6px] mt-3"
-          style={{ fontSize: '12px', color: 'var(--faint)' }}
-        >
+        <div className="flex items-center justify-center gap-[6px] mt-3 text-xs text-faint">
           <Lock size={13} strokeWidth={2} />
           Your data is secure and never sold to third parties
         </div>
