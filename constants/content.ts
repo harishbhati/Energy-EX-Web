@@ -9,8 +9,27 @@ export const homePage = homePageSchema.parse({
   navLinks: [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about-us' },
-    { label: 'Energy Services', href: '/our-services' },
-    { label: 'Facility Services', href: '/our-partners' },
+    {
+      label: 'Energy Services',
+      href: '/our-services',
+      dropdown: [
+        { icon: '⚡', label: 'Electricity Procurement', description: '20+ suppliers compared, HH & NHH contracts.', href: '/electricity-procurement' },
+        { icon: '🔥', label: 'Gas Procurement', description: 'Independent brokerage, full contract management.', href: '/gas-procurement' },
+        { icon: '☀️', label: 'Solar Procurement', description: 'Buy outright or zero-upfront PPA.', href: '/solar-procurement' },
+        { icon: '🔌', label: 'New Connections', description: 'New supply set-up and meter installs.', href: '/new-connections' },
+        { icon: '📊', label: 'Beyond Procurement', description: 'Compliance, billing checks & usage reporting.', href: '/beyond-procurement' },
+      ],
+    },
+    {
+      label: 'Facility Services',
+      href: '/our-partners',
+      dropdown: [
+        { icon: '💧', label: 'Water Procurement', description: 'Switch supplier, compare business rates.', href: '/water-procurement' },
+        { icon: '♻️', label: 'Waste Procurement', description: 'Collection, recycling, hazardous disposal.', href: '/waste-procurement' },
+        { icon: '🏢', label: 'Property Management', description: 'One contact, full portfolio control.', href: '/property-management' },
+        { icon: '🧹', label: 'Cleaning Services', description: 'Six specialist services, eco-friendly.', href: '/cleaning-services' },
+      ],
+    },
     { label: 'Contact Us', href: '/contact-us' },
   ],
   hero: {

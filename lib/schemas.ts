@@ -1,9 +1,17 @@
 import { z } from 'zod';
 
+const dropdownItemSchema = z.object({
+  icon: z.string(),
+  label: z.string(),
+  description: z.string(),
+  href: z.string(),
+});
+
 const navLinkSchema = z.object({
   label: z.string(),
   href: z.string(),
   active: z.boolean().optional(),
+  dropdown: z.array(dropdownItemSchema).optional(),
 });
 
 const heroStatSchema = z.object({
