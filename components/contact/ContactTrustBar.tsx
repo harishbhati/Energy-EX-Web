@@ -11,14 +11,8 @@ const items: TrustItem[] = [
 
 export default function ContactTrustBar() {
   return (
-    <section
-      className="bg-white border-t border-[color:var(--border)]"
-      style={{ padding: '48px 40px' }}
-    >
-      <div
-        className="max-w-[1160px] mx-auto grid gap-8"
-        style={{ gridTemplateColumns: 'repeat(4,1fr)' }}
-      >
+    <section className="bg-white border-t border-[color:var(--border)] px-6 py-10 md:px-[40px] md:py-[48px]">
+      <div className="max-w-[1160px] mx-auto grid gap-6 md:gap-8 grid-cols-2 md:grid-cols-4">
         {items.map((item) => (
           <div key={item.title} className="text-center">
             <div

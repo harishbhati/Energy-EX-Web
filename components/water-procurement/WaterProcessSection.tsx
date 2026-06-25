@@ -29,10 +29,10 @@ export default function WaterProcessSection() {
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">
             From review to ongoing management
           </p>
-          <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
+          <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
             Our water procurement process.
           </h2>
-          <p className="text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
+          <p className="text-[15px] md:text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
             Switching retailer doesn&apos;t touch your physical supply — the infrastructure stays exactly the
             same. What changes is who manages your account, and how well.
           </p>

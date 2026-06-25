@@ -100,29 +100,17 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
   return (
     <div
       id={service.id}
-      className="scroll-mt-[170px]"
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '50px 150px 1fr',
-        gap: '26px',
-        alignItems: 'flex-start',
-        padding: '34px 32px',
-        background: isEven ? '#F6F8FB' : '#fff',
-      }}
+      className={`scroll-mt-[170px] grid grid-cols-1 md:grid-cols-[50px_150px_1fr] gap-4 md:gap-[26px] items-start px-5 py-6 md:px-[32px] md:py-[34px] ${
+        isEven ? 'bg-[#F6F8FB]' : 'bg-white'
+      }`}
     >
-      {/* Number */}
-      <div
-        className="font-serif-num text-brand-orange leading-[1.1]"
-        style={{ fontSize: 38, fontWeight: 700 }}
-      >
+      {/* Number — desktop only */}
+      <div className="hidden md:block font-serif-num text-[38px] font-bold text-brand-orange leading-[1.1]">
         {service.num}
       </div>
 
-      {/* Thumbnail */}
-      <div
-        className="relative overflow-hidden flex-shrink-0"
-        style={{ width: 150, height: 106, borderRadius: 12 }}
-      >
+      {/* Thumbnail — desktop only */}
+      <div className="hidden md:block relative overflow-hidden flex-shrink-0 w-[150px] h-[106px] rounded-[12px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={service.imageUrl}
@@ -138,10 +126,7 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
       {/* Body */}
       <div className="min-w-0">
         <div className="flex items-center gap-[10px] mb-2 flex-wrap">
-          <h3
-            className="font-serif-num text-ink tracking-[-0.2px]"
-            style={{ fontSize: 25, fontStyle: 'italic', fontWeight: 600 }}
-          >
+          <h3 className="font-serif-num text-[20px] md:text-[25px] italic font-semibold text-ink tracking-[-0.2px]">
             {service.title}
           </h3>
           <span
@@ -165,14 +150,13 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
           ))}
         </div>
         <div
-          className="mt-4"
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 10 }}
+          className="mt-4 grid gap-[10px]"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}
         >
           {service.pills.map((pill) => (
             <div
               key={pill.title}
-              className="bg-white border-2 border-border-color"
-              style={{ borderRadius: 10, padding: '13px 16px' }}
+              className="bg-white border-2 border-border-color rounded-[10px] p-4"
             >
               <p
                 className="text-[10px] font-bold text-brand-orange uppercase mb-[3px]"
@@ -181,7 +165,7 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
                 {pill.label}
               </p>
               <h4 className="text-[13px] font-bold text-ink mb-[2px]">{pill.title}</h4>
-              <p className="text-[12px] text-muted font-light leading-[1.5] m-0">{pill.desc}</p>
+              <p className="text-[12px] text-muted font-light leading-[1.5]">{pill.desc}</p>
             </div>
           ))}
         </div>
@@ -192,17 +176,17 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
 
 export default function ElectricityServicesList() {
   return (
-    <section className="py-[88px] px-14 bg-white">
+    <section className="py-12 md:py-[88px] px-6 md:px-14 bg-white">
       <div className="max-w-[1180px] mx-auto">
         <div className="mb-8">
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">
             Electricity Services
           </p>
-          <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
+          <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
             Four routes to a better electricity contract.
           </h2>
-          <p className="text-[17px] text-muted leading-[1.7] font-light max-w-[580px]">
-            Every business has different needs. Here's how we approach each type.
+          <p className="text-[15px] md:text-[17px] text-muted leading-[1.7] font-light max-w-[580px]">
+            Every business has different needs. Here&apos;s how we approach each type.
           </p>
         </div>
 

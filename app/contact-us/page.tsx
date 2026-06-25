@@ -20,14 +20,8 @@ export default function ContactPage() {
       <HeroContact />
 
       {/* Main 2-col layout */}
-      <div
-        className="max-w-[1160px] mx-auto"
-        style={{ padding: '64px 40px 80px' }}
-      >
-        <div
-          className="grid gap-12 items-start"
-          style={{ gridTemplateColumns: '1fr 420px' }}
-        >
+      <div className="max-w-[1160px] mx-auto px-6 pt-10 pb-12 md:px-[40px] md:pt-[64px] md:pb-[80px]">
+        <div className="grid gap-12 items-start grid-cols-1 lg:grid-cols-[1fr_420px]">
           {/* Left — heading + form */}
           <div>
             {/* Section eyebrow */}

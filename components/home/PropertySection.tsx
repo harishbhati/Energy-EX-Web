@@ -31,7 +31,7 @@ const pills: Pill[] = [
 
 export default function PropertySection() {
   return (
-    <div className="px-14 py-10 relative overflow-hidden bg-navy">
+    <div className="px-6 md:px-14 py-10 relative overflow-hidden bg-navy">
       {/* Gold glow */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -44,10 +44,7 @@ export default function PropertySection() {
         }}
       />
 
-      <div
-        className="max-w-[1180px] mx-auto grid gap-[72px] items-center relative"
-        style={{ gridTemplateColumns: '1fr 1fr' }}
-      >
+      <div className="max-w-[1180px] mx-auto grid gap-10 md:gap-[72px] items-center relative grid-cols-1 md:grid-cols-2">
         {/* Left */}
         <div>
           <div
@@ -62,9 +59,7 @@ export default function PropertySection() {
             Our signature service
           </div>
 
-          <h2
-            className="font-serif-num mb-4 text-[42px] font-semibold text-white tracking-[-0.5px] leading-[1.1]"
-          >
+          <h2 className="font-serif-num mb-4 text-[28px] md:text-[42px] font-semibold text-white tracking-[-0.5px] leading-[1.1]">
             One partner for every property in your{' '}
             <span className="italic" style={{ color: '#ECC84A' }}>
               portfolio.
@@ -141,15 +136,11 @@ export default function PropertySection() {
 
         {/* Right: image */}
         <div className="relative">
-          {/* Floating badge */}
+          {/* Floating badge — inside image on mobile, outside on desktop */}
           <div
-            className="absolute z-[2] rounded-[var(--r)] px-[22px] py-[18px] text-center bg-white shadow-sh2"
-            style={{
-              top: '-18px',
-              right: '-18px',
-            }}
+            className="absolute z-[2] rounded-[var(--r)] px-[16px] md:px-[22px] py-[14px] md:py-[18px] text-center bg-white shadow-sh2 top-3 right-3 md:-top-[18px] md:-right-[18px]"
           >
-            <div className="font-serif-num text-[30px] font-semibold text-gold leading-none">
+            <div className="font-serif-num text-[24px] md:text-[30px] font-semibold text-gold leading-none">
               13+
             </div>
             <div className="mt-[3px] font-medium text-[11px] text-muted">
@@ -157,7 +148,7 @@ export default function PropertySection() {
             </div>
           </div>
 
-          <div className="rounded-[var(--rl)] overflow-hidden relative shadow-sh2 h-[460px]">
+          <div className="rounded-[var(--rl)] overflow-hidden relative shadow-sh2 h-[280px] md:h-[460px]">
             <img
               src="https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt="Property portfolio"
@@ -170,8 +161,8 @@ export default function PropertySection() {
                 background: 'linear-gradient(180deg,transparent 35%,rgba(13,27,42,0.9))',
               }}
             />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
-              <h3 className="font-serif-num text-white mb-1.5 text-[20px] font-semibold">
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
+              <h3 className="font-serif-num text-white mb-1.5 text-[17px] md:text-[20px] font-semibold">
                 Managing your property utilities just got simple.
               </h3>
               <p className="mb-4 font-light text-[13px] text-white/50">

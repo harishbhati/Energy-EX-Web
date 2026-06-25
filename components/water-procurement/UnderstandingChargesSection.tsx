@@ -17,10 +17,10 @@ export default function UnderstandingChargesSection() {
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">
             Most of your bill isn&apos;t actually negotiable
           </p>
-          <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
+          <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
             Understanding what&apos;s on a commercial water bill.
           </h2>
-          <p className="text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
+          <p className="text-[15px] md:text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
             Unlike electricity and gas, much of a commercial water charge is regulated — wholesale water and
             wastewater charges are set annually across the industry. The real opportunities are often in the
             account, not the rate.

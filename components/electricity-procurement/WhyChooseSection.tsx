@@ -25,23 +25,23 @@ const cards: { Icon: LucideIcon; title: string; desc: string }[] = [
 
 export default function WhyChooseSection() {
   return (
-    <section className="bg-off px-14 py-[88px]">
+    <section className="bg-off px-6 md:px-14 py-12 md:py-[88px]">
       <div className="max-w-[1180px] mx-auto">
         <div className="text-center mb-8">
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">
             Why Energyex
           </p>
-          <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]">
+          <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]">
             Why businesses choose Energyex.
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
           {cards.map((card) => (
             <div
               key={card.title}
-              className="bg-white text-center transition-all duration-200 hover:-translate-y-[3px] hover:border-brand-orange hover:shadow-sh"
-              style={{ border: '1.5px solid #D9E0E9', borderRadius: 16, padding: '28px 22px' }}
+              className="bg-white text-center transition-all duration-200 hover:-translate-y-[3px] hover:border-brand-orange hover:shadow-sh rounded-[16px] p-6 md:p-[28px_22px]"
+              style={{ border: '1.5px solid #D9E0E9' }}
             >
               <div
                 className="flex items-center justify-center mx-auto mb-4"

@@ -40,10 +40,10 @@ export default function SpecialistSupportSection() {
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">
             Beyond standard procurement
           </p>
-          <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
+          <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
             Specialist support for complex accounts.
           </h2>
-          <p className="text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
+          <p className="text-[15px] md:text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
             Some water accounts need more than a tender. Here&apos;s where we go further.
           </p>
         </div>

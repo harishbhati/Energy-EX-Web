@@ -62,19 +62,14 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <div className="px-14 py-10" ref={ref}>
-      <div
-        className="max-w-[1180px] mx-auto grid gap-[72px] items-center"
-        style={{ gridTemplateColumns: '1fr 1fr' }}
-      >
+    <div className="px-6 md:px-14 py-10" ref={ref}>
+      <div className="max-w-[1180px] mx-auto grid gap-10 md:gap-[72px] items-center grid-cols-1 md:grid-cols-2">
         {/* Left: text */}
         <div>
           <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-brand-orange">
             Why Energyex
           </div>
-          <h2
-            className="font-serif-num mb-[18px] text-[40px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]"
-          >
+          <h2 className="font-serif-num mb-[18px] text-[28px] md:text-[40px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]">
             13 years of expertise. One promise.
           </h2>
           <p className="mb-7 max-w-[560px] text-base text-muted leading-[1.7] font-light">
@@ -92,9 +87,8 @@ export default function StatsSection() {
 
         {/* Right: 2×2 stat grid */}
         <div
-          className="grid rounded-[var(--rl)] overflow-hidden"
+          className="grid rounded-[var(--rl)] overflow-hidden grid-cols-2"
           style={{
-            gridTemplateColumns: '1fr 1fr',
             border: '1.5px solid var(--border-strong)',
             boxShadow: '0 4px 24px rgba(13,27,42,0.08)',
           }}
@@ -102,7 +96,7 @@ export default function StatsSection() {
           {animatedStats.map((stat, i) => (
             <div
               key={stat.label}
-              className="p-[34px] transition-all duration-[250ms] cursor-default"
+              className="p-5 md:p-[34px] transition-all duration-[250ms] cursor-default"
               style={{
                 borderRight: '1.5px solid var(--border-strong)',
                 borderBottom: '1.5px solid var(--border-strong)',
@@ -112,20 +106,20 @@ export default function StatsSection() {
             >
               <div className="flex items-baseline gap-0.5 mb-2">
                 <span
-                  className="sv font-serif-num text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
+                  className="sv font-serif-num text-[36px] md:text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
                   style={{ transition: 'color 250ms' }}
                 >
                   {stat.useComma ? counts[i].toLocaleString() : counts[i]}
                 </span>
                 <span
-                  className="sv font-bold text-[22px] text-brand-orange"
+                  className="sv font-bold text-[18px] md:text-[22px] text-brand-orange"
                   style={{ transition: 'color 250ms' }}
                 >
                   {stat.suffix}
                 </span>
               </div>
               <div
-                className="sl text-[13px] text-muted leading-[1.5]"
+                className="sl text-[12px] md:text-[13px] text-muted leading-[1.5]"
                 style={{ transition: 'color 250ms' }}
               >
                 {stat.label}
@@ -136,7 +130,7 @@ export default function StatsSection() {
           {staticStats.map((stat, i) => (
             <div
               key={stat.label}
-              className="p-[34px] transition-all duration-[250ms] cursor-default"
+              className="p-5 md:p-[34px] transition-all duration-[250ms] cursor-default"
               style={{
                 borderRight: i === 0 ? '1.5px solid var(--border-strong)' : 'none',
                 borderBottom: 'none',
@@ -146,20 +140,20 @@ export default function StatsSection() {
             >
               <div className="flex items-baseline gap-0.5 mb-2">
                 <span
-                  className="sv font-serif-num text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
+                  className="sv font-serif-num text-[36px] md:text-[50px] font-semibold text-brand-orange leading-none tracking-[-1px]"
                   style={{ transition: 'color 250ms' }}
                 >
                   {stat.val}
                 </span>
                 <span
-                  className="sv font-bold text-[22px] text-brand-orange"
+                  className="sv font-bold text-[18px] md:text-[22px] text-brand-orange"
                   style={{ transition: 'color 250ms' }}
                 >
                   {stat.suffix}
                 </span>
               </div>
               <div
-                className="sl text-[13px] text-muted leading-[1.5]"
+                className="sl text-[12px] md:text-[13px] text-muted leading-[1.5]"
                 style={{ transition: 'color 250ms' }}
               >
                 {stat.label}

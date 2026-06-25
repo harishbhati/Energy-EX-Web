@@ -8,23 +8,23 @@ const values: Value[] = [
   {
     Icon: Eye,
     title: 'Transparency',
-    desc: 'Every quote includes a clear breakdown of what we earn. You\'ll never wonder if a recommendation is in your interest or ours — we show you both.',
+    desc: "Every quote includes a clear breakdown of what we earn. You'll never wonder if a recommendation is in your interest or ours — we show you both.",
   },
   {
     Icon: BadgeCheck,
     title: 'Independence',
-    desc: 'We have no ownership ties to any energy supplier. Our 30+ supplier panel is chosen on the basis of rates, reliability and service — not relationships.',
+    desc: "We have no ownership ties to any energy supplier. Our 30+ supplier panel is chosen on the basis of rates, reliability and service — not relationships.",
   },
   {
     Icon: Zap,
     title: 'Expertise',
-    desc: '13 years in the energy sector means we\'ve seen the market in every state — rising prices, crises, regulatory shifts. We use that experience to protect your business.',
+    desc: "13 years in the energy sector means we've seen the market in every state — rising prices, crises, regulatory shifts. We use that experience to protect your business.",
   },
 ];
 
 export default function ValuesSection() {
   return (
-    <section className="px-14 py-[88px] relative overflow-hidden bg-navy">
+    <section className="px-6 md:px-14 py-12 md:py-[88px] relative overflow-hidden bg-navy">
       {/* Subtle radial glow */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -40,7 +40,7 @@ export default function ValuesSection() {
 
       <div className="max-w-[1180px] mx-auto relative">
         {/* Header */}
-        <div className="text-center mb-[52px]">
+        <div className="text-center mb-10 md:mb-[52px]">
           <div className="flex items-center justify-center gap-[10px] mb-[18px]">
             <span className="block w-[22px] h-[2px] bg-brand-orange" />
             <span className="font-bold uppercase tracking-[2px] text-[11px] text-brand-orange">
@@ -48,20 +48,16 @@ export default function ValuesSection() {
             </span>
             <span className="block w-[22px] h-[2px] bg-brand-orange" />
           </div>
-          <h2
-            className="font-serif-num text-white mb-4 text-[46px] font-semibold tracking-[-1px] leading-[1.1]"
-          >
+          <h2 className="font-serif-num text-white mb-4 text-[28px] sm:text-[36px] md:text-[46px] font-semibold tracking-[-1px] leading-[1.1]">
             What we stand for
           </h2>
-          <p
-            className="mx-auto text-[17px] text-white/45 leading-[1.7] max-w-[500px] font-light"
-          >
+          <p className="mx-auto text-[15px] md:text-[17px] text-white/45 leading-[1.7] max-w-[500px] font-light">
             Three principles that guide every decision, every quote, and every client relationship.
           </p>
         </div>
 
         {/* Value cards */}
-        <div className="grid gap-5 mb-8" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+        <div className="grid gap-5 mb-8 grid-cols-1 md:grid-cols-3">
           {values.map((v) => (
             <div
               key={v.title}
@@ -69,7 +65,7 @@ export default function ValuesSection() {
               style={{
                 border: '1.5px solid rgba(255,255,255,0.1)',
                 borderLeft: '3px solid var(--orange-soft)',
-                padding: '30px 26px',
+                padding: '28px 22px',
                 background: 'rgba(255,255,255,0.03)',
               }}
               onMouseEnter={(e) => {
@@ -92,10 +88,10 @@ export default function ValuesSection() {
               >
                 <v.Icon size={20} className="text-brand-orange-soft" />
               </div>
-              <h3 className="font-semibold mb-[10px] text-[18px] text-white leading-[1.2]">
+              <h3 className="font-semibold mb-[10px] text-[17px] md:text-[18px] text-white leading-[1.2]">
                 {v.title}
               </h3>
-              <p className="text-[14.5px] text-white/[0.48] leading-[1.75] font-light">
+              <p className="text-[14px] md:text-[14.5px] text-white/[0.48] leading-[1.75] font-light">
                 {v.desc}
               </p>
             </div>
@@ -108,15 +104,15 @@ export default function ValuesSection() {
           style={{
             background: 'rgba(255,255,255,0.04)',
             border: '1px solid rgba(255,255,255,0.1)',
-            padding: '20px 24px',
+            padding: '18px 20px',
           }}
         >
           <Info size={16} className="text-white/30 flex-shrink-0 mt-[2px]" />
           <p className="text-[13px] text-white/[0.32] leading-[1.65]">
             <strong className="text-white/50 font-semibold">How we get paid: </strong>
-            Energyex earns a commission from the energy supplier when you complete a switch through us.
-            This commission is built into the rate and is disclosed in full before you approve any contract.
-            You pay nothing directly to Energyex — ever.
+            Energyex earns a commission from the energy supplier when you complete a switch through
+            us. This commission is built into the rate and is disclosed in full before you approve
+            any contract. You pay nothing directly to Energyex — ever.
           </p>
         </div>
       </div>

@@ -137,14 +137,14 @@ export default function ServicesExplorer() {
   const cols = active.statsGrid || 'repeat(3,1fr)';
 
   return (
-    <div className="px-14 py-7 bg-off">
+    <div className="px-6 md:px-14 py-7 bg-off">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-9">
           <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[10px] text-brand-orange">
             Explore our services
           </div>
-          <h2 className="font-serif-num text-[34px] font-semibold text-ink tracking-[-0.5px]">
+          <h2 className="font-serif-num text-[26px] md:text-[34px] font-semibold text-ink tracking-[-0.5px]">
             Find what your business needs
           </h2>
         </div>
@@ -155,7 +155,7 @@ export default function ServicesExplorer() {
             <button
               key={tab.id}
               onClick={() => setActiveId(tab.id)}
-              className="inline-flex items-center gap-[7px] rounded-[40px] px-5 py-[9px] text-sm font-semibold cursor-pointer transition-all duration-200"
+              className="inline-flex items-center gap-[7px] rounded-[40px] px-4 md:px-5 py-[8px] md:py-[9px] text-sm font-semibold cursor-pointer transition-all duration-200"
               style={
                 activeId === tab.id
                   ? { background: 'var(--orange)', color: '#fff', border: '1.5px solid var(--orange)' }
@@ -168,15 +168,11 @@ export default function ServicesExplorer() {
           ))}
         </div>
 
-        {/* Content grid */}
-        <div
-          className="grid gap-6 items-stretch"
-          style={{ gridTemplateColumns: '1.4fr 1fr' }}
-        >
+        {/* Content grid — stacks on mobile */}
+        <div className="grid gap-6 items-stretch grid-cols-1 md:grid-cols-[1.4fr_1fr]">
           {/* Visual */}
           <div
-            className="rounded-[var(--rl)] overflow-hidden relative border border-[color:var(--border)]"
-            style={{ minHeight: '340px' }}
+            className="rounded-[var(--rl)] overflow-hidden relative border border-[color:var(--border)] min-h-[240px] md:min-h-[340px]"
           >
             <img
               src={active.image}
@@ -189,13 +185,11 @@ export default function ServicesExplorer() {
                 background: 'linear-gradient(180deg,transparent 45%,rgba(13,27,42,0.88) 100%)',
               }}
             />
-            <div className="absolute bottom-0 left-0 right-0 p-7 z-[2]">
-              <h3 className="font-serif-num text-white mb-[5px] text-[28px] font-semibold">
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7 z-[2]">
+              <h3 className="font-serif-num text-white mb-[5px] text-[22px] md:text-[28px] font-semibold">
                 {active.imageTitle}
               </h3>
-              <p className="text-sm text-white/70">
-                {active.imageSubtitle}
-              </p>
+              <p className="text-sm text-white/70">{active.imageSubtitle}</p>
             </div>
           </div>
 
@@ -203,28 +197,22 @@ export default function ServicesExplorer() {
           <div className="flex flex-col gap-[14px]">
             {/* Info card */}
             <div
-              className="bg-white rounded-[var(--r)] flex-1 flex flex-col justify-center px-7 py-[26px]"
+              className="bg-white rounded-[var(--r)] flex-1 flex flex-col justify-center px-6 md:px-7 py-6 md:py-[26px]"
               style={{
                 border: '1px solid var(--border)',
                 borderLeft: '3px solid var(--orange)',
               }}
             >
-              <h4
-                className="font-serif-num mb-5 text-[20px] font-semibold text-ink leading-[1.25] tracking-[-0.2px]"
-              >
+              <h4 className="font-serif-num mb-5 text-[18px] md:text-[20px] font-semibold text-ink leading-[1.25] tracking-[-0.2px]">
                 {active.cardTitle}
               </h4>
               <div className="grid gap-[14px]" style={{ gridTemplateColumns: cols }}>
                 {active.stats.map((s) => (
                   <div key={s.label} className="text-center">
-                    <div
-                      className="font-serif-num text-[30px] font-bold text-brand-orange leading-[1.05] tracking-[-0.5px]"
-                    >
+                    <div className="font-serif-num text-[26px] md:text-[30px] font-bold text-brand-orange leading-[1.05] tracking-[-0.5px]">
                       {s.value}
                     </div>
-                    <div
-                      className="mt-1.5 font-semibold uppercase text-[11px] text-muted leading-[1.3] tracking-[0.4px]"
-                    >
+                    <div className="mt-1.5 font-semibold uppercase text-[11px] text-muted leading-[1.3] tracking-[0.4px]">
                       {s.label}
                     </div>
                   </div>

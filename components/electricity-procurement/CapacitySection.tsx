@@ -39,7 +39,7 @@ export default function CapacitySection() {
   return (
     <section
       id="capacity"
-      className="scroll-mt-[170px] bg-navy px-14 py-[88px] relative overflow-hidden"
+      className="scroll-mt-[170px] bg-navy px-6 md:px-14 py-12 md:py-[88px] relative overflow-hidden"
     >
       <div
         className="absolute pointer-events-none"
@@ -54,29 +54,31 @@ export default function CapacitySection() {
       />
 
       <div className="max-w-[1180px] mx-auto relative z-[1]">
-        <p className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px]" style={{ color: '#F47B25' }}>
-          Capacity & Network
+        <p
+          className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px]"
+          style={{ color: '#F47B25' }}
+        >
+          Capacity &amp; Network
         </p>
-        <h2 className="font-serif-num text-[44px] font-semibold text-white tracking-[-0.5px] leading-[1.12] mb-4">
-          Capacity & Network Charge Optimisation.
+        <h2 className="font-serif-num text-[28px] md:text-[44px] font-semibold text-white tracking-[-0.5px] leading-[1.12] mb-4">
+          Capacity &amp; Network Charge Optimisation.
         </h2>
         <p
-          className="text-[17px] leading-[1.7] font-light max-w-[600px] mb-8"
+          className="text-[15px] md:text-[17px] leading-[1.7] font-light max-w-[600px] mb-8"
           style={{ color: 'rgba(255,255,255,0.55)' }}
         >
-          Beyond unit rate savings, there are significant charges buried in your electricity bill that most businesses — and many brokers — never address.
+          Beyond unit rate savings, there are significant charges buried in your electricity bill
+          that most businesses — and many brokers — never address.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[14px]">
           {cards.map((card) => (
             <div
               key={card.title}
-              className="transition-all duration-200 hover:-translate-y-[3px]"
+              className="transition-all duration-200 hover:-translate-y-[3px] rounded-[16px] p-5 md:p-[24px_18px]"
               style={{
                 background: 'rgba(255,255,255,0.04)',
                 border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: 16,
-                padding: '24px 18px',
               }}
             >
               <div
@@ -86,7 +88,10 @@ export default function CapacitySection() {
                 <card.Icon size={20} style={{ color: '#F47B25' }} />
               </div>
               <h4 className="text-[14px] font-bold text-white mb-[6px] leading-[1.3]">{card.title}</h4>
-              <p className="text-[12px] leading-[1.55] font-light" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              <p
+                className="text-[12px] leading-[1.55] font-light"
+                style={{ color: 'rgba(255,255,255,0.45)' }}
+              >
                 {card.desc}
               </p>
             </div>
@@ -118,7 +123,9 @@ export default function CapacitySection() {
           className="text-[14px] leading-[1.8] font-light text-center mt-6 max-w-[760px] mx-auto"
           style={{ color: 'rgba(255,255,255,0.5)' }}
         >
-          Most businesses only review their electricity unit rate — yet capacity and network charges can represent 40–60% of a bill. Our team reviews the full invoice so you are not leaving money on the table.
+          Most businesses only review their electricity unit rate — yet capacity and network charges
+          can represent 40–60% of a bill. Our team reviews the full invoice so you are not leaving
+          money on the table.
         </p>
       </div>
     </section>
