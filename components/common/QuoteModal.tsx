@@ -156,22 +156,25 @@ export default function QuoteModal() {
   async function onSubmit(data: QuoteFormValues) {
     setApiError('');
     try {
-      const body = new FormData();
-      body.append('access_key', process.env.NEXT_PUBLIC_QUOTE_FORM_KEY ?? '');
-      body.append('subject', `New Energyex Quote Request — ${data.service || 'General Enquiry'}`);
-      body.append('from_name', data.name);
-      body.append('name', data.name);
-      body.append('email', data.email);
-      body.append('phone', data.phone);
-      if (data.service) body.append('service', data.service);
-      if (data.message) body.append('message', data.message);
-      body.append('botcheck', '');
+      const payload = {
+        access_key: process.env.NEXT_PUBLIC_QUOTE_FORM_KEY ?? '',
+        subject: `New Quote Request — ${data.service || 'General Enquiry'} | Energyex`,
+        from_name: data.name,
+        replyto: data.email,
+        botcheck: false,
+        // ── email body fields ──────────────────────────────
+        full_name: data.name,
+        email_address: data.email,
+        phone_number: data.phone,
+        service_interest: data.service || 'Not specified',
+        additional_notes: data.message || '—',
+      };
 
-      /* FILE UPLOAD — commented out (Web3Forms Pro required)
-      files.forEach((file) => body.append('attachment', file));
-      */
-
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
       const json = await res.json();
 
       if (json.success) {
