@@ -93,19 +93,26 @@ export default function ContactForm() {
   async function onSubmit(data: FormValues) {
     setApiError('');
     try {
-      const body = new FormData();
-      body.append('access_key', process.env.NEXT_PUBLIC_CONTACT_FORM_KEY ?? '');
-      body.append('subject', `New Energyex Enquiry — ${data.service || 'General'}`);
-      body.append('from_name', `${data.firstName} ${data.lastName}`);
-      body.append('name', `${data.firstName} ${data.lastName}`);
-      body.append('email', data.email);
-      if (data.phone)   body.append('phone', data.phone);
-      if (data.company) body.append('company', data.company);
-      body.append('service', data.service);
-      body.append('message', data.message);
-      body.append('botcheck', '');
+      const payload = {
+        access_key: process.env.NEXT_PUBLIC_CONTACT_FORM_KEY ?? '',
+        subject: `New Enquiry — ${data.service || 'General'} | Energyex`,
+        from_name: `${data.firstName} ${data.lastName}`,
+        replyto: data.email,
+        botcheck: false,
+        // ── email body fields ──────────────────────────────
+        full_name: `${data.firstName} ${data.lastName}`,
+        email_address: data.email,
+        phone_number: data.phone || 'Not provided',
+        company_name: data.company || 'Not provided',
+        service_interest: data.service,
+        enquiry_message: data.message,
+      };
 
-      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
       const json = await res.json();
 
       if (json.success) {
