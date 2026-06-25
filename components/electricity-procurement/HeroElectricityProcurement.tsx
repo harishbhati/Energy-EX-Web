@@ -3,18 +3,30 @@ import { Zap } from 'lucide-react';
 
 export default function HeroElectricityProcurement() {
   return (
-    <div
-      className="grid min-h-[440px] bg-navy"
-      style={{ gridTemplateColumns: '1fr 1fr' }}
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 min-h-[440px] bg-navy">
       {/* Left */}
-      <div className="flex flex-col justify-center px-14 py-16 relative">
-        <div className="absolute right-0 top-[10%] bottom-[10%] w-px bg-white/10" />
+      <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 md:px-14 md:py-16 relative">
+        <div className="hidden md:block absolute right-0 top-[10%] bottom-[10%] w-px bg-white/10" />
 
-        <nav className="flex items-center gap-2 text-[12px] font-medium mb-[22px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
-          <Link href="/" className="hover:text-brand-orange-soft transition-colors duration-200" style={{ color: 'inherit' }}>Home</Link>
+        <nav
+          className="flex items-center gap-2 text-[12px] font-medium mb-[22px] flex-wrap"
+          style={{ color: 'rgba(255,255,255,0.35)' }}
+        >
+          <Link
+            href="/"
+            className="hover:text-brand-orange-soft transition-colors duration-200"
+            style={{ color: 'inherit' }}
+          >
+            Home
+          </Link>
           <span style={{ color: 'rgba(255,255,255,0.2)' }}>›</span>
-          <Link href="/our-services" className="hover:text-brand-orange-soft transition-colors duration-200" style={{ color: 'inherit' }}>Energy Services</Link>
+          <Link
+            href="/our-services"
+            className="hover:text-brand-orange-soft transition-colors duration-200"
+            style={{ color: 'inherit' }}
+          >
+            Energy Services
+          </Link>
           <span style={{ color: 'rgba(255,255,255,0.2)' }}>›</span>
           <span style={{ color: 'rgba(255,255,255,0.6)' }}>Electricity Procurement</span>
         </nav>
@@ -22,16 +34,19 @@ export default function HeroElectricityProcurement() {
         <p className="text-[11px] font-bold uppercase tracking-[2.5px] mb-4" style={{ color: '#F47B25' }}>
           Electricity Procurement
         </p>
-        <h1 className="font-serif-num text-[52px] font-semibold text-white leading-[1.06] tracking-[-1px] mb-[18px]">
+        <h1 className="font-serif-num text-[34px] sm:text-[44px] md:text-[52px] font-semibold text-white leading-[1.06] tracking-[-1px] mb-[18px]">
           Independent electricity buying,{' '}
           <em style={{ color: '#F47B25', fontStyle: 'italic' }}>built around you.</em>
         </h1>
-        <p className="text-[16px] leading-[1.75] font-light max-w-[480px] mb-8" style={{ color: 'rgba(255,255,255,0.55)' }}>
+        <p
+          className="text-[15px] md:text-[16px] leading-[1.75] font-light max-w-[480px] mb-8"
+          style={{ color: 'rgba(255,255,255,0.55)' }}
+        >
           We help UK businesses secure competitive electricity contracts.{' '}
           <strong style={{ color: 'rgba(255,255,255,0.88)', fontWeight: 600 }}>
             We work for you — not the supplier
-          </strong>
-          {' '}— with ongoing support for the life of the contract.
+          </strong>{' '}
+          — with ongoing support for the life of the contract.
         </p>
         <Link
           href="/contact-us"
@@ -43,7 +58,7 @@ export default function HeroElectricityProcurement() {
       </div>
 
       {/* Right — image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden min-h-[260px] md:min-h-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=900"
@@ -55,18 +70,18 @@ export default function HeroElectricityProcurement() {
           style={{ background: 'linear-gradient(270deg, transparent 55%, rgba(13,27,42,0.6) 100%)' }}
         />
         <div
-          className="absolute bottom-7 left-7 bg-white rounded-r flex items-center gap-[14px]"
-          style={{ padding: '16px 20px', boxShadow: '0 16px 50px rgba(13,27,42,0.12)' }}
+          className="absolute bottom-5 left-5 md:bottom-7 md:left-7 bg-white rounded-r flex items-center gap-[14px]"
+          style={{ padding: '14px 18px', boxShadow: '0 16px 50px rgba(13,27,42,0.12)' }}
         >
           <div
-            className="w-11 h-11 flex items-center justify-center flex-shrink-0"
+            className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center flex-shrink-0"
             style={{ borderRadius: 12, background: '#FFF1E8' }}
           >
-            <Zap size={22} className="text-brand-orange" />
+            <Zap size={20} className="text-brand-orange" />
           </div>
           <div>
-            <h4 className="text-[14px] font-bold text-ink mb-[1px]">20+ suppliers compared</h4>
-            <p className="text-[12px] text-muted">Independent, no supplier ties</p>
+            <h4 className="text-[13px] md:text-[14px] font-bold text-ink mb-[1px]">20+ suppliers compared</h4>
+            <p className="text-[11px] md:text-[12px] text-muted">Independent, no supplier ties</p>
           </div>
         </div>
       </div>

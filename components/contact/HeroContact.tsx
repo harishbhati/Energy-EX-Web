@@ -6,10 +6,7 @@ const stats = [
 
 export default function HeroContact() {
   return (
-    <section
-      className="relative overflow-hidden text-center bg-navy"
-      style={{ padding: '80px 40px 72px' }}
-    >
+    <section className="relative overflow-hidden text-center bg-navy px-6 pt-14 pb-12 md:px-[40px] md:pt-[80px] md:pb-[72px]">
       {/* Radial glows */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -63,22 +60,19 @@ export default function HeroContact() {
         </p>
 
         {/* Stats row */}
-        <div
-          className="flex overflow-hidden mx-auto mt-12 rounded-[var(--r)] backdrop-blur-[8px] max-w-[560px] bg-white/[0.06] border border-white/10"
-        >
+        <div className="flex overflow-hidden mx-auto mt-10 md:mt-12 rounded-[var(--r)] backdrop-blur-[8px] max-w-[560px] bg-white/[0.06] border border-white/10">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className="flex-1 text-center"
+              className="flex-1 text-center px-3 py-4 md:px-6 md:py-5"
               style={{
-                padding: '20px 24px',
                 borderRight: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
               }}
             >
-              <span className="block font-serif-num text-[26px] font-bold text-brand-orange-soft">
+              <span className="block font-serif-num text-[20px] md:text-[26px] font-bold text-brand-orange-soft">
                 {s.num}
               </span>
-              <span className="block mt-0.5 uppercase text-[11.5px] text-white/50 tracking-[0.6px]">
+              <span className="block mt-0.5 uppercase text-[10px] md:text-[11.5px] text-white/50 tracking-[0.6px]">
                 {s.label}
               </span>
             </div>

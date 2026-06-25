@@ -47,19 +47,17 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <div className="px-14 py-10 bg-[#FCFAF7]">
+    <div className="px-6 md:px-14 py-10 bg-[#FCFAF7]">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center text-brand-orange">
             What our clients say
           </div>
-          <h2
-            className="font-serif-num mb-4 text-[44px] font-bold text-navy tracking-[-0.5px] leading-[1.12]"
-          >
+          <h2 className="font-serif-num mb-4 text-[28px] md:text-[44px] font-bold text-navy tracking-[-0.5px] leading-[1.12]">
             Loved by 10,000+ UK businesses
           </h2>
-          <p className="mx-auto max-w-[560px] text-[17px] text-muted leading-[1.7] font-light">
+          <p className="mx-auto max-w-[560px] text-[15px] md:text-[17px] text-muted leading-[1.7] font-light">
             Don&apos;t just take our word for it — here&apos;s what our clients say.
           </p>
         </div>
@@ -74,11 +72,8 @@ export default function TestimonialsSection() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="tcard-item bg-white rounded-[var(--r)] px-8 py-8 flex-shrink-0 transition-all duration-300 cursor-default"
-                style={{
-                  flex: '0 0 calc(33.333% - 14px)',
-                  border: '1.5px solid var(--border)',
-                }}
+                className="tcard-item bg-white rounded-[var(--r)] px-6 md:px-8 py-6 md:py-8 flex-shrink-0 transition-all duration-300 cursor-default w-full md:w-[calc(33.333%-14px)]"
+                style={{ border: '1.5px solid var(--border)' }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget;
                   el.style.borderColor = 'var(--orange)';
@@ -97,22 +92,16 @@ export default function TestimonialsSection() {
                     <Star key={s} size={14} fill="currentColor" strokeWidth={0} />
                   ))}
                 </div>
-                <p
-                  className="font-serif-num mb-[22px] italic text-[18px] text-ink leading-[1.6] font-medium"
-                >
+                <p className="font-serif-num mb-[22px] italic text-[17px] md:text-[18px] text-ink leading-[1.6] font-medium">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="mb-[18px] h-px bg-[color:var(--border)]" />
                 <div className="flex items-center gap-3">
-                  <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 font-serif-num bg-orange-tint text-brand-orange-deep"
-                  >
+                  <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 font-serif-num bg-orange-tint text-brand-orange-deep">
                     {t.initials}
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-ink">
-                      {t.name}
-                    </div>
+                    <div className="text-sm font-bold text-ink">{t.name}</div>
                     <div className="text-xs text-muted">{t.role}</div>
                   </div>
                 </div>

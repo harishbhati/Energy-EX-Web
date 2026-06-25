@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { Send, Lock, MessageSquare, Paperclip, X, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Send, Lock, MessageSquare, CheckCircle } from 'lucide-react';
 
+/* ─── constants ──────────────────────────────────────────── */
 const SERVICE_OPTIONS = [
   'Electricity Procurement',
   'Gas Procurement',
@@ -13,44 +15,18 @@ const SERVICE_OPTIONS = [
   'General Enquiry',
 ];
 
-const REQUIRED_FIELDS = ['firstName', 'lastName', 'email', 'service', 'message'] as const;
-type RequiredField = (typeof REQUIRED_FIELDS)[number];
-
-const MAX_FILES = 5;
-const MAX_SIZE = 10 * 1024 * 1024;
-const ALLOWED_EXT = [
-  'pdf','jpg','jpeg','png','heic','heif','webp','tiff','tif',
-  'doc','docx','xls','xlsx','csv',
-];
-
-function getExt(name: string) {
-  return name.split('.').pop()?.toLowerCase() ?? '';
-}
-
-function fileBadge(name: string): { bg: string; label: string } {
-  const e = getExt(name);
-  if (e === 'pdf') return { bg: '#C0392B', label: 'PDF' };
-  if (['jpg','jpeg','png','heic','heif','webp','tiff','tif'].includes(e))
-    return { bg: '#2E8B6B', label: e === 'jpeg' ? 'JPG' : e.toUpperCase() };
-  if (['doc','docx'].includes(e)) return { bg: '#2A5699', label: 'DOC' };
-  if (['xls','xlsx'].includes(e)) return { bg: '#1D6F42', label: 'XLS' };
-  if (e === 'csv') return { bg: '#5C6A7A', label: 'CSV' };
-  return { bg: '#475569', label: e.toUpperCase() };
-}
-
-function fileSize(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
-  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
-}
-
+/* ─── shared input style tokens ─────────────────────────────
+   Split border into width/style/color so React never has to
+   reconcile the shorthand `border` against `borderColor`. */
 const inputBase: React.CSSProperties = {
   width: '100%',
   fontFamily: 'inherit',
   fontSize: '14.5px',
   color: 'var(--ink)',
   background: 'var(--off)',
-  border: '1.5px solid var(--border)',
+  borderWidth: '1.5px',
+  borderStyle: 'solid',
+  borderColor: 'var(--border)',
   borderRadius: 'var(--rs)',
   padding: '11px 14px',
   outline: 'none',
@@ -58,114 +34,112 @@ const inputBase: React.CSSProperties = {
   appearance: 'none' as const,
 };
 
-const inputFocusStyle = {
+const focusStyle: React.CSSProperties = {
   borderColor: 'var(--orange)',
   background: '#fff',
   boxShadow: '0 0 0 3px rgba(232,98,10,0.10)',
 };
 
-const inputErrorStyle = {
+const errorStyle: React.CSSProperties = {
   borderColor: '#E24B4A',
   boxShadow: '0 0 0 3px rgba(226,75,74,0.12)',
 };
 
+/* ─── form value types ───────────────────────────────────── */
+type FormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+  consent: boolean;
+};
+
+/* ─── component ──────────────────────────────────────────── */
 export default function ContactForm() {
-  const [values, setValues] = useState({
-    firstName: '', lastName: '', email: '',
-    phone: '', company: '', service: '', message: '',
-  });
-  const [errors, setErrors] = useState<Set<string>>(new Set());
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({ mode: 'onBlur' });
+
   const [focused, setFocused] = useState<string | null>(null);
-  const [consent, setConsent] = useState(false);
-  const [consentError, setConsentError] = useState(false);
-  const [files, setFiles] = useState<File[]>([]);
-  const [fileError, setFileError] = useState('');
-  const [dragging, setDragging] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const fileRef = useRef<HTMLInputElement>(null);
+  const [apiError, setApiError] = useState('');
 
-  function update(field: string, val: string) {
-    setValues((v) => ({ ...v, [field]: val }));
-    if (errors.has(field)) {
-      setErrors((e) => { const n = new Set(e); n.delete(field); return n; });
-    }
+  /* ─── helpers ─────────────────────────────────────────── */
+
+  /** Merges RHF's onBlur (validates) with our focus-tracking blur. */
+  function mergeBlur(
+    rhfOnBlur: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ): React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> {
+    return (e) => { rhfOnBlur(e); setFocused(null); };
   }
 
-  function addFiles(list: FileList | null) {
-    if (!list) return;
-    setFileError('');
-    const incoming = Array.from(list);
-    setFiles((prev) => {
-      const next = [...prev];
-      for (const f of incoming) {
-        if (next.length >= MAX_FILES) { setFileError(`You can attach up to ${MAX_FILES} files.`); break; }
-        if (!ALLOWED_EXT.includes(getExt(f.name))) { setFileError(`"${f.name}" is not a supported file type.`); continue; }
-        if (f.size > MAX_SIZE) { setFileError(`"${f.name}" exceeds 10MB.`); continue; }
-        if (next.some((x) => x.name === f.name && x.size === f.size)) continue;
-        next.push(f);
-      }
-      return next;
-    });
-  }
-
-  function removeFile(i: number) {
-    setFiles((f) => f.filter((_, idx) => idx !== i));
-    setFileError('');
-  }
-
-  function handleSubmit() {
-    const newErrors = new Set<string>();
-    for (const field of REQUIRED_FIELDS) {
-      if (!values[field as RequiredField].trim()) newErrors.add(field);
-    }
-    const needsConsent = !consent;
-    setConsentError(needsConsent);
-    if (newErrors.size > 0) { setErrors(newErrors); return; }
-    if (needsConsent) return;
-    setSubmitted(true);
-  }
-
-  function fieldStyle(field: string): React.CSSProperties {
-    const hasError = errors.has(field);
-    const isFocused = focused === field;
+  /** Returns inline style for a field based on focus + RHF error state. */
+  function fieldStyle(name: keyof FormValues): React.CSSProperties {
+    const hasError = !!errors[name];
+    const isFocused = focused === name;
     return {
       ...inputBase,
-      ...(isFocused && !hasError ? inputFocusStyle : {}),
-      ...(hasError ? inputErrorStyle : {}),
+      ...(isFocused && !hasError ? focusStyle : {}),
+      ...(hasError ? errorStyle : {}),
     };
   }
 
+  /* ─── web3forms submission ────────────────────────────── */
+  async function onSubmit(data: FormValues) {
+    setApiError('');
+    try {
+      const body = new FormData();
+      body.append('access_key', process.env.NEXT_PUBLIC_CONTACT_FORM_KEY ?? '');
+      body.append('subject', `New Energyex Enquiry — ${data.service || 'General'}`);
+      body.append('from_name', `${data.firstName} ${data.lastName}`);
+      body.append('name', `${data.firstName} ${data.lastName}`);
+      body.append('email', data.email);
+      if (data.phone)   body.append('phone', data.phone);
+      if (data.company) body.append('company', data.company);
+      body.append('service', data.service);
+      body.append('message', data.message);
+      body.append('botcheck', '');
+
+      const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body });
+      const json = await res.json();
+
+      if (json.success) {
+        setSubmitted(true);
+      } else {
+        setApiError(json.message ?? 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setApiError('Network error. Please check your connection and try again.');
+    }
+  }
+
+  /* ─── success screen ──────────────────────────────────── */
   if (submitted) {
     return (
       <div className="bg-white overflow-hidden rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]">
-        {/* Form header */}
         <div className="flex items-center gap-[14px] bg-navy py-6 px-8">
           <div className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0 bg-[rgba(232,98,10,0.2)]">
             <MessageSquare size={22} className="text-brand-orange-soft" style={{ strokeWidth: 2 }} />
           </div>
           <div>
-            <h2 className="font-serif-num text-white text-[22px] font-semibold">
-              Your Enquiry
-            </h2>
-            <p className="text-[13px] text-white/55 mt-[2px]">
-              We typically respond same business day
-            </p>
+            <h2 className="font-serif-num text-white text-[22px] font-semibold">Your Enquiry</h2>
+            <p className="text-[13px] text-white/55 mt-[2px]">We typically respond same business day</p>
           </div>
         </div>
-
-        {/* Success body */}
         <div className="text-center py-[40px] px-[32px]">
           <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 bg-[#EAF7EE]">
             <CheckCircle size={30} style={{ color: '#28A745', strokeWidth: 2.5 }} />
           </div>
-          <h3 className="font-serif-num mb-[10px] text-[26px] font-semibold text-ink">
-            Message Received!
-          </h3>
+          <h3 className="font-serif-num mb-[10px] text-[26px] font-semibold text-ink">Message Received!</h3>
           <p className="text-[14.5px] text-muted leading-[1.7]">
-            Thank you for getting in touch. One of our energy specialists will reach out within 24
-            hours — usually the same business day.
-            <br />
-            <br />
+            Thank you for getting in touch. One of our energy specialists will reach out within 24 hours —
+            usually the same business day.
+            <br /><br />
             In the meantime, feel free to call us on{' '}
             <strong className="text-ink">0203 727 2588</strong>.
           </p>
@@ -174,292 +148,239 @@ export default function ContactForm() {
     );
   }
 
+  /* ─── form ────────────────────────────────────────────── */
   return (
     <div className="bg-white overflow-hidden rounded-[var(--r)] shadow-sh border border-[rgba(13,27,42,0.07)]">
-      {/* Form header */}
-      <div className="flex items-center gap-[14px] bg-navy" style={{ padding: '24px 32px' }}>
+      {/* Header */}
+      <div className="flex items-center gap-[14px] bg-navy px-6 py-5 md:px-8 md:py-6">
         <div className="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center flex-shrink-0 bg-[rgba(232,98,10,0.2)]">
           <MessageSquare size={22} className="text-brand-orange-soft" style={{ strokeWidth: 2 }} />
         </div>
         <div>
-          <h2 className="font-serif-num text-white text-[22px] font-semibold">
-            Your Enquiry
-          </h2>
-          <p className="text-[13px] text-white/55 mt-[2px]">
-            We typically respond same business day
-          </p>
+          <h2 className="font-serif-num text-white text-[22px] font-semibold">Your Enquiry</h2>
+          <p className="text-[13px] text-white/55 mt-[2px]">We typically respond same business day</p>
         </div>
       </div>
 
-      {/* Form body */}
-      <div className="p-8">
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="p-5 md:p-8">
 
-        {/* Row 1: Name */}
-        <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
-          {(['firstName', 'lastName'] as const).map((f, i) => (
-            <div key={f}>
-              <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
-                {i === 0 ? 'First Name' : 'Last Name'}{' '}
-                <span className="text-brand-orange">*</span>
-              </label>
-              <input
-                type="text"
-                placeholder={i === 0 ? 'e.g. Sarah' : 'e.g. Johnson'}
-                value={values[f]}
-                onChange={(e) => update(f, e.target.value)}
-                onFocus={() => setFocused(f)}
-                onBlur={() => setFocused(null)}
-                style={fieldStyle(f)}
-              />
-            </div>
-          ))}
+        {/* ── Row 1: First / Last name ── */}
+        <div className="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2">
+          {(
+            [
+              { name: 'firstName', label: 'First Name', placeholder: 'e.g. Sarah' },
+              { name: 'lastName',  label: 'Last Name',  placeholder: 'e.g. Johnson' },
+            ] as const
+          ).map(({ name, label, placeholder }) => {
+            const { onBlur, ...rest } = register(name, { required: `${label} is required` });
+            return (
+              <div key={name}>
+                <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
+                  {label} <span className="text-brand-orange">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={placeholder}
+                  {...rest}
+                  onBlur={mergeBlur(onBlur)}
+                  onFocus={() => setFocused(name)}
+                  style={fieldStyle(name)}
+                />
+                {errors[name] && (
+                  <p className="mt-1 text-[11.5px] text-[#C0392B]">{errors[name]?.message}</p>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        {/* Row 2: Email + Phone */}
-        <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
+        {/* ── Row 2: Email + Phone ── */}
+        <div className="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2">
           <div>
             <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Email Address <span className="text-brand-orange">*</span>
             </label>
-            <input
-              type="email"
-              placeholder="you@company.co.uk"
-              value={values.email}
-              onChange={(e) => update('email', e.target.value)}
-              onFocus={() => setFocused('email')}
-              onBlur={() => setFocused(null)}
-              style={fieldStyle('email')}
-            />
+            {(() => {
+              const { onBlur, ...rest } = register('email', {
+                required: 'Email address is required',
+                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' },
+              });
+              return (
+                <>
+                  <input
+                    type="email"
+                    placeholder="you@company.co.uk"
+                    {...rest}
+                    onBlur={mergeBlur(onBlur)}
+                    onFocus={() => setFocused('email')}
+                    style={fieldStyle('email')}
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-[11.5px] text-[#C0392B]">{errors.email.message}</p>
+                  )}
+                </>
+              );
+            })()}
           </div>
           <div>
             <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Phone Number
             </label>
-            <input
-              type="tel"
-              placeholder="e.g. 07700 900 123"
-              value={values.phone}
-              onChange={(e) => update('phone', e.target.value)}
-              onFocus={() => setFocused('phone')}
-              onBlur={() => setFocused(null)}
-              style={{ ...inputBase, ...(focused === 'phone' ? inputFocusStyle : {}) }}
-            />
+            {(() => {
+              const { onBlur, ...rest } = register('phone');
+              return (
+                <input
+                  type="tel"
+                  placeholder="e.g. 07700 900 123"
+                  {...rest}
+                  onBlur={mergeBlur(onBlur)}
+                  onFocus={() => setFocused('phone')}
+                  style={fieldStyle('phone')}
+                />
+              );
+            })()}
           </div>
         </div>
 
-        {/* Row 3: Company + Service */}
-        <div className="grid gap-4 mb-4" style={{ gridTemplateColumns: '1fr 1fr' }}>
+        {/* ── Row 3: Company + Service ── */}
+        <div className="grid gap-4 mb-4 grid-cols-1 sm:grid-cols-2">
           <div>
             <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Company Name
             </label>
-            <input
-              type="text"
-              placeholder="Your organisation"
-              value={values.company}
-              onChange={(e) => update('company', e.target.value)}
-              onFocus={() => setFocused('company')}
-              onBlur={() => setFocused(null)}
-              style={{ ...inputBase, ...(focused === 'company' ? inputFocusStyle : {}) }}
-            />
+            {(() => {
+              const { onBlur, ...rest } = register('company');
+              return (
+                <input
+                  type="text"
+                  placeholder="Your organisation"
+                  {...rest}
+                  onBlur={mergeBlur(onBlur)}
+                  onFocus={() => setFocused('company')}
+                  style={fieldStyle('company')}
+                />
+              );
+            })()}
           </div>
           <div>
             <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
               Service Interest <span className="text-brand-orange">*</span>
             </label>
-            <div className="relative">
-              <select
-                value={values.service}
-                onChange={(e) => update('service', e.target.value)}
-                onFocus={() => setFocused('service')}
-                onBlur={() => setFocused(null)}
-                style={{ ...fieldStyle('service'), paddingRight: '34px', cursor: 'pointer' }}
-              >
-                <option value="" disabled>Select a service…</option>
-                {SERVICE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
-              {/* Custom arrow */}
-              <div
-                className="absolute pointer-events-none"
-                style={{
-                  right: '13px', top: '50%', transform: 'translateY(-50%)',
-                  width: 0, height: 0,
-                  borderLeft: '5px solid transparent',
-                  borderRight: '5px solid transparent',
-                  borderTop: '6px solid var(--faint)',
-                }}
-              />
-            </div>
+            {(() => {
+              const { onBlur, ...rest } = register('service', { required: 'Please select a service' });
+              return (
+                <>
+                  <div className="relative">
+                    <select
+                      {...rest}
+                      onBlur={mergeBlur(onBlur)}
+                      onFocus={() => setFocused('service')}
+                      style={{ ...fieldStyle('service'), paddingRight: '34px', cursor: 'pointer' }}
+                    >
+                      <option value="" disabled>Select a service…</option>
+                      {SERVICE_OPTIONS.map((opt) => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                    <div
+                      className="absolute pointer-events-none"
+                      style={{
+                        right: '13px', top: '50%', transform: 'translateY(-50%)',
+                        width: 0, height: 0,
+                        borderLeft: '5px solid transparent',
+                        borderRight: '5px solid transparent',
+                        borderTop: '6px solid var(--faint)',
+                      }}
+                    />
+                  </div>
+                  {errors.service && (
+                    <p className="mt-1 text-[11.5px] text-[#C0392B]">{errors.service.message}</p>
+                  )}
+                </>
+              );
+            })()}
           </div>
         </div>
 
-        {/* Enquiry textarea */}
+        {/* ── Enquiry textarea ── */}
         <div className="mb-4">
           <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
             Your Enquiry <span className="text-brand-orange">*</span>
           </label>
-          <textarea
-            placeholder="Tell us about your energy usage, number of sites, current supplier, or anything else that would help us assist you…"
-            value={values.message}
-            onChange={(e) => update('message', e.target.value)}
-            onFocus={() => setFocused('message')}
-            onBlur={() => setFocused(null)}
-            rows={5}
-            style={{ ...fieldStyle('message'), resize: 'vertical', minHeight: '118px' }}
-          />
+          {(() => {
+            const { onBlur, ...rest } = register('message', {
+              required: 'Please describe your enquiry',
+              minLength: { value: 10, message: 'Please provide a bit more detail' },
+            });
+            return (
+              <>
+                <textarea
+                  placeholder="Tell us about your energy usage, number of sites, current supplier, or anything else that would help us assist you…"
+                  rows={5}
+                  {...rest}
+                  onBlur={mergeBlur(onBlur)}
+                  onFocus={() => setFocused('message')}
+                  style={{ ...fieldStyle('message'), resize: 'vertical', minHeight: '118px' }}
+                />
+                {errors.message && (
+                  <p className="mt-1 text-[11.5px] text-[#C0392B]">{errors.message.message}</p>
+                )}
+              </>
+            );
+          })()}
         </div>
 
-        {/* File attachment */}
-        <div className="mb-4">
-          <label className="block font-semibold uppercase mb-[7px] text-[12.5px] text-ink tracking-[0.2px]">
-            Attach Your Bill{' '}
-            <span className="text-muted font-medium normal-case tracking-normal">
-              (optional — helps us quote faster)
-            </span>
-          </label>
-
-          {/* Drop zone */}
-          <div
-            className="rounded-[var(--rs)] cursor-pointer transition-all duration-250"
-            style={{
-              border: `1.5px dashed ${dragging ? 'var(--orange)' : 'var(--border-strong)'}`,
-              background: dragging ? 'var(--orange-tint)' : 'var(--off)',
-              padding: '20px 18px',
-            }}
-            onClick={() => fileRef.current?.click()}
-            onDragEnter={(e) => { e.preventDefault(); setDragging(true); }}
-            onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-            onDragLeave={() => setDragging(false)}
-            onDrop={(e) => {
-              e.preventDefault();
-              setDragging(false);
-              addFiles(e.dataTransfer.files);
-            }}
-          >
-            <input
-              ref={fileRef}
-              type="file"
-              hidden
-              multiple
-              accept=".pdf,.jpg,.jpeg,.png,.heic,.heif,.webp,.tiff,.tif,.doc,.docx,.xls,.xlsx,.csv"
-              onChange={(e) => { addFiles(e.target.files); e.target.value = ''; }}
-            />
-            <div className="flex items-center justify-center gap-3">
-              <div
-                className="w-10 h-10 rounded-[var(--rs)] flex items-center justify-center flex-shrink-0"
-                style={{ background: dragging ? 'rgba(232,98,10,0.18)' : 'var(--orange-tint)' }}
-              >
-                <Paperclip size={20} className="text-brand-orange" />
-              </div>
-              <div>
-                <div className="font-semibold text-[13.5px] text-ink">
-                  <span className="text-brand-orange underline">Click to attach</span>{' '}
-                  or drag &amp; drop
-                </div>
-                <div className="text-[11.5px] text-muted mt-[2px]">
-                  PDF, JPG, PNG, HEIC, DOCX, XLSX, CSV · up to 10MB each · max 5 files
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* File list */}
-          {files.length > 0 && (
-            <div className="flex flex-col gap-2 mt-3">
-              {files.map((f, i) => {
-                const { bg, label } = fileBadge(f.name);
-                return (
-                  <div
-                    key={`${f.name}-${i}`}
-                    className="flex items-center gap-[10px] bg-white rounded-[var(--rs)] border border-[color:var(--border)]"
-                    style={{ padding: '9px 12px' }}
-                  >
-                    <div
-                      className="w-[34px] h-[34px] flex-shrink-0 flex items-center justify-center rounded-[6px] text-white font-bold"
-                      style={{ fontSize: '9.5px', letterSpacing: '0.3px', background: bg }}
-                    >
-                      {label}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold truncate text-[13px] text-ink">
-                        {f.name}
-                      </div>
-                      <div className="text-[11px] text-muted mt-[1px]">
-                        {fileSize(f.size)}
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={(e) => { e.stopPropagation(); removeFile(i); }}
-                      className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#FADBD8] hover:text-[#C0392B] bg-off text-muted border-none cursor-pointer"
-                    >
-                      <X size={13} />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {fileError && (
-            <p className="text-xs text-[#C0392B] mt-2">{fileError}</p>
-          )}
-        </div>
-
-        {/* Consent */}
+        {/* ── Consent ── */}
         <div className="flex items-start gap-[10px] mb-5">
           <input
             type="checkbox"
             id="consent"
-            checked={consent}
-            onChange={(e) => { setConsent(e.target.checked); setConsentError(false); }}
+            {...register('consent', { required: 'You must agree to continue.' })}
             className="flex-shrink-0 mt-0.5 cursor-pointer accent-[color:var(--orange)]"
             style={{
               width: '17px',
               height: '17px',
-              outline: consentError ? '2px solid #E24B4A' : 'none',
+              outline: errors.consent ? '2px solid #E24B4A' : 'none',
             }}
           />
-          <label
-            htmlFor="consent"
-            className="cursor-pointer text-[13px] text-muted leading-[1.5]"
-          >
-            I agree to Energyex processing my data to respond to this enquiry. View our{' '}
-            <a href="/privacy-policy" className="text-brand-orange">
-              Privacy Policy
-            </a>{' '}
-            and{' '}
-            <a href="/complaints" className="text-brand-orange">
-              Complaints Procedure
-            </a>
-            .
-          </label>
+          <div>
+            <label htmlFor="consent" className="cursor-pointer text-[13px] text-muted leading-[1.5]">
+              I agree to Energyex processing my data to respond to this enquiry. View our{' '}
+              <a href="/privacy-policy" className="text-brand-orange">Privacy Policy</a> and{' '}
+              <a href="/complaints" className="text-brand-orange">Complaints Procedure</a>.
+            </label>
+            {errors.consent && (
+              <p className="mt-1 text-[11.5px] text-[#C0392B]">{errors.consent.message}</p>
+            )}
+          </div>
         </div>
 
-        {/* Submit */}
+        {/* ── Submit ── */}
         <button
-          type="button"
-          onClick={handleSubmit}
-          className="w-full flex items-center justify-center gap-[10px] font-bold transition-all duration-250 hover:-translate-y-0.5 bg-brand-orange text-white text-[15px] border-none cursor-pointer rounded-[var(--rs)] shadow-[0_4px_16px_rgba(232,98,10,0.30)]"
-          style={{
-            letterSpacing: '0.3px',
-            padding: '14px 24px',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--orange-soft)')}
-          onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--orange)')}
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full flex items-center justify-center gap-[10px] font-bold transition-all duration-250 bg-brand-orange text-white text-[15px] border-none rounded-[var(--rs)] shadow-[0_4px_16px_rgba(232,98,10,0.30)] ${
+            isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer hover:-translate-y-0.5'
+          }`}
+          style={{ letterSpacing: '0.3px', padding: '14px 24px' }}
+          onMouseEnter={(e) => { if (!isSubmitting) e.currentTarget.style.background = 'var(--orange-soft)'; }}
+          onMouseLeave={(e) => { if (!isSubmitting) e.currentTarget.style.background = 'var(--orange)'; }}
         >
-          Send My Enquiry
-          <Send size={18} strokeWidth={2.2} />
+          {isSubmitting ? 'Sending…' : 'Send My Enquiry'}
+          {!isSubmitting && <Send size={18} strokeWidth={2.2} />}
         </button>
+
+        {/* API-level error */}
+        {apiError && (
+          <p className="mt-3 text-center text-[13px] font-semibold text-[#C0392B]">{apiError}</p>
+        )}
 
         {/* Security note */}
         <div className="flex items-center justify-center gap-[6px] mt-3 text-xs text-faint">
           <Lock size={13} strokeWidth={2} />
           Your data is secure and never sold to third parties
         </div>
-      </div>
+      </form>
     </div>
   );
 }

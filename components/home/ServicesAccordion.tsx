@@ -148,19 +148,17 @@ export default function ServicesAccordion() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? -1 : i);
 
   return (
-    <section className="px-14 py-10">
+    <section className="px-6 md:px-14 py-10">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-[22px]">
           <div className="text-[11px] font-bold uppercase tracking-[2.5px] mb-[14px] text-center text-brand-orange">
             What we do
           </div>
-          <h2
-            className="font-serif-num mb-4 text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]"
-          >
+          <h2 className="font-serif-num mb-4 text-[28px] sm:text-[36px] md:text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12]">
             Everything your business needs, under one roof
           </h2>
-          <p className="mx-auto max-w-[560px] text-[17px] text-muted leading-[1.7] font-light">
+          <p className="mx-auto max-w-[560px] text-[15px] md:text-[17px] text-muted leading-[1.7] font-light">
             Click any service to explore. From electricity to solar, we find the best deal and
             manage the full journey.
           </p>
@@ -187,22 +185,21 @@ export default function ServicesAccordion() {
                 }}
               >
                 {/* Row head */}
-                <div className="flex items-center gap-6 px-8 py-7">
-                  <div
-                    className="font-serif-num flex-shrink-0 w-14 text-[42px] font-bold text-brand-orange leading-none"
-                  >
+                <div className="flex items-center gap-3 md:gap-6 px-4 md:px-8 py-5 md:py-7">
+                  {/* Number — hidden on mobile */}
+                  <div className="hidden md:block font-serif-num flex-shrink-0 w-14 text-[42px] font-bold text-brand-orange leading-none">
                     {svc.num}
                   </div>
+                  {/* Icon */}
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0"
                     style={{ background: svc.iconBg }}
                   >
-                    <svc.Icon size={26} style={{ color: svc.iconColor }} />
+                    <svc.Icon size={20} style={{ color: svc.iconColor }} />
                   </div>
-                  <div className="flex-1">
-                    <h3
-                      className="font-serif-num flex items-center gap-[10px] mb-[3px] text-[26px] font-semibold text-ink tracking-[-0.3px]"
-                    >
+                  {/* Text */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif-num flex flex-wrap items-center gap-[8px] mb-[3px] text-[17px] md:text-[26px] font-semibold text-ink tracking-[-0.3px]">
                       {svc.title}
                       {svc.badge && (
                         <span
@@ -213,12 +210,13 @@ export default function ServicesAccordion() {
                         </span>
                       )}
                     </h3>
-                    <p className="text-[14.5px] text-muted font-light">
+                    <p className="text-[13px] md:text-[14.5px] text-muted font-light leading-[1.4]">
                       {svc.subtitle}
                     </p>
                   </div>
+                  {/* Plus */}
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                    className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300"
                     style={
                       isOpen
                         ? {
@@ -234,7 +232,7 @@ export default function ServicesAccordion() {
                           }
                     }
                   >
-                    <Plus size={18} />
+                    <Plus size={16} />
                   </div>
                 </div>
 
@@ -243,12 +241,9 @@ export default function ServicesAccordion() {
                   className="overflow-hidden transition-all duration-[400ms] ease-in-out"
                   style={{ maxHeight: isOpen ? '320px' : '0' }}
                 >
-                  <div
-                    className="grid gap-8 items-center"
-                    style={{ padding: '0 32px 32px 96px', gridTemplateColumns: '1.5fr 1fr' }}
-                  >
+                  <div className="grid gap-6 md:gap-8 items-center px-4 pb-5 md:pb-8 md:pl-24 md:pr-8 grid-cols-1 md:grid-cols-[1.5fr_1fr]">
                     <div>
-                      <div className="flex gap-2 flex-wrap mb-[18px]">
+                      <div className="flex gap-2 flex-wrap mb-[14px] md:mb-[18px]">
                         {svc.tags.map((tag) => (
                           <span
                             key={tag}
@@ -258,7 +253,7 @@ export default function ServicesAccordion() {
                           </span>
                         ))}
                       </div>
-                      <p className="mb-[18px] text-sm text-muted leading-[1.7]">
+                      <p className="mb-[14px] md:mb-[18px] text-sm text-muted leading-[1.7]">
                         {svc.description}
                       </p>
                       <a
@@ -269,7 +264,7 @@ export default function ServicesAccordion() {
                         {svc.linkText}
                       </a>
                     </div>
-                    <div className="rounded-[var(--r)] overflow-hidden h-[160px]">
+                    <div className="hidden md:block rounded-[var(--r)] overflow-hidden h-[160px]">
                       <img
                         src={svc.image}
                         alt={svc.imageAlt}
