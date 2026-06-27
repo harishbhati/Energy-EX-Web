@@ -18,7 +18,7 @@ function Pill({ label, Icon, href }: { label: string; Icon: LucideIcon; href: st
       href={href}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="inline-flex items-center gap-[7px] lg:gap-[10px] rounded-[40px] border-[1.5px] border-white/10 px-[14px] py-[9px] lg:px-6 lg:py-[13px] text-[12px] lg:text-[14.5px] font-bold text-white/55 transition-all duration-200 hover:text-white hover:border-transparent hover:-translate-y-0.5 whitespace-nowrap"
+      className="inline-flex items-center gap-[7px] lg:gap-[10px] rounded-[40px] border-[1.5px] border-white/10 px-[14px] py-[9px] lg:px-6 lg:py-[13px] text-[12px] lg:text-[14.5px] font-bold text-white/55 transition-all duration-200 hover:text-white hover:border-transparent whitespace-nowrap"
       style={{
         background: hovered ? 'linear-gradient(135deg,#e8620a,#f47b25)' : 'rgba(255,255,255,0.04)',
       }}

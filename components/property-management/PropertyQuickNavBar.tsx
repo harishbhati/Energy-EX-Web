@@ -1,34 +1,51 @@
 'use client';
 
-import { AlertTriangle, Building2, Package, RefreshCw, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import { AlertTriangle, Building2, Package, RefreshCw, ShieldCheck, LucideIcon } from 'lucide-react';
 
-const navItems = [
-  { href: '#challenges', label: 'Challenges', Icon: AlertTriangle },
-  { href: '#support', label: 'Who We Support', Icon: Building2 },
-  { href: '#services', label: 'Our Services', Icon: Package },
-  { href: '#process', label: 'How It Works', Icon: RefreshCw },
-  { href: '#why', label: 'Why Energyex', Icon: ShieldCheck },
+const navItems: { id: string; Icon: LucideIcon; label: string }[] = [
+  { id: 'challenges', Icon: AlertTriangle, label: 'Challenges' },
+  { id: 'support', Icon: Building2, label: 'Who We Support' },
+  { id: 'services', Icon: Package, label: 'Our Services' },
+  { id: 'process', Icon: RefreshCw, label: 'How It Works' },
+  { id: 'why', Icon: ShieldCheck, label: 'Why Energyex' },
 ];
 
 export default function PropertyQuickNavBar() {
+  const [hovered, setHovered] = useState<string | null>(null);
+
   return (
     <nav
-      aria-label="Page sections"
-      className="sticky top-[74px] z-[100] bg-navy-2 border-b border-white/[0.09] px-6 lg:px-14 overflow-x-auto"
+      aria-label="Property management sections"
+      className="sticky top-[74px] z-[100] bg-navy-2 border-b border-white/[0.07] px-4 lg:px-14 py-3 lg:py-6"
     >
-      <ul className="flex items-center gap-[4px] max-w-[1180px] mx-auto w-max lg:w-auto min-w-full">
-        {navItems.map(({ href, label, Icon }) => (
-          <li key={href}>
+      <div className="max-w-[1180px] mx-auto overflow-x-auto scrollbar-none -mx-1 px-1">
+        <div className="flex items-center gap-[8px] lg:gap-[10px] lg:justify-center min-w-max lg:min-w-0">
+          {navItems.map(({ id, Icon, label }) => (
             <a
-              href={href}
-              className="group flex items-center gap-[7px] px-[14px] py-[13px] text-[12.5px] font-semibold text-white/55 whitespace-nowrap transition-all duration-[220ms] rounded-[6px] hover:bg-gradient-to-br hover:from-brand-orange hover:to-brand-orange-soft hover:text-white hover:shadow-[0_8px_24px_rgba(232,98,10,0.4)] hover:-translate-y-[2px] hover:border-transparent"
+              key={id}
+              href={`#${id}`}
+              onMouseEnter={() => setHovered(id)}
+              onMouseLeave={() => setHovered(null)}
+              className={`inline-flex items-center gap-[7px] lg:gap-[10px] px-[14px] py-[9px] lg:px-[22px] lg:py-[13px] rounded-[40px] border-[1.5px] text-[12px] lg:text-[14.5px] font-bold transition-all duration-[250ms] whitespace-nowrap ${
+                hovered === id
+                  ? 'bg-gradient-to-br from-brand-orange to-brand-orange-soft text-white border-transparent shadow-[0_8px_24px_rgba(232,98,10,0.4)]'
+                  : 'bg-white/[0.04] text-white/55 border-white/10'
+              }`}
             >
-              <Icon size={13} className="flex-shrink-0 opacity-70 group-hover:opacity-100" />
-              {label}
+              <span
+                className={`w-5 h-5 lg:w-7 lg:h-7 rounded-[6px] lg:rounded-[8px] flex items-center justify-center flex-shrink-0 transition-colors duration-[250ms] relative z-[1] ${
+                  hovered === id ? 'bg-white/[0.18]' : 'bg-white/[0.08]'
+                }`}
+              >
+                <Icon size={11} className="lg:hidden" />
+                <Icon size={15} className="hidden lg:block" />
+              </span>
+              <span className="relative z-[1]">{label}</span>
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
     </nav>
   );
 }

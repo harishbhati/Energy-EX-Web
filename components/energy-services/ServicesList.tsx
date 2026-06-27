@@ -122,7 +122,7 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <div
       id={service.id}
-      className="grid overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 hover:-translate-y-[3px] transition-all duration-300 scroll-mt-[170px]"
+      className="grid overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 hover:-translate-y-[3px] transition-all duration-300 scroll-mt-[0]"
       style={{ gridTemplateColumns: service.reverse ? '1fr 360px' : '360px 1fr' }}
     >
       {service.reverse ? <>{contentCol}{imageCol}</> : <>{imageCol}{contentCol}</>}

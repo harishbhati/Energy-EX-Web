@@ -84,7 +84,7 @@ const services: Service[] = [
       { label: 'Compliance', title: 'P272 Mandated', desc: 'Managed compliance for sites above the 100MWh threshold.' },
       { label: 'Savings', title: 'Demand Profiling', desc: 'Identify and reduce expensive peak-demand windows.' },
     ],
-    imageUrl: 'https://images.pexels.com/photos/9100/pexels-photo-9100.jpeg?auto=compress&cs=tinysrgb&w=300',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop',
     imageAlt: 'Half-hourly electricity meters',
   },
 ];
@@ -100,7 +100,7 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
   return (
     <div
       id={service.id}
-      className={`scroll-mt-[170px] grid grid-cols-1 md:grid-cols-[50px_150px_1fr] gap-4 md:gap-[26px] items-start px-5 py-6 md:px-[32px] md:py-[34px] ${
+      className={`scroll-mt-[0] grid grid-cols-1 md:grid-cols-[50px_150px_1fr] gap-4 md:gap-[26px] items-start px-5 py-6 md:px-[32px] md:py-[34px] ${
         isEven ? 'bg-[#F6F8FB]' : 'bg-white'
       }`}
     >

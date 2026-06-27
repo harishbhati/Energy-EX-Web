@@ -19,7 +19,7 @@ export default function FrustrationsSection() {
   return (
     <section
       id="challenges"
-      className="scroll-mt-[170px] bg-white px-6 lg:px-14 py-10"
+      className="scroll-mt-[0] bg-white px-6 lg:px-14 py-10"
     >
       <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-[48px] items-start">
         {/* Left — pain list */}

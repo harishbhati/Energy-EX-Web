@@ -43,7 +43,7 @@ export default function HeroBeyondProcurement() {
         <div className="flex items-center gap-5 flex-wrap">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white px-[28px] py-[13px] rounded-rs text-[14.5px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] hover:-translate-y-[2px] transition-all duration-[250ms] w-fit"
+            className="inline-flex items-center gap-2 bg-brand-orange text-white px-[28px] py-[13px] rounded-rs text-[14.5px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
           >
             Get a Free Bill Review →
           </Link>

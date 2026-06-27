@@ -39,7 +39,7 @@ export default function CapacitySection() {
   return (
     <section
       id="capacity"
-      className="scroll-mt-[170px] bg-navy px-6 md:px-14 py-12 md:py-[88px] relative overflow-hidden"
+      className="scroll-mt-[0] bg-navy px-6 md:px-14 py-12 md:py-[88px] relative overflow-hidden"
     >
       <div
         className="absolute pointer-events-none"

@@ -2,9 +2,27 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Zap, Flame, Sun, PlugZap, BarChart3, Droplets, Recycle, Building2, Sparkles, type LucideIcon } from 'lucide-react';
 
 type DropdownItem = { icon: string; label: string; description: string; href: string };
 type NavLink = { label: string; href: string; active?: boolean; dropdown?: DropdownItem[] };
+
+const NAV_ICON_MAP: Record<string, LucideIcon> = {
+  zap: Zap,
+  flame: Flame,
+  sun: Sun,
+  plugZap: PlugZap,
+  barChart: BarChart3,
+  droplets: Droplets,
+  recycle: Recycle,
+  building: Building2,
+  sparkles: Sparkles,
+};
+
+function NavIcon({ name }: { name: string }) {
+  const Icon = NAV_ICON_MAP[name];
+  return Icon ? <Icon size={18} className="text-brand-orange" /> : null;
+}
 
 export default function NavLinks({ navLinks }: { navLinks: NavLink[] }) {
   const pathname = usePathname();
@@ -52,11 +70,11 @@ export default function NavLinks({ navLinks }: { navLinks: NavLink[] }) {
                         }`}
                       >
                         <span
-                          className={`w-[38px] h-[38px] rounded-[8px] flex items-center justify-center text-[18px] flex-shrink-0 ${
+                          className={`w-[38px] h-[38px] rounded-[8px] flex items-center justify-center flex-shrink-0 ${
                             isItemActive ? 'bg-brand-orange/[0.2]' : 'bg-orange-tint'
                           }`}
                         >
-                          {item.icon}
+                          <NavIcon name={item.icon} />
                         </span>
                         <span className="flex flex-col">
                           <span

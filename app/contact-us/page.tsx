@@ -10,6 +10,19 @@ export const metadata = {
   title: 'Contact Us | Energyex — Energy Management Experts',
   description:
     'Get in touch with our energy procurement specialists. Free quotes within 24 hours for electricity, gas, water, solar and facility services.',
+  openGraph: {
+    title: 'Contact Energyex — Get a Free Energy Quote',
+    description:
+      'Speak to an independent energy specialist. Free quotes within 24 hours — no jargon, no pressure.',
+    type: 'website',
+    url: '/contact-us',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Energyex | Free Energy Quote',
+    description: 'Get a free, no-obligation energy quote within 24 hours. Independent advice for UK businesses.',
+  },
+  alternates: { canonical: '/contact-us' },
 };
 
 export default function ContactPage() {

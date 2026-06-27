@@ -1,8 +1,9 @@
 import { homePageSchema } from '@/lib/schemas';
 
 export const siteMeta = {
-  title: 'Energyex — About Us',
-  description: 'Independent UK energy consultancy with proven track record in energy procurement and account management.',
+  title: 'Energyex — Independent UK Business Energy Broker',
+  description:
+    'Energyex is an independent UK energy broker helping businesses save on electricity, gas, water, solar, waste and facility services. Free quotes within 24 hours. 10,000+ clients served.',
 };
 
 export const homePage = homePageSchema.parse({
@@ -13,21 +14,21 @@ export const homePage = homePageSchema.parse({
       label: 'Energy Services',
       href: '/our-services',
       dropdown: [
-        { icon: '⚡', label: 'Electricity Procurement', description: '20+ suppliers compared, HH & NHH contracts.', href: '/electricity-procurement' },
-        { icon: '🔥', label: 'Gas Procurement', description: 'Independent brokerage, full contract management.', href: '/gas-procurement' },
-        { icon: '☀️', label: 'Solar Procurement', description: 'Buy outright or zero-upfront PPA.', href: '/solar-procurement' },
-        { icon: '🔌', label: 'New Connections', description: 'New supply set-up and meter installs.', href: '/new-connections' },
-        { icon: '📊', label: 'Beyond Procurement', description: 'Compliance, billing checks & usage reporting.', href: '/beyond-procurement' },
+        { icon: 'zap', label: 'Electricity Procurement', description: '20+ suppliers compared, HH & NHH contracts.', href: '/electricity-procurement' },
+        { icon: 'flame', label: 'Gas Procurement', description: 'Independent brokerage, full contract management.', href: '/gas-procurement' },
+        { icon: 'sun', label: 'Solar Procurement', description: 'Buy outright or zero-upfront PPA.', href: '/solar-procurement' },
+        { icon: 'plugZap', label: 'New Connections', description: 'New supply set-up and meter installs.', href: '/new-connections' },
+        { icon: 'barChart', label: 'Beyond Procurement', description: 'Compliance, billing checks & usage reporting.', href: '/beyond-procurement' },
       ],
     },
     {
       label: 'Facility Services',
       href: '/our-partners',
       dropdown: [
-        { icon: '💧', label: 'Water Procurement', description: 'Switch supplier, compare business rates.', href: '/water-procurement' },
-        { icon: '♻️', label: 'Waste Procurement', description: 'Collection, recycling, hazardous disposal.', href: '/waste-procurement' },
-        { icon: '🏢', label: 'Property Management', description: 'One contact, full portfolio control.', href: '/property-management' },
-        { icon: '🧹', label: 'Cleaning Services', description: 'Six specialist services, eco-friendly.', href: '/cleaning-services' },
+        { icon: 'droplets', label: 'Water Procurement', description: 'Switch supplier, compare business rates.', href: '/water-procurement' },
+        { icon: 'recycle', label: 'Waste Procurement', description: 'Collection, recycling, hazardous disposal.', href: '/waste-procurement' },
+        { icon: 'building', label: 'Property Management', description: 'One contact, full portfolio control.', href: '/property-management' },
+        { icon: 'sparkles', label: 'Cleaning Services', description: 'Six specialist services, eco-friendly.', href: '/cleaning-services' },
       ],
     },
     { label: 'Contact Us', href: '/contact-us' },

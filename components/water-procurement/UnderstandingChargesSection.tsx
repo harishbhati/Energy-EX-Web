@@ -11,7 +11,7 @@ const billLines: { label: string; badge: string }[] = [
 
 export default function UnderstandingChargesSection() {
   return (
-    <section id="charges" className="scroll-mt-[170px] bg-white px-6 lg:px-14 py-10">
+    <section id="charges" className="scroll-mt-[0] bg-white px-6 lg:px-14 py-10">
       <div className="max-w-[1180px] mx-auto">
         <div className="mb-8">
           <p className="text-[11px] font-bold text-brand-orange uppercase tracking-[2.5px] mb-[14px]">

@@ -148,7 +148,7 @@ function ServiceCard({ service }: { service: RegularService }) {
   return (
     <div
       id={service.id}
-      className="grid overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 hover:-translate-y-[3px] transition-all duration-300 scroll-mt-[170px]"
+      className="grid overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 hover:-translate-y-[3px] transition-all duration-300 scroll-mt-[0]"
       style={{ gridTemplateColumns: service.reverse ? '1fr 360px' : '360px 1fr' }}
     >
       {service.reverse ? (
@@ -171,7 +171,7 @@ function CleaningCard() {
   return (
     <div
       id="cleaning"
-      className="overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 transition-all duration-300 scroll-mt-[170px] bg-white"
+      className="overflow-hidden rounded-rl border-2 border-border-color hover:border-brand-orange hover:shadow-sh2 transition-all duration-300 scroll-mt-[0] bg-white"
     >
       {/* Top: image left + content right */}
       <div className="grid" style={{ gridTemplateColumns: '360px 1fr', minHeight: '280px' }}>

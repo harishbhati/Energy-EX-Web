@@ -28,9 +28,22 @@ const facilityFAQs = [
 ];
 
 export const metadata = {
-  title: 'Facility Services | Energyex — Property & Facility Management',
+  title: 'Facility Services | Energyex — Water, Waste, Cleaning & Property Management',
   description:
-    'Water, waste, property management and cleaning for UK businesses. One trusted partner for every site in your portfolio.',
+    'Independent facility services for UK businesses — water procurement, waste management, commercial cleaning, and property utility management. One trusted contact for every site in your portfolio.',
+  openGraph: {
+    title: 'Facility Services | Energyex — UK Facility Management',
+    description:
+      'Water, waste, cleaning and property management for UK businesses. Bundle services under one contact, one renewal calendar.',
+    type: 'website',
+    url: '/our-partners',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Facility Services | Energyex',
+    description: 'Water, waste, cleaning and property management — all through one independent contact.',
+  },
+  alternates: { canonical: '/our-partners' },
 };
 
 export default function FacilityServicesPage() {
