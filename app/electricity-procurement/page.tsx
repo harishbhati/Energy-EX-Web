@@ -32,6 +32,19 @@ export const metadata = {
   title: 'Electricity Procurement | Energyex — Independent Business Energy Broker',
   description:
     'Compare 20+ electricity suppliers for your business. Fixed, flexible, corporate, SME and half-hourly contracts — managed by an independent UK energy broker.',
+  openGraph: {
+    title: 'Electricity Procurement | Energyex — UK Business Energy Broker',
+    description:
+      'Fixed, flexible, corporate, SME and half-hourly electricity contracts. Independent advice — not tied to any supplier. 20+ suppliers compared.',
+    type: 'website',
+    url: '/electricity-procurement',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Electricity Procurement | Energyex',
+    description: 'Compare 20+ electricity suppliers for your business. Independent UK energy broker — free quotes within 24 hours.',
+  },
+  alternates: { canonical: '/electricity-procurement' },
 };
 
 export default function ElectricityProcurementPage() {

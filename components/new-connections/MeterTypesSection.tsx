@@ -58,7 +58,7 @@ const meterTypes: MeterCard[] = [
 
 export default function MeterTypesSection() {
   return (
-    <section id="meters" className="scroll-mt-[170px] bg-navy px-6 lg:px-14 py-12 relative overflow-hidden">
+    <section id="meters" className="scroll-mt-[0] bg-navy px-6 lg:px-14 py-12 relative overflow-hidden">
       {/* Glow */}
       <div className="absolute -top-[200px] -left-[160px] w-[560px] h-[560px] rounded-full bg-brand-orange/[0.14] blur-[80px] pointer-events-none" />
 

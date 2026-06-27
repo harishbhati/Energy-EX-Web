@@ -85,9 +85,17 @@ export default function Footer({ footer }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex items-center justify-between pt-[26px] flex-wrap gap-[10px]">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-[26px] gap-[10px]">
           <div className="text-xs text-white/30">{footer.copyright}</div>
-          <div className="text-xs text-white/30">{footer.extra}</div>
+          <div className="flex items-center gap-[14px] text-xs text-white/30">
+            <Link href="/privacy" className="hover:text-white/60 transition-colors duration-200">
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">·</span>
+            <Link href="/complaints" className="hover:text-white/60 transition-colors duration-200">
+              Complaints Procedure
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

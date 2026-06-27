@@ -79,7 +79,7 @@ function ServiceRow({ service, isEven }: { service: Service; isEven: boolean }) 
   return (
     <div
       id={service.id}
-      className={`scroll-mt-[170px] grid grid-cols-1 lg:grid-cols-[50px_150px_1fr] gap-[26px] items-start py-[34px] px-6 lg:px-8 ${
+      className={`scroll-mt-[0] grid grid-cols-1 lg:grid-cols-[50px_150px_1fr] gap-[26px] items-start py-[34px] px-6 lg:px-8 ${
         isEven ? 'bg-off' : 'bg-white'
       }`}
     >

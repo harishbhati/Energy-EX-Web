@@ -210,7 +210,7 @@ export default function QuoteModal() {
           <button
             onClick={closeModal}
             aria-label="Close modal"
-            className="absolute top-[18px] right-[18px] w-[34px] h-[34px] rounded-full bg-white/10 border border-white/[0.18] text-white flex items-center justify-center transition-colors duration-200 hover:bg-white/20 z-[2]"
+            className="absolute top-[18px] right-[18px] cursor-pointer w-[34px] h-[34px] rounded-full bg-white/10 border border-white/[0.18] text-white flex items-center justify-center transition-colors duration-200 hover:bg-white/20 z-[2]"
           >
             <X size={15} />
           </button>

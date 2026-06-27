@@ -86,7 +86,7 @@ export default function BeyondServicesList() {
             <div
               key={svc.id}
               id={svc.id}
-              className={`scroll-mt-[170px] grid grid-cols-1 lg:grid-cols-[50px_100px_1fr] gap-[26px] items-start py-[24px] px-[20px] lg:py-[34px] lg:px-[32px] ${
+              className={`scroll-mt-[0] grid grid-cols-1 lg:grid-cols-[50px_100px_1fr] gap-[26px] items-start py-[24px] px-[20px] lg:py-[34px] lg:px-[32px] ${
                 i > 0 ? 'border-t border-border-color' : ''
               } ${i % 2 === 1 ? 'bg-off' : 'bg-white'}`}
             >

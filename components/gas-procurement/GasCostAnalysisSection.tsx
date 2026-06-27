@@ -46,7 +46,7 @@ export default function GasCostAnalysisSection() {
   return (
     <section
       id="analysis"
-      className="scroll-mt-[170px] bg-navy px-6 lg:px-14 py-10 relative overflow-hidden"
+      className="scroll-mt-[0] bg-navy px-6 lg:px-14 py-10 relative overflow-hidden"
     >
       {/* Glow */}
       <div className="absolute -top-[220px] -left-[220px] w-[600px] h-[600px] rounded-full bg-brand-orange/10 blur-[80px] pointer-events-none" />

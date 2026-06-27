@@ -15,14 +15,14 @@ const pills = [
 
 export default function SmartMeteringSection() {
   return (
-    <section id="smart" className="scroll-mt-[170px] bg-white px-6 lg:px-14 py-10">
+    <section id="smart" className="scroll-mt-[0] bg-white px-6 lg:px-14 py-10">
       <div className="max-w-[1180px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 items-center bg-off rounded-rl py-[32px] px-[24px] lg:py-[44px] lg:px-[44px] border border-border-color">
 
           {/* Smart meter SVG */}
           <div className="flex items-center justify-center order-first lg:order-none">
             <svg
-              className="w-full max-w-[200px]"
+              className="w-full max-w-[100px] md:max-w-[200px]"
               viewBox="0 0 160 200"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

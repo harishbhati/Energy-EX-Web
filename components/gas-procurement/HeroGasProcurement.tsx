@@ -30,7 +30,7 @@ export default function HeroGasProcurement() {
         </p>
         <Link
           href="/contact-us"
-          className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold w-fit shadow-[0_8px_28px_rgba(232,98,10,0.4)] transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold w-fit shadow-[0_8px_28px_rgba(232,98,10,0.4)] transition-all duration-200 hover:opacity-90"
         >
           Get a Free Quote →
         </Link>

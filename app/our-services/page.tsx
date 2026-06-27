@@ -33,9 +33,22 @@ const energyFAQs = [
 ];
 
 export const metadata = {
-  title: 'Energy Services | Energyex — UK Energy Procurement',
+  title: 'Energy Services | Energyex — Electricity, Gas & Solar for UK Businesses',
   description:
-    'Electricity, gas and solar procurement for UK businesses. Independent broker, 20+ suppliers, 24-hour quotes.',
+    'Independent electricity, gas, solar and new connections procurement for UK businesses. Compare 20+ suppliers, get 24-hour quotes, and switch with zero hassle.',
+  openGraph: {
+    title: 'Energy Services | Energyex — UK Business Energy Broker',
+    description:
+      'Electricity, gas, solar and new connections. Independent broker — not tied to any supplier. 20+ suppliers compared, free quotes within 24 hours.',
+    type: 'website',
+    url: '/our-services',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Energy Services | Energyex',
+    description: 'Electricity, gas, solar and new connections for UK businesses. Independent, free, 24-hour quotes.',
+  },
+  alternates: { canonical: '/our-services' },
 };
 
 export default function EnergyServicesPage() {

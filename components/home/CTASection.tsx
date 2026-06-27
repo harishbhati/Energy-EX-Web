@@ -1,10 +1,14 @@
+'use client';
+
 import { Phone } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 type CTAProps = {
   contact: { phone: string };
 };
 
 export default function CTASection({ contact }: CTAProps) {
+  const { openModal } = useQuoteModal();
   return (
     /* On mobile: normal flow (no translate).
        On md+: translate-y-1/2 so the box overlaps into the footer. */
@@ -34,12 +38,12 @@ export default function CTASection({ contact }: CTAProps) {
 
           {/* Right */}
           <div className="flex flex-col gap-3 items-start md:items-start flex-shrink-0">
-            <a
-              href="/quote"
-              className="font-bold whitespace-nowrap rounded-[var(--rs)] px-[28px] md:px-[34px] py-4 bg-white text-brand-orange-deep text-[15px] shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
+            <button
+              onClick={openModal}
+              className="cursor-pointer font-bold whitespace-nowrap rounded-[var(--rs)] px-[28px] md:px-[34px] py-4 bg-white text-brand-orange-deep text-[15px] shadow-[0_8px_24px_rgba(0,0,0,0.15)] hover:-translate-y-px transition-transform duration-200"
             >
               Get My Free Quote →
-            </a>
+            </button>
             <div className="flex items-center gap-2 font-medium text-sm text-white/95">
               <Phone size={15} className="flex-shrink-0" />
               Or call us:{' '}

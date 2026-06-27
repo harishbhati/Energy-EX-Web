@@ -23,7 +23,7 @@ const fundingOptions = [
 
 export default function FundingOptionsSection() {
   return (
-    <section id="funding" className="scroll-mt-[170px] bg-navy px-6 lg:px-14 py-12 relative overflow-hidden">
+    <section id="funding" className="scroll-mt-[0] bg-navy px-6 lg:px-14 py-12 relative overflow-hidden">
       {/* Amber glow – no inline style */}
       <div className="absolute -top-[200px] -right-[160px] w-[560px] h-[560px] rounded-full bg-[#F2A93B]/[0.16] blur-[80px] pointer-events-none" />
 

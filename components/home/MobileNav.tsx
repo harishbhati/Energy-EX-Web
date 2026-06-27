@@ -2,12 +2,29 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Zap, Flame, Sun, PlugZap, BarChart3, Droplets, Recycle, Building2, Sparkles, type LucideIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 type DropdownItem = { icon: string; label: string; description: string; href: string };
 type NavLink = { label: string; href: string; dropdown?: DropdownItem[] };
+
+const NAV_ICON_MAP: Record<string, LucideIcon> = {
+  zap: Zap,
+  flame: Flame,
+  sun: Sun,
+  plugZap: PlugZap,
+  barChart: BarChart3,
+  droplets: Droplets,
+  recycle: Recycle,
+  building: Building2,
+  sparkles: Sparkles,
+};
+
+function NavIcon({ name }: { name: string }) {
+  const Icon = NAV_ICON_MAP[name];
+  return Icon ? <Icon size={18} className="text-brand-orange" /> : null;
+}
 
 export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,7 +116,9 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
                               isItemActive ? 'bg-orange-tint' : 'hover:bg-off'
                             }`}
                           >
-                            <span className="text-[18px] flex-shrink-0">{item.icon}</span>
+                            <span className="w-[30px] h-[30px] rounded-[6px] flex items-center justify-center flex-shrink-0 bg-orange-tint">
+                              <NavIcon name={item.icon} />
+                            </span>
                             <div>
                               <div
                                 className={`text-[14px] font-semibold ${

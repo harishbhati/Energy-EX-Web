@@ -28,7 +28,7 @@ export default function WaterQuickNavBar() {
               onMouseLeave={() => setHovered(null)}
               className={`inline-flex items-center gap-[7px] lg:gap-[10px] px-[14px] py-[9px] lg:px-[22px] lg:py-[13px] rounded-[40px] border-[1.5px] text-[12px] lg:text-[14.5px] font-bold transition-all duration-[250ms] whitespace-nowrap ${
                 hovered === id
-                  ? 'bg-gradient-to-br from-brand-orange to-brand-orange-soft text-white border-transparent shadow-[0_8px_24px_rgba(232,98,10,0.4)] -translate-y-[2px]'
+                  ? 'bg-gradient-to-br from-brand-orange to-brand-orange-soft text-white border-transparent shadow-[0_8px_24px_rgba(232,98,10,0.4)]'
                   : 'bg-white/[0.04] text-white/55 border-white/10'
               }`}
             >

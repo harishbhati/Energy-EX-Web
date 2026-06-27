@@ -50,7 +50,7 @@ export default function HeroElectricityProcurement() {
         </p>
         <Link
           href="/contact-us"
-          className="inline-flex items-center gap-2 text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold w-fit transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
+          className="inline-flex items-center gap-2 text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold w-fit transition-all duration-200 hover:opacity-90"
           style={{ background: '#E8620A', boxShadow: '0 8px 28px rgba(232,98,10,0.4)' }}
         >
           Get a Free Quote →
