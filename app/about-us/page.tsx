@@ -40,7 +40,7 @@ export default function AboutPage() {
       <WhyChooseUs />
       <ValuesSection />
       <AboutCTA />
-      <Footer footer={homePage.footer} />
+      <Footer footer={homePage.footer} compact />
     </main>
   );
 }

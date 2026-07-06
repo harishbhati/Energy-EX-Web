@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { Sun } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 export default function HeroSolarProcurement() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[440px] bg-navy">
       {/* Left */}
@@ -31,12 +35,12 @@ export default function HeroSolarProcurement() {
           — just the solution that fits your roof, budget, and goals.
         </p>
 
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
+        <button
+          onClick={openModal}
+          className="cursor-pointer inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
         >
           Get a Free Quote →
-        </Link>
+        </button>
       </div>
 
       {/* Right – solar SVG illustration */}

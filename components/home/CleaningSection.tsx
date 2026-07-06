@@ -31,7 +31,7 @@ export default function CleaningSection() {
             facilities too. So we did — with the same care and value.
           </p>
           <a
-            href="/cleaning"
+            href="/cleaning-services"
             className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all duration-200 text-[15px]"
             style={{ color: 'var(--green)' }}
           >

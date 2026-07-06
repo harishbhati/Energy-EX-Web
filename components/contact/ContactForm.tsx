@@ -353,7 +353,7 @@ export default function ContactForm() {
           <div>
             <label htmlFor="consent" className="cursor-pointer text-[13px] text-muted leading-[1.5]">
               I agree to Energyex processing my data to respond to this enquiry. View our{' '}
-              <a href="/privacy-policy" className="text-brand-orange">Privacy Policy</a> and{' '}
+              <a href="/privacy" className="text-brand-orange">Privacy Policy</a> and{' '}
               <a href="/complaints" className="text-brand-orange">Complaints Procedure</a>.
             </label>
             {errors.consent && (

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 type HeroStat = { num: number; suffix: string; label: string; useComma?: boolean };
 
@@ -12,7 +13,6 @@ type HeroProps = {
   subtitleBold: string;
   subtitleEnd: string;
   primaryCtaLabel: string;
-  primaryCtaHref: string;
   secondaryCtaLabel: string;
   secondaryCtaHref: string;
   stats: HeroStat[];
@@ -27,12 +27,12 @@ export default function HeroSection({
   subtitleBold,
   subtitleEnd,
   primaryCtaLabel,
-  primaryCtaHref,
   secondaryCtaLabel,
   secondaryCtaHref,
   stats,
   backgroundImage,
 }: HeroProps) {
+  const { openModal } = useQuoteModal();
   const [counts, setCounts] = useState(() => stats.map(() => 0));
   const animated = useRef(false);
 
@@ -121,12 +121,12 @@ export default function HeroSection({
 
         {/* CTAs */}
         <div className="flex items-center justify-center gap-3 flex-wrap mb-9 md:mb-10">
-          <a
-            href={primaryCtaHref}
-            className="inline-flex items-center gap-2 text-white text-[14px] md:text-[15px] font-semibold rounded-[var(--rs)] px-6 md:px-[34px] py-[13px] md:py-[15px] hover:bg-[color:var(--orange-deep)] hover:-translate-y-0.5 transition-all duration-[250ms] bg-brand-orange shadow-[0_8px_28px_rgba(232,98,10,0.35)]"
+          <button
+            onClick={openModal}
+            className="cursor-pointer inline-flex items-center gap-2 text-white text-[14px] md:text-[15px] font-semibold rounded-[var(--rs)] px-6 md:px-[34px] py-[13px] md:py-[15px] hover:bg-[color:var(--orange-deep)] hover:-translate-y-0.5 transition-all duration-[250ms] bg-brand-orange shadow-[0_8px_28px_rgba(232,98,10,0.35)]"
           >
             {primaryCtaLabel}
-          </a>
+          </button>
           <a
             href={secondaryCtaHref}
             className="inline-flex items-center gap-[7px] text-[14px] md:text-[15px] font-medium hover:text-white transition-all duration-200 rounded-[var(--rs)] px-5 md:px-[26px] py-[12px] md:py-[14px] cursor-pointer text-white/70 border border-white/20"

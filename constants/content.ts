@@ -203,10 +203,11 @@ export const homePage = homePageSchema.parse({
       { title: 'Gas', href: '/gas-procurement' },
       { title: 'Solar', href: '/solar-procurement' },
       { title: 'New connections', href: '/new-connections' },
+      { title: 'Beyond procurement', href: '/beyond-procurement' },
     ],
     facilities: [
       { title: 'Property management', href: '/property-management' },
-      { title: 'Cleaning', href: '/cleaning' },
+      { title: 'Cleaning', href: '/cleaning-services' },
       { title: 'Water', href: '/water-procurement' },
       { title: 'Waste', href: '/waste-procurement' },
     ],

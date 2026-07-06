@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { Zap } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 export default function HeroEnergyServices() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="grid grid-cols-2 min-h-[580px]">
       {/* Left — navy */}
@@ -32,12 +37,12 @@ export default function HeroEnergyServices() {
         </p>
 
         {/* CTA */}
-        <Link
-          href="/quote"
-          className="inline-block self-start bg-brand-orange text-white text-[14.5px] font-semibold px-7 py-[13px] rounded-[var(--rs)] hover:bg-brand-orange-deep hover:-translate-y-px transition-all duration-200 shadow-[0_4px_20px_rgba(232,98,10,0.35)]"
+        <button
+          onClick={openModal}
+          className="cursor-pointer inline-block self-start bg-brand-orange text-white text-[14.5px] font-semibold px-7 py-[13px] rounded-[var(--rs)] hover:bg-brand-orange-deep hover:-translate-y-px transition-all duration-200 shadow-[0_4px_20px_rgba(232,98,10,0.35)]"
         >
           Get a Free Quote →
-        </Link>
+        </button>
       </div>
 
       {/* Right — image with overlay badge */}
@@ -56,7 +61,7 @@ export default function HeroEnergyServices() {
         />
         {/* Badge */}
         <div className="absolute bottom-8 left-8 bg-white/[0.12] backdrop-blur-[14px] border border-white/20 rounded-[var(--rs)] px-5 py-4 text-white">
-          <span className="text-2xl mr-2">⚡</span>
+          <Zap size={22} className="text-brand-orange mr-2" />
           <span className="text-[13.5px] font-semibold leading-snug">
             24-hour quote turnaround
             <br />

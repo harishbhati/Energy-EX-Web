@@ -91,7 +91,7 @@ export default function ContactPage() {
 
       <ContactTrustBar />
 
-      <Footer footer={homePage.footer} />
+      <Footer footer={homePage.footer} compact />
     </main>
   );
 }
