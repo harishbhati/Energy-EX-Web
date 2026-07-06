@@ -13,12 +13,12 @@ type FooterProps = {
     copyright: string;
     extra: string;
   };
+  compact?: boolean;
 };
 
-export default function Footer({ footer }: FooterProps) {
+export default function Footer({ footer, compact }: FooterProps) {
   return (
-    /* pt-10 on mobile (no CTA overlap), pt-[160px] on md+ to clear the translated CTA box */
-    <footer className="bg-navy pt-10 md:pt-[160px] pb-8 relative z-[1] border-t border-white/10">
+    <footer className={`bg-navy pb-8 relative z-[1] border-t border-white/10 ${compact ? 'pt-10 md:pt-14' : 'pt-10 md:pt-[140px]'}`}>
       <div className="max-w-[1180px] mx-auto px-6 md:px-14">
         {/* Top grid — stacks on mobile */}
         <div className="grid gap-8 md:gap-12 pb-10 md:pb-11 border-b border-white/[0.08] grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr]">

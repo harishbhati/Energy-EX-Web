@@ -1,13 +1,17 @@
+'use client';
+
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { homePage } from '@/constants/content';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 export default function AboutCTA() {
+  const { openModal } = useQuoteModal();
   const { phone, email, address } = homePage.contact;
 
   const contacts = [
     { Icon: Phone, label: 'Call us', value: phone, href: `tel:${phone.replace(/\s+/g, '')}` },
     { Icon: Mail, label: 'Email us', value: email, href: `mailto:${email}` },
-    { Icon: MapPin, label: 'Visit us', value: address, href: '#' },
+    { Icon: MapPin, label: 'Visit us', value: address, href: '/contact-us' },
   ];
 
   return (
@@ -39,12 +43,12 @@ export default function AboutCTA() {
             in 24 hours.
           </p>
 
-          <a
-            href="/quote"
-            className="inline-block font-bold rounded-[var(--rs)] transition-all duration-200 relative bg-white text-brand-orange py-[14px] px-[30px] text-[15px] shadow-[0_6px_24px_rgba(0,0,0,0.15)]"
+          <button
+            onClick={openModal}
+            className="cursor-pointer inline-block font-bold rounded-[var(--rs)] transition-all duration-200 relative bg-white text-brand-orange py-[14px] px-[30px] text-[15px] shadow-[0_6px_24px_rgba(0,0,0,0.15)]"
           >
             Get Your Free Quote →
-          </a>
+          </button>
         </div>
 
         {/* Right — navy */}
@@ -63,8 +67,19 @@ export default function AboutCTA() {
                   <div className="font-semibold mb-[2px] text-[11px] text-white/[0.35] tracking-[0.8px] uppercase">
                     {label}
                   </div>
-                  <div className="group-hover:text-white transition-colors duration-200 text-[15px] text-white/75 font-medium">
-                    {value}
+                  <div className="transition-colors duration-200 text-[15px] text-white/75 font-medium">
+                    {label === 'Visit us' ? (
+                      <>
+                        <span className="block group-hover:text-white transition-colors duration-200">
+                          {value.split(',')[0]}
+                        </span>
+                        <span className="block text-[13.5px] text-white/45 font-normal group-hover:text-white/70 transition-colors duration-200">
+                          {value.split(', ').slice(1).filter((p) => p.trim() !== 'England').join(', ')}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="group-hover:text-white transition-colors duration-200">{value}</span>
+                    )}
                   </div>
                 </div>
               </a>

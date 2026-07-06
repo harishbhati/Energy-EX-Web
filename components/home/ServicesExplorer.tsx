@@ -26,7 +26,7 @@ const tabs: ServiceTab[] = [
     Icon: Zap,
     label: 'Electricity',
     image:
-      'https://images.pexels.com/photos/162568/electric-towers-during-golden-hour-162568.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/electricity-towers.jpg',
     imageAlt: 'Electricity transmission tower',
     imageTitle: 'Electricity procurement',
     imageSubtitle: 'Corporate · SME · Half-hourly · Flexible',
@@ -44,7 +44,7 @@ const tabs: ServiceTab[] = [
     Icon: Flame,
     label: 'Gas',
     image:
-      'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/journey-team.jpg',
     imageAlt: 'Gas supply infrastructure',
     imageTitle: 'Gas procurement',
     imageSubtitle: 'Fixed & flexible · All business sizes',
@@ -62,7 +62,7 @@ const tabs: ServiceTab[] = [
     Icon: Sun,
     label: 'Solar',
     image:
-      'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/solar-panels.jpg',
     imageAlt: 'Solar panels',
     imageTitle: 'Solar procurement',
     imageSubtitle: 'Buy outright or zero-upfront PPA',
@@ -80,7 +80,7 @@ const tabs: ServiceTab[] = [
     Icon: Droplets,
     label: 'Water & Waste',
     image:
-      'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/water-pipes.jpg',
     imageAlt: 'Water',
     imageTitle: 'Water & Waste',
     imageSubtitle: 'The savings most businesses never claim',
@@ -98,7 +98,7 @@ const tabs: ServiceTab[] = [
     Icon: Building2,
     label: 'Property',
     image:
-      'https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/property-building.jpg',
     imageAlt: 'Corporate office building',
     imageTitle: 'Property Management',
     imageSubtitle: 'Complete utility control across your portfolio',
@@ -116,7 +116,7 @@ const tabs: ServiceTab[] = [
     Icon: Sparkles,
     label: 'Cleaning',
     image:
-      'https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=900',
+      '/images/cleaning-services.jpg',
     imageAlt: 'Cleaning services',
     imageTitle: 'Facility & cleaning',
     imageSubtitle: 'Commercial cleaning · Window · Deep · Landscaping',
@@ -127,7 +127,7 @@ const tabs: ServiceTab[] = [
       { value: 'All', label: 'Premises' },
     ],
     linkText: 'Explore facility services',
-    linkHref: '/cleaning',
+    linkHref: '/cleaning-services',
   },
 ];
 

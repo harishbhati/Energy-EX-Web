@@ -24,7 +24,7 @@ const values: Value[] = [
 
 export default function ValuesSection() {
   return (
-    <section className="px-6 md:px-14 py-12 md:py-[88px] relative overflow-hidden bg-navy">
+    <section className="px-6 md:px-14 py-10 md:py-[40px] relative overflow-hidden bg-navy">
       {/* Subtle radial glow */}
       <div
         className="absolute pointer-events-none rounded-full"

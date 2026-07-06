@@ -14,7 +14,7 @@ export const homePage = homePageSchema.parse({
       label: 'Energy Services',
       href: '/our-services',
       dropdown: [
-        { icon: 'zap', label: 'Electricity Procurement', description: '20+ suppliers compared, HH & NHH contracts.', href: '/electricity-procurement' },
+        { icon: 'zap', label: 'Electricity Procurement', description: '30+ suppliers compared, HH & NHH contracts.', href: '/electricity-procurement' },
         { icon: 'flame', label: 'Gas Procurement', description: 'Independent brokerage, full contract management.', href: '/gas-procurement' },
         { icon: 'sun', label: 'Solar Procurement', description: 'Buy outright or zero-upfront PPA.', href: '/solar-procurement' },
         { icon: 'plugZap', label: 'New Connections', description: 'New supply set-up and meter installs.', href: '/new-connections' },
@@ -46,7 +46,7 @@ export const homePage = homePageSchema.parse({
       { value: '13 Yrs', label: 'Expertise' },
       { value: '25%', label: 'Avg. Saving' },
     ],
-    heroImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop',
+    heroImage: '/images/electricity-hero-bg.jpg',
     overlay: {
       stat: '£0',
       label: 'Upfront cost to you',
@@ -88,7 +88,7 @@ export const homePage = homePageSchema.parse({
         description: 'We track price movements and advise when to lock in to avoid peaks.',
       },
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop',
+    imageUrl: '/images/who-we-are.jpg',
     imageBadge: {
       number: '13+',
       label: 'Years of energy expertise',
@@ -154,7 +154,7 @@ export const homePage = homePageSchema.parse({
         description: 'Electricity, gas, water, waste, solar — one relationship that covers everything, so nothing falls through the gaps.',
       },
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=900&q=80&fit=crop',
+    imageUrl: '/images/why-choose-us.jpg',
     heroText: 'Backed by over a decade of energy expertise, trusted by businesses across the UK',
     stats: [
       { value: '10,000+', label: 'Clients' },
@@ -196,17 +196,18 @@ export const homePage = homePageSchema.parse({
   footer: {
     logo: 'Energyex',
     tagline: 'Your trusted energy, property and facility partner — backed by 13 years of energy industry expertise.',
-    contact: 'Suite 7 Airport House, Purley Way, Croydon, England, CR0 0XZ\n0203 727 2588\ninfo@energyex.uk',
+    contact: 'Suite 7 Airport House\nPurley Way, Croydon, CR0 0XZ\n0203 727 2588\ninfo@energyex.uk',
     socialLabel: 'LinkedIn',
     services: [
       { title: 'Electricity', href: '/electricity-procurement' },
       { title: 'Gas', href: '/gas-procurement' },
       { title: 'Solar', href: '/solar-procurement' },
       { title: 'New connections', href: '/new-connections' },
+      { title: 'Beyond procurement', href: '/beyond-procurement' },
     ],
     facilities: [
       { title: 'Property management', href: '/property-management' },
-      { title: 'Cleaning', href: '/cleaning' },
+      { title: 'Cleaning', href: '/cleaning-services' },
       { title: 'Water', href: '/water-procurement' },
       { title: 'Waste', href: '/waste-procurement' },
     ],

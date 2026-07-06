@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { Building2 } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 export default function HeroFacilityServices() {
+  const { openModal } = useQuoteModal();
   return (
     <section
       className="grid bg-navy"
@@ -37,19 +41,19 @@ export default function HeroFacilityServices() {
         </p>
 
         {/* CTA */}
-        <Link
-          href="/quote"
-          className="inline-block self-start bg-brand-orange text-white text-[14.5px] font-semibold px-7 py-[13px] rounded-[var(--rs)] hover:bg-brand-orange-deep hover:-translate-y-px transition-all duration-200 shadow-[0_4px_20px_rgba(232,98,10,0.35)]"
+        <button
+          onClick={openModal}
+          className="cursor-pointer inline-block self-start bg-brand-orange text-white text-[14.5px] font-semibold px-7 py-[13px] rounded-[var(--rs)] hover:bg-brand-orange-deep hover:-translate-y-px transition-all duration-200 shadow-[0_4px_20px_rgba(232,98,10,0.35)]"
         >
           Get a Free Quote →
-        </Link>
+        </button>
       </div>
 
       {/* Right — image with overlay badge */}
       <div className="relative overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          src="/images/facility-services-hero.jpg"
           alt="Facility services"
           className="w-full h-full object-cover absolute inset-0"
         />

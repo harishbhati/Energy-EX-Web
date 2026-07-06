@@ -39,7 +39,7 @@ export const metadata = {
   openGraph: {
     title: 'Energy Services | Energyex — UK Business Energy Broker',
     description:
-      'Electricity, gas, solar and new connections. Independent broker — not tied to any supplier. 20+ suppliers compared, free quotes within 24 hours.',
+      'Electricity, gas, solar and new connections. Independent broker — not tied to any supplier. 30+ suppliers compared, free quotes within 24 hours.',
     type: 'website',
     url: '/our-services',
   },

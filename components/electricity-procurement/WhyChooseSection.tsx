@@ -8,7 +8,7 @@ const cards: { Icon: LucideIcon; title: string; desc: string }[] = [
   },
   {
     Icon: Users,
-    title: '20+ Suppliers Compared',
+    title: '30+ Suppliers Compared',
     desc: 'Full market access — not just a closed panel — so you always see the most competitive rate available.',
   },
   {

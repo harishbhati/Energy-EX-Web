@@ -35,7 +35,7 @@ export const metadata = {
   openGraph: {
     title: 'Electricity Procurement | Energyex — UK Business Energy Broker',
     description:
-      'Fixed, flexible, corporate, SME and half-hourly electricity contracts. Independent advice — not tied to any supplier. 20+ suppliers compared.',
+      'Fixed, flexible, corporate, SME and half-hourly electricity contracts. Independent advice — not tied to any supplier. 30+ suppliers compared.',
     type: 'website',
     url: '/electricity-procurement',
   },

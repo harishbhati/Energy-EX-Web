@@ -13,7 +13,7 @@ export default function CTASection({ contact }: CTAProps) {
     /* On mobile: normal flow (no translate).
        On md+: translate-y-1/2 so the box overlaps into the footer. */
     <div className="relative bg-white pb-6 md:pb-0 z-10">
-      <div className="relative mx-auto max-w-[1080px] rounded-[var(--rl)] overflow-hidden px-6 md:px-14 py-10 md:py-12 bg-[linear-gradient(135deg,#e8620a,#f47b25)] shadow-[0_24px_60px_rgba(232,98,10,0.3)] md:translate-y-1/2 z-10">
+      <div className="relative mx-auto max-w-[1080px] rounded-[var(--rl)] overflow-hidden px-6 md:px-14 py-8 md:py-10 bg-[linear-gradient(135deg,#e8620a,#f47b25)] shadow-[0_24px_60px_rgba(232,98,10,0.3)] md:translate-y-1/2 z-10">
         {/* Blobs */}
         <div
           className="absolute pointer-events-none rounded-full bg-white/10"

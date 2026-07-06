@@ -32,7 +32,7 @@ const heroSchema = z.object({
   primaryCta: ctaSchema,
   secondaryCta: ctaSchema,
   stats: z.array(heroStatSchema),
-  heroImage: z.string().url(),
+  heroImage: z.string(),
   overlay: z.object({
     stat: z.string(),
     label: z.string(),
@@ -56,7 +56,7 @@ const whoSectionSchema = z.object({
   titleLines: z.array(z.string()),
   paragraphs: z.array(z.string()),
   highlights: z.array(highlightSchema),
-  imageUrl: z.string().url(),
+  imageUrl: z.string(),
   imageBadge: z.object({
     number: z.string(),
     label: z.string(),
@@ -80,7 +80,7 @@ const whySectionSchema = z.object({
   titleLines: z.array(z.string()),
   lead: z.string(),
   cards: z.array(whyCardSchema),
-  imageUrl: z.string().url(),
+  imageUrl: z.string(),
   heroText: z.string(),
   stats: z.array(heroStatSchema),
 });
@@ -94,14 +94,6 @@ const valueCardSchema = z.object({
 const disclosureSchema = z.object({
   title: z.string(),
   text: z.string(),
-});
-
-const contactItemSchema = z.object({
-  icon: z.string(),
-  label: z.string(),
-  value: z.string(),
-  href: z.string().optional(),
-  isPlainText: z.boolean().optional(),
 });
 
 const footerSchema = z.object({
@@ -128,7 +120,7 @@ export const aboutPageSchema = z.object({
     primaryCta: ctaSchema,
     secondaryCta: ctaSchema,
     stats: z.array(aboutStatSchema),
-    image: z.string().url(),
+    image: z.string(),
     overlay: z.object({
       bigStat: z.string(),
       bigLabel: z.string(),
@@ -146,7 +138,7 @@ export const aboutPageSchema = z.object({
     highlights: z.array(
       z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
     ),
-    image: z.string().url(),
+    image: z.string(),
     badge: z.object({ num: z.string(), label: z.string() }),
   }),
   howItWorks: z.object({
@@ -164,7 +156,7 @@ export const aboutPageSchema = z.object({
     cards: z.array(
       z.object({ icon: z.string(), title: z.string(), desc: z.string() }),
     ),
-    image: z.string().url(),
+    image: z.string(),
     stats: z.array(aboutStatSchema),
   }),
   values: z.object({

@@ -150,7 +150,7 @@ export default function PropertySection() {
 
           <div className="rounded-[var(--rl)] overflow-hidden relative shadow-sh2 h-[280px] md:h-[460px]">
             <img
-              src="https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/images/property-section.jpg"
               alt="Property portfolio"
               className="w-full h-full object-cover"
               style={{ filter: 'brightness(0.78)' }}

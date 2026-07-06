@@ -46,7 +46,6 @@ export default function HomePage() {
         subtitleBold="we manage your entire energy journey."
         subtitleEnd="Procurement, new connections, contracts, renewals and supplier issues — handled completely."
         primaryCtaLabel="Get Your Free Quote →"
-        primaryCtaHref="/quote"
         secondaryCtaLabel="How it works ↓"
         secondaryCtaHref="#journey"
         stats={[

@@ -73,7 +73,8 @@ export default function BeyondServicesList() {
             What&apos;s included
           </p>
           <h2 className="font-serif-num text-[44px] font-semibold text-ink tracking-[-0.5px] leading-[1.12] mb-4">
-            Five services. One job: protect what you&apos;ve already negotiated.
+            <span className="block">Five services.</span>
+            <span className="block">One job: protect what you&apos;ve already negotiated.</span>
           </h2>
           <p className="text-[17px] text-muted leading-[1.7] font-light max-w-[680px]">
             This isn&apos;t procurement — it&apos;s everything that has to happen correctly once a contract is

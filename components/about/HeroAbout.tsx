@@ -1,5 +1,7 @@
 'use client';
 
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
+
 const stats = [
   { val: '10,000+', label: 'Clients Served' },
   { val: '13 Yrs', label: 'Expertise' },
@@ -12,6 +14,7 @@ const miniStats = [
 ];
 
 export default function HeroAbout() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
       {/* Left — navy */}
@@ -52,12 +55,12 @@ export default function HeroAbout() {
 
         {/* CTAs */}
         <div className="flex gap-[12px] flex-wrap mb-9 relative z-[2]">
-          <a
-            href="/quote"
-            className="inline-block font-bold rounded-[var(--rs)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--orange-deep)] bg-brand-orange text-white text-[14.5px] shadow-[0_6px_24px_rgba(232,98,10,0.35)] px-[26px] py-[13px]"
+          <button
+            onClick={openModal}
+            className="cursor-pointer inline-block font-bold rounded-[var(--rs)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--orange-deep)] bg-brand-orange text-white text-[14.5px] shadow-[0_6px_24px_rgba(232,98,10,0.35)] px-[26px] py-[13px]"
           >
             Get a Free Quote
-          </a>
+          </button>
           <a
             href="/our-services"
             className="inline-block font-semibold rounded-[var(--rs)] transition-all duration-200 text-white/[0.85] text-[14.5px] border border-white/[0.18] px-[26px] py-[13px]"
@@ -91,7 +94,7 @@ export default function HeroAbout() {
       {/* Right — image */}
       <div className="relative overflow-hidden min-h-[280px] md:min-h-0">
         <img
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop"
+          src="/images/electricity-hero-bg.jpg"
           alt="UK electricity transmission towers at dusk"
           className="w-full h-full object-cover"
           style={{ filter: 'brightness(0.75) saturate(0.9)' }}
