@@ -53,7 +53,7 @@ const bottomStats = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="px-6 md:px-14 py-12 md:py-[88px] bg-off">
+    <section className="px-6 md:px-14 py-10 md:py-[40px] bg-off">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-[52px]">
@@ -108,7 +108,7 @@ export default function WhyChooseUs() {
           {/* Right — image + stats */}
           <div className="relative rounded-[var(--rl)] overflow-hidden min-h-[320px] md:min-h-[480px]">
             <img
-              src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=800&q=80&fit=crop"
+              src="/images/contact-sidebar.jpg"
               alt="Team working on energy strategy"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ filter: 'brightness(0.65)' }}

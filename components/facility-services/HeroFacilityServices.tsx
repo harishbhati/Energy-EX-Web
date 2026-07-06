@@ -53,7 +53,7 @@ export default function HeroFacilityServices() {
       <div className="relative overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          src="/images/facility-services-hero.jpg"
           alt="Facility services"
           className="w-full h-full object-cover absolute inset-0"
         />

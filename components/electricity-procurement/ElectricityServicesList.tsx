@@ -31,7 +31,7 @@ const services: Service[] = [
       { label: 'Strategy', title: 'Flexible Purchasing', desc: 'Buy in tranches as the market moves in your favour.' },
       { label: 'Blend', title: 'Blend & Extend', desc: 'Restructure mid-contract without early-exit penalties.' },
     ],
-    imageUrl: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=300',
+    imageUrl: '/images/testimonial-1.jpg',
     imageAlt: 'Flexible electricity contracts',
   },
   {
@@ -49,7 +49,7 @@ const services: Service[] = [
       { label: 'Advisory', title: 'TPI Services', desc: 'Independent advice from a regulated, accredited broker.' },
       { label: 'Intelligence', title: 'Market Timing', desc: 'Buy at optimal windows based on forward curve analysis.' },
     ],
-    imageUrl: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=300',
+    imageUrl: '/images/testimonial-3.jpg',
     imageAlt: 'Corporate energy procurement',
   },
   {
@@ -60,13 +60,13 @@ const services: Service[] = [
     badge: 'SME',
     description:
       "Small and medium-sized businesses deserve the same market access as large corporates — and with us, you get it. We compare 20+ suppliers on your behalf, present clear like-for-like quotes with no small print, and handle the switch end-to-end. No consultant fees. No long tie-ins.",
-    tags: ['20+ suppliers compared', '24-hour quotes', 'Simple switching', 'Renewal alerts'],
+    tags: ['30+ suppliers compared', '24-hour quotes', 'Simple switching', 'Renewal alerts'],
     pills: [
       { label: 'Comparison', title: 'Like-for-Like Quotes', desc: 'Clear, comparable quotes — no jargon, no hidden charges.' },
       { label: 'Speed', title: '24-Hour Turnaround', desc: 'Market quotes back to you within one working day.' },
       { label: 'Renewals', title: 'Renewal Management', desc: "Alerts when your contract is due — never roll onto SVT again." },
     ],
-    imageUrl: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=300',
+    imageUrl: '/images/testimonial-2.jpg',
     imageAlt: 'SME electricity procurement',
   },
   {
@@ -84,7 +84,7 @@ const services: Service[] = [
       { label: 'Compliance', title: 'P272 Mandated', desc: 'Managed compliance for sites above the 100MWh threshold.' },
       { label: 'Savings', title: 'Demand Profiling', desc: 'Identify and reduce expensive peak-demand windows.' },
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop',
+    imageUrl: '/images/hh-meters-circuit.jpg',
     imageAlt: 'Half-hourly electricity meters',
   },
 ];

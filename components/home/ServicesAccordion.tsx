@@ -36,7 +36,7 @@ const services: Service[] = [
     linkText: 'Explore electricity procurement →',
     linkHref: '/electricity-procurement',
     image:
-      'https://images.pexels.com/photos/4254165/pexels-photo-4254165.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/electricity-towers.jpg',
     imageAlt: 'Electricity',
   },
   {
@@ -52,7 +52,7 @@ const services: Service[] = [
     linkText: 'Explore gas procurement →',
     linkHref: '/gas-procurement',
     image:
-      'https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/journey-team.jpg',
     imageAlt: 'Gas',
   },
   {
@@ -69,7 +69,7 @@ const services: Service[] = [
     linkText: 'Explore solar options →',
     linkHref: '/solar-procurement',
     image:
-      'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/solar-panels.jpg',
     imageAlt: 'Solar',
   },
   {
@@ -85,7 +85,7 @@ const services: Service[] = [
     linkText: 'Explore water & waste →',
     linkHref: '/water-procurement',
     image:
-      'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/water-pipes.jpg',
     imageAlt: 'Water',
   },
   {
@@ -102,7 +102,7 @@ const services: Service[] = [
     linkText: 'Explore property management →',
     linkHref: '/property-management',
     image:
-      'https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/property-building.jpg',
     imageAlt: 'Property management',
   },
   {
@@ -119,7 +119,7 @@ const services: Service[] = [
     linkText: 'Explore facility services →',
     linkHref: '/cleaning',
     image:
-      'https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=500',
+      '/images/facility-team.jpg',
     imageAlt: 'Cleaning',
   },
 ];

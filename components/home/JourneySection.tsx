@@ -37,7 +37,7 @@ export default function JourneySection() {
       {/* Left: image */}
       <div className="relative overflow-hidden min-h-[300px] md:min-h-0">
         <img
-          src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=900"
+          src="/images/cleaning-handshake.png"
           alt="Energyex team"
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 30%' }}

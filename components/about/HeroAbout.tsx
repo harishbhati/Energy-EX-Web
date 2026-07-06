@@ -94,7 +94,7 @@ export default function HeroAbout() {
       {/* Right — image */}
       <div className="relative overflow-hidden min-h-[280px] md:min-h-0">
         <img
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop"
+          src="/images/electricity-hero-bg.jpg"
           alt="UK electricity transmission towers at dusk"
           className="w-full h-full object-cover"
           style={{ filter: 'brightness(0.75) saturate(0.9)' }}

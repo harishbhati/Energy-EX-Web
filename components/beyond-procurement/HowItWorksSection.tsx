@@ -40,11 +40,6 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-[28px] lg:gap-0">
           {steps.map((step, i) => (
             <div key={step.num} className="lg:px-[22px] relative">
-              {i < steps.length - 1 && (
-                <span className="hidden lg:block absolute top-[18px] -right-[4px] text-[#BCC7D4] text-[18px] z-[1]">
-                  →
-                </span>
-              )}
               <div className="font-serif-num text-[34px] font-bold text-brand-orange mb-[10px]">
                 {step.num}
               </div>

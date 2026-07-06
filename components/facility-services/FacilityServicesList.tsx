@@ -48,7 +48,7 @@ const services: RegularService[] = [
     tags: ['Business water supply', 'Supplier comparison', 'Meter management', 'All business types'],
     href: '/water-procurement',
     linkLabel: 'View water services →',
-    imageUrl: 'https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=700',
+    imageUrl: '/images/water-pipes.jpg',
     imageAlt: 'Water procurement',
     badge: 'Water',
     badgeNavy: true,
@@ -63,7 +63,7 @@ const services: RegularService[] = [
     tags: ['Regular waste collection', 'Recycling programmes', 'Hazardous waste disposal', 'Waste-to-energy'],
     href: '/waste-procurement',
     linkLabel: 'View waste services →',
-    imageUrl: 'https://images.pexels.com/photos/2768961/pexels-photo-2768961.jpeg?auto=compress&cs=tinysrgb&w=700',
+    imageUrl: '/images/services-accordion.jpg',
     imageAlt: 'Waste procurement',
     badge: 'Waste',
     badgeNavy: true,
@@ -78,7 +78,7 @@ const services: RegularService[] = [
     tags: ['Multi-site portfolios', 'HMO management', 'Contract tracking', 'Billing support', 'Landlords & developers'],
     href: '/property-management',
     linkLabel: 'View property management →',
-    imageUrl: 'https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=700',
+    imageUrl: '/images/facility-services-hero.jpg',
     imageAlt: 'Property management',
     badge: '✦ Specialist',
     badgeGold: true,
@@ -179,7 +179,7 @@ function CleaningCard() {
         <div className="relative overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=700"
+            src="/images/facility-team.jpg"
             alt="Cleaning services"
             className="w-full h-full object-cover absolute inset-0"
           />

@@ -24,7 +24,7 @@ const highlights: Highlight[] = [
 
 export default function WhoWeAre() {
   return (
-    <section className="px-6 md:px-14 py-12 md:py-[88px]">
+    <section className="px-6 md:px-14 py-10 md:py-[40px]">
       <div className="max-w-[1180px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-[80px] items-center">
         {/* Left */}
         <div>
@@ -102,7 +102,7 @@ export default function WhoWeAre() {
 
           <div className="rounded-[var(--rl)] overflow-hidden h-[320px] md:h-[520px] shadow-[0_16px_48px_rgba(13,27,42,0.12)]">
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&fit=crop"
+              src="/images/journey-section.jpg"
               alt="Business energy consultation"
               className="w-full h-full object-cover"
             />
