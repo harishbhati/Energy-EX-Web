@@ -203,6 +203,7 @@ export default function QuoteModal() {
           isOpen ? 'translate-y-0 scale-100' : 'translate-y-[18px] scale-[0.98]'
         }`}
       >
+        <p>dummy test</p>
         {/* Header */}
         <div className="bg-gradient-to-br from-navy to-navy-2 px-[28px] sm:px-[38px] pt-[34px] pb-[28px] relative overflow-hidden rounded-t-[var(--r)]">
           <div className="absolute w-[220px] h-[220px] rounded-full bg-brand-orange/[0.18] blur-[50px] -top-[110px] -right-[50px] pointer-events-none" />
