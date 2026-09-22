@@ -15,7 +15,7 @@ export default function AboutCTA() {
   ];
 
   return (
-    <section className="relative z-10 bg-white">
+    <section className="relative z-10 bg-gray-50">
       <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden z-10">
         {/* Left — orange */}
         <div className="relative overflow-hidden bg-brand-orange px-6 py-12 sm:px-10 sm:py-14 md:px-[52px] md:py-[60px]">
@@ -52,8 +52,8 @@ export default function AboutCTA() {
         </div>
 
         {/* Right — navy */}
-        <div className="bg-navy px-6 py-12 sm:px-10 sm:py-14 md:px-[52px] md:py-[60px]">
-          <h3 className="text-white font-bold mb-8 text-[22px] md:text-[26px] tracking-[-0.5px]">
+        <div className="px-6 py-12 sm:px-10 sm:py-14 md:px-[52px] md:py-[60px]">
+          <h3 className="text-navy-2 font-bold mb-8 text-[22px] md:text-[26px] tracking-[-0.5px]">
             Talk to us directly
           </h3>
 
@@ -61,24 +61,24 @@ export default function AboutCTA() {
             {contacts.map(({ Icon, label, value, href }) => (
               <a key={label} href={href} className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-[10px] flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:[background:var(--orange)] bg-white/[0.08] border border-white/[0.12]">
-                  <Icon size={17} className="text-white/60" />
+                  <Icon size={17} className="text-muted/60 group-hover:text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold mb-[2px] text-[11px] text-white/[0.35] tracking-[0.8px] uppercase">
+                  <div className="font-semibold mb-[2px] text-[11px] text-navy-2 tracking-[0.8px] uppercase">
                     {label}
                   </div>
-                  <div className="transition-colors duration-200 text-[15px] text-white/75 font-medium">
+                  <div className="transition-colors duration-200 text-[15px] text-muted/75 font-medium">
                     {label === 'Visit us' ? (
                       <>
-                        <span className="block group-hover:text-white transition-colors duration-200">
+                        <span className="block group-hover:text-navy-2 transition-colors duration-200">
                           {value.split(',')[0]}
                         </span>
-                        <span className="block text-[13.5px] text-white/45 font-normal group-hover:text-white/70 transition-colors duration-200">
+                        <span className="block text-[13.5px] text-muted/45 font-normal group-hover:text-navy-2 transition-colors duration-200">
                           {value.split(', ').slice(1).filter((p) => p.trim() !== 'England').join(', ')}
                         </span>
                       </>
                     ) : (
-                      <span className="group-hover:text-white transition-colors duration-200">{value}</span>
+                      <span className="group-hover:text-navy-2 transition-colors duration-200">{value}</span>
                     )}
                   </div>
                 </div>

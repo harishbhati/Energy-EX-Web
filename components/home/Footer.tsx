@@ -1,4 +1,3 @@
-import { Globe } from 'lucide-react';
 import Link from 'next/link';
 
 type FooterLink = { title: string; href: string };
@@ -38,11 +37,21 @@ export default function Footer({ footer, compact }: FooterProps) {
             </div>
             <div className="flex gap-[10px] mt-[18px]">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/energyexuk/"
                 aria-label={footer.socialLabel}
                 className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center text-white transition-all duration-200 hover:bg-[color:var(--orange)] hover:border-[color:var(--orange)] bg-white/[0.06] border border-white/10"
               >
-                <Globe size={16} />
+                {/* Inline LinkedIn SVG to avoid depending on a named export that may not exist in the installed package */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM7.5 8h4.75v2.2h.07c.66-1.25 2.27-2.57 4.68-2.57 5 0 5.92 3.29 5.92 7.56V24h-5v-7.5c0-1.8-.03-4.12-2.5-4.12-2.5 0-2.88 1.94-2.88 3.99V24h-5V8z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -90,6 +99,9 @@ export default function Footer({ footer, compact }: FooterProps) {
           <div className="flex items-center gap-[14px] text-xs text-white/30">
             <Link href="/privacy" className="hover:text-white/60 transition-colors duration-200">
               Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white/60 transition-colors duration-200">
+              Terms
             </Link>
             <span className="text-white/20">·</span>
             <Link href="/complaints" className="hover:text-white/60 transition-colors duration-200">

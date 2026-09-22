@@ -59,7 +59,7 @@ const services: Service[] = [
     title: 'SME Electricity Procurement',
     badge: 'SME',
     description:
-      "Small and medium-sized businesses deserve the same market access as large corporates — and with us, you get it. We compare 20+ suppliers on your behalf, present clear like-for-like quotes with no small print, and handle the switch end-to-end. No consultant fees. No long tie-ins.",
+      "Small and medium-sized businesses deserve the same market access as large corporates — and with us, you get it. We compare 30+ suppliers on your behalf, present clear like-for-like quotes with no small print, and handle the switch end-to-end. No consultant fees. No long tie-ins.",
     tags: ['30+ suppliers compared', '24-hour quotes', 'Simple switching', 'Renewal alerts'],
     pills: [
       { label: 'Comparison', title: 'Like-for-Like Quotes', desc: 'Clear, comparable quotes — no jargon, no hidden charges.' },
