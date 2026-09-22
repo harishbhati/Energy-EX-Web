@@ -44,7 +44,7 @@ const tabs: ServiceTab[] = [
     Icon: Flame,
     label: 'Gas',
     image:
-      '/images/journey-team.jpg',
+      '/images/gas.jpg',
     imageAlt: 'Gas supply infrastructure',
     imageTitle: 'Gas procurement',
     imageSubtitle: 'Fixed & flexible · All business sizes',
@@ -98,7 +98,7 @@ const tabs: ServiceTab[] = [
     Icon: Building2,
     label: 'Property',
     image:
-      '/images/property-building.jpg',
+      '/images/prop.jpg',
     imageAlt: 'Corporate office building',
     imageTitle: 'Property Management',
     imageSubtitle: 'Complete utility control across your portfolio',

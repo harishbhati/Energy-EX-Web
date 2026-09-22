@@ -15,7 +15,7 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section className="pt-[88px] pb-10 md:pb-0 px-6 md:px-14">
+    <section className="pt-[40px] pb-10 md:pb-0 px-6 md:px-14">
       <div className="max-w-[1180px] mx-auto">
         {/* Header */}
         <div className="text-center">

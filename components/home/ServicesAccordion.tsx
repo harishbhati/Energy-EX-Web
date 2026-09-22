@@ -52,7 +52,7 @@ const services: Service[] = [
     linkText: 'Explore gas procurement →',
     linkHref: '/gas-procurement',
     image:
-      '/images/journey-team.jpg',
+      '/images/gas.jpg',
     imageAlt: 'Gas',
   },
   {
@@ -102,7 +102,7 @@ const services: Service[] = [
     linkText: 'Explore property management →',
     linkHref: '/property-management',
     image:
-      '/images/property-building.jpg',
+      '/images/prop.jpg',
     imageAlt: 'Property management',
   },
   {
@@ -117,7 +117,7 @@ const services: Service[] = [
     description:
       'Drawing on 13 years of energy expertise, our clients asked us to help with their facilities too. We now provide professional commercial cleaning, window cleaning, deep cleaning and landscaping for offices, hotels and industrial premises.',
     linkText: 'Explore facility services →',
-    linkHref: '/cleaning',
+    linkHref: '/cleaning-services',
     image:
       '/images/facility-team.jpg',
     imageAlt: 'Cleaning',
