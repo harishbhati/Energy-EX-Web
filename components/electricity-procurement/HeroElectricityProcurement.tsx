@@ -1,7 +1,10 @@
+'use client';
 import Link from 'next/link';
 import { Zap } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 export default function HeroElectricityProcurement() {
+  const { openModal } = useQuoteModal();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[440px] bg-navy">
       {/* Left */}
@@ -30,13 +33,12 @@ export default function HeroElectricityProcurement() {
           <strong className="text-white/88 font-semibold">We work for you — not the supplier</strong>{' '}
           — with ongoing support for the life of the contract.
         </p>
-
-        <Link
-          href="/contact-us"
-          className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
+        <button
+          onClick={openModal}
+          className="cursor-pointer inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
         >
           Get a Free Quote →
-        </Link>
+        </button>
       </div>
 
       {/* Right — SVG illustration (desktop only) */}

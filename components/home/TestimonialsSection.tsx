@@ -13,8 +13,8 @@ const testimonials = [
   {
     quote: "We look after around nine properties and our energy use is over a million units a year, so keeping costs under control is really important for us. Energyex has helped us reduce costs and made the whole process much easier to manage. If we have any issue with a supplier or an account, we just speak to Energyex and they deal with it for us. We’ve been with them for over three years and we’ve been very happy with the service.",
     initials: 'HA',
-    name: 'To be confirmed',
-    role: 'Head of Accounts · Middle Eastern Embassy',
+    name: 'Head of Accounts',
+    role: 'Middle Eastern Embassy',
   },
   {
     quote: "Managing energy across our property portfolio used to be a real headache. Energyex now takes care of the whole process for us, including contracts, supplier issues and change of tenancies. We also receive a monthly portfolio report, so we always know where everything stands. It’s made things much easier for us.",
@@ -31,14 +31,14 @@ const testimonials = [
   {
     quote: "What impressed us most was the time Energyex took to properly analyse our energy usage and costs rather than just quote us a new contract. They found savings in areas we hadn’t really looked at before and, across the work they’ve done for us, have delivered over £200,000 in contract-value savings, including around £148,000 on our latest four-year agreement. They’re also helping us explore schemes such as BICS and other ways of reducing our costs further.",
     initials: 'D',
-    name: 'To be confirmed',
-    role: 'Director · Corvedale Fresh Limited',
+    name: 'Director',
+    role: 'Corvedale Fresh Limited',
   },
   {
     quote: "With a number of hotels and B&B properties to manage, keeping on top of energy contracts and supplier issues can easily become time-consuming. Energyex manages that side for us, keeps everything organised and has helped us make significant savings across the portfolio. If there’s an issue with a supplier or an account, they deal with it and keep things moving. It has taken a lot of pressure off us.",
     initials: 'D',
-    name: 'To be confirmed',
-    role: 'Director · Bridge Hotel',
+    name: 'Director',
+    role: 'Bridge Hotel',
   },
 ];
 
@@ -106,7 +106,7 @@ export default function TestimonialsSection() {
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className="tcard-item bg-white rounded-[var(--r)] px-6 md:px-8 py-6 md:py-8 flex-shrink-0 transition-all duration-300 cursor-default w-full md:w-[calc(33.333%-14px)]"
+                className="tcard-item flex flex-col bg-white rounded-[var(--r)] px-6 md:px-8 py-6 md:py-8 flex-shrink-0 transition-all duration-300 cursor-default w-full md:w-[calc(33.333%-14px)]"
                 style={{ border: '1.5px solid var(--border)' }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget;
@@ -121,22 +121,26 @@ export default function TestimonialsSection() {
                   el.style.transform = 'translateY(0)';
                 }}
               >
-                <div className="flex items-center gap-[3px] mb-4 text-brand-orange">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} size={14} fill="currentColor" strokeWidth={0} />
-                  ))}
-                </div>
-                <p className="font-serif-num mb-[22px] italic text-[17px] md:text-[18px] text-ink leading-[1.6] font-medium">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="mb-[18px] h-px bg-[color:var(--border)]" />
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 font-serif-num bg-orange-tint text-brand-orange-deep">
-                    {t.initials}
+                <div className=''>
+                  <div className="flex items-center gap-[3px] mb-4 text-brand-orange">
+                    {[0, 1, 2, 3, 4].map((s) => (
+                      <Star key={s} size={14} fill="currentColor" strokeWidth={0} />
+                    ))}
                   </div>
-                  <div>
-                    <div className="text-sm font-bold text-ink">{t.name}</div>
-                    <div className="text-xs text-muted">{t.role}</div>
+                  <p className="font-serif-num mb-[22px] italic text-[17px] md:text-[18px] text-ink leading-[1.6] font-medium">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+                <div className='mt-auto'>
+                  <div className="mb-[18px] h-px bg-[color:var(--border)]" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 font-serif-num bg-orange-tint text-brand-orange-deep">
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-ink">{t.name}</div>
+                      <div className="text-xs text-muted">{t.role}</div>
+                    </div>
                   </div>
                 </div>
               </div>
