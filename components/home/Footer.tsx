@@ -17,10 +17,16 @@ type FooterProps = {
 
 export default function Footer({ footer, compact }: FooterProps) {
   return (
-    <footer className={`bg-navy pb-8 relative z-[1] border-t border-white/10 ${compact ? 'pt-10 md:pt-14' : 'pt-10 md:pt-[140px]'}`}>
+    <footer
+      className={`bg-navy pb-8 relative z-[1] border-t border-white/10 ${
+        compact ? 'pt-10 md:pt-14' : 'pt-10 md:pt-[140px]'
+      }`}
+    >
       <div className="max-w-[1180px] mx-auto px-6 md:px-14">
-        {/* Top grid — stacks on mobile */}
-        <div className="grid gap-8 md:gap-12 pb-10 md:pb-11 border-b border-white/[0.08] grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr]">
+
+        {/* Top grid */}
+        <div className="grid gap-8 md:gap-12 pb-10 md:pb-11 border-b border-white/[0.12] grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr]">
+
           {/* Brand col */}
           <div>
             <Link
@@ -29,19 +35,21 @@ export default function Footer({ footer, compact }: FooterProps) {
             >
               Energy<em className="not-italic text-brand-orange-soft">ex</em>
             </Link>
-            <p className="mb-5 max-w-xs font-light text-[13.5px] text-white/40 leading-[1.7]">
+
+            <p className="mb-5 max-w-xs font-light text-[13.5px] text-white/70 leading-[1.7]">
               {footer.tagline}
             </p>
-            <div className="whitespace-pre-line text-[13px] text-white/[0.35] leading-[2.2]">
+
+            <div className="whitespace-pre-line text-[13px] text-white/65 leading-[2.2]">
               {footer.contact}
             </div>
+
             <div className="flex gap-[10px] mt-[18px]">
               <a
                 href="https://www.linkedin.com/company/energyexuk/"
                 aria-label={footer.socialLabel}
-                className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center text-white transition-all duration-200 hover:bg-[color:var(--orange)] hover:border-[color:var(--orange)] bg-white/[0.06] border border-white/10"
+                className="w-[38px] h-[38px] rounded-[10px] flex items-center justify-center text-white transition-all duration-200 hover:bg-[color:var(--orange)] hover:border-[color:var(--orange)] bg-white/[0.08] border border-white/15"
               >
-                {/* Inline LinkedIn SVG to avoid depending on a named export that may not exist in the installed package */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -58,15 +66,16 @@ export default function Footer({ footer, compact }: FooterProps) {
 
           {/* Energy services */}
           <div>
-            <h4 className="mb-4 font-bold uppercase tracking-[1.2px] text-[11px] text-white/[0.45]">
+            <h4 className="mb-4 font-bold uppercase tracking-[1.2px] text-[11px] text-white/70">
               Energy Services
             </h4>
+
             <div className="flex flex-col gap-[11px]">
               {footer.services.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="transition-colors duration-200 hover:text-white text-[13.5px] text-white/50"
+                  className="transition-colors duration-200 hover:text-white text-[13.5px] text-white/70"
                 >
                   {item.title}
                 </Link>
@@ -76,15 +85,16 @@ export default function Footer({ footer, compact }: FooterProps) {
 
           {/* Facility services */}
           <div>
-            <h4 className="mb-4 font-bold uppercase tracking-[1.2px] text-[11px] text-white/[0.45]">
+            <h4 className="mb-4 font-bold uppercase tracking-[1.2px] text-[11px] text-white/70">
               Facility Services
             </h4>
+
             <div className="flex flex-col gap-[11px]">
               {footer.facilities.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="transition-colors duration-200 hover:text-white text-[13.5px] text-white/50"
+                  className="transition-colors duration-200 hover:text-white text-[13.5px] text-white/70"
                 >
                   {item.title}
                 </Link>
@@ -95,16 +105,32 @@ export default function Footer({ footer, compact }: FooterProps) {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-[26px] gap-[10px]">
-          <div className="text-xs text-white/30">{footer.copyright}</div>
-          <div className="flex items-center gap-[14px] text-xs text-white/30">
-            <Link href="/privacy" className="hover:text-white/60 transition-colors duration-200">
+
+          <div className="text-xs text-white/50">
+            {footer.copyright}
+          </div>
+
+          <div className="flex items-center gap-[14px] text-xs text-brand-orange-soft">
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors duration-200"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white/60 transition-colors duration-200">
+
+            <Link
+              href="/terms"
+              className="hover:text-white transition-colors duration-200"
+            >
               Terms
             </Link>
-            <span className="text-white/20">·</span>
-            <Link href="/complaints" className="hover:text-white/60 transition-colors duration-200">
+
+            <span className="text-white/30">·</span>
+
+            <Link
+              href="/complaints"
+              className="hover:text-white transition-colors duration-200"
+            >
               Complaints Procedure
             </Link>
           </div>
