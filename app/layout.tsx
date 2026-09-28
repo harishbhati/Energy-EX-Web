@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/images/fav.png',
+    shortcut: '/images/fav.png',
+    apple: '/images/fav.png',
+  },
 };
 
 const orgSchema = {
