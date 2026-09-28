@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -46,17 +46,39 @@ export default function TestimonialsSection() {
   const [cur, setCur] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const go = (n: number) => {
-    const clamped = Math.max(0, Math.min(1, n));
-    setCur(clamped);
+  // SSR-safe defaults (server will render mobile layout: visible = 1)
+  const [visible, setVisible] = useState(1);
+  const [pages, setPages] = useState(Math.max(1, Math.ceil(testimonials.length / 1)));
+
+  // Helper: perform scroll using an explicit visible count (avoids reading window during render)
+  const scrollToPage = (n: number, visibleLocal: number) => {
     if (!trackRef.current) return;
     const cards = trackRef.current.querySelectorAll<HTMLDivElement>('.tcard-item');
     if (!cards[0]) return;
-    const cardW = cards[0].offsetWidth + 20;
-    const isDesktop = window.innerWidth > 900;
-    const offset = clamped * cardW * (isDesktop ? 2 : 1);
+    const gap = 20; // gap-5 ~= 20px
+    const cardW = cards[0].offsetWidth + gap;
+    const maxPage = Math.max(0, Math.ceil(testimonials.length / visibleLocal) - 1);
+    const clamped = Math.max(0, Math.min(maxPage, n));
+    setCur(clamped);
+    const offset = clamped * cardW * visibleLocal;
     trackRef.current.style.transform = `translateX(-${offset}px)`;
   };
+
+  const go = (n: number) => scrollToPage(n, visible);
+
+  // On client mount and resize, compute visible/pages and reposition
+  useEffect(() => {
+    const update = () => {
+      const v = window.innerWidth > 900 ? 3 : 1;
+      setVisible(v);
+      setPages(Math.max(1, Math.ceil(testimonials.length / v)));
+      scrollToPage(cur, v);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // run once on mount
 
   return (
     <div className="px-6 md:px-14 py-10 bg-[#FCFAF7]">
@@ -128,11 +150,14 @@ export default function TestimonialsSection() {
             onClick={() => go(cur - 1)}
             className="w-11 h-11 rounded-full flex items-center justify-center text-base cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white bg-white text-ink"
             style={{ border: '1.5px solid var(--border-strong)' }}
+            aria-label="Previous"
+            disabled={cur === 0}
           >
             ←
           </button>
+
           <div className="flex gap-[7px]">
-            {[0, 1].map((i) => (
+            {Array.from({ length: pages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => go(i)}
@@ -143,13 +168,17 @@ export default function TestimonialsSection() {
                   background: cur === i ? 'var(--orange)' : 'var(--border-strong)',
                   border: 'none',
                 }}
+                aria-label={`Go to page ${i + 1}`}
               />
             ))}
           </div>
+
           <button
             onClick={() => go(cur + 1)}
             className="w-11 h-11 rounded-full flex items-center justify-center text-base cursor-pointer transition-all duration-200 hover:bg-[color:var(--orange)] hover:text-white bg-white text-ink"
             style={{ border: '1.5px solid var(--border-strong)' }}
+            aria-label="Next"
+            disabled={cur >= pages - 1}
           >
             →
           </button>
