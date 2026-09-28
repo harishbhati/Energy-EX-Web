@@ -1,5 +1,7 @@
+'use client';
 import Link from 'next/link';
 import { BarChart2 } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 const chips = [
   { label: 'Bill validated', classes: 'top-[10%] left-[4%]' },
@@ -9,6 +11,7 @@ const chips = [
 ];
 
 export default function HeroBeyondProcurement() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] min-h-[400px] bg-navy relative overflow-hidden">
       {/* Left */}
@@ -41,12 +44,12 @@ export default function HeroBeyondProcurement() {
         </p>
 
         <div className="flex items-center gap-5 flex-wrap">
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white px-[28px] py-[13px] rounded-rs text-[14.5px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
-          >
-            Get a Free Bill Review →
-          </Link>
+          <button
+          onClick={openModal}
+          className="cursor-pointer inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
+        >
+          Get a Free Quote →
+        </button>
           <span className="text-[12.5px] text-white/40 font-medium">
             No obligation · Results in 5 working days
           </span>

@@ -1,5 +1,7 @@
+'use client';
 import Link from 'next/link';
 import { ClipboardList, Building2 } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 const stats = [
   {
@@ -15,6 +17,7 @@ const stats = [
 ];
 
 export default function HeroWasteProcurement() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="relative bg-navy overflow-hidden px-6 lg:px-14 py-[56px] lg:py-[72px] min-h-[440px] flex items-center">
       {/* Recycling arc SVG motif */}
@@ -41,7 +44,7 @@ export default function HeroWasteProcurement() {
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] text-white/35 font-medium mb-[22px]">
             <Link href="/" className="hover:text-brand-orange-soft transition-colors">Home</Link>
             <span className="text-white/20">›</span>
-            <Link href="/our-services" className="hover:text-brand-orange-soft transition-colors">Facility Services</Link>
+            <Link href="/our-partners" className="hover:text-brand-orange-soft transition-colors">Facility Services</Link>
             <span className="text-white/20">›</span>
             <span className="text-white/70">Waste Procurement</span>
           </nav>
@@ -61,12 +64,12 @@ export default function HeroWasteProcurement() {
             a generic collection schedule, with support that continues long after the contract is signed.
           </p>
 
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
-          >
-            Get a Free Quote →
-          </Link>
+          <button
+          onClick={openModal}
+          className="cursor-pointer inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
+        >
+          Get a Free Quote →
+        </button>
         </div>
 
         {/* Right — stat cards */}

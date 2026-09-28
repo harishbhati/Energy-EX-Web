@@ -1,5 +1,7 @@
+'use client';
 import Link from 'next/link';
 import { ShieldCheck, MapPin, Phone } from 'lucide-react';
+import { useQuoteModal } from '@/contexts/QuoteModalContext';
 
 const pills = [
   { Icon: ShieldCheck, label: 'Fully insured partners' },
@@ -8,6 +10,7 @@ const pills = [
 ];
 
 export default function HeroCleaningServices() {
+  const { openModal } = useQuoteModal();
   return (
     <section className="relative bg-navy overflow-hidden px-6 lg:px-14 py-[84px] lg:py-[84px] pb-[64px] text-center">
       {/* Radial sparkle SVG — centered behind content */}
@@ -29,7 +32,7 @@ export default function HeroCleaningServices() {
         <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-[12px] text-white/35 font-medium mb-[24px]">
           <Link href="/" className="hover:text-brand-orange-soft transition-colors">Home</Link>
           <span className="text-white/20">›</span>
-          <Link href="/our-services" className="hover:text-brand-orange-soft transition-colors">Facility Services</Link>
+          <Link href="/our-partners" className="hover:text-brand-orange-soft transition-colors">Facility Services</Link>
           <span className="text-white/20">›</span>
           <span className="text-white/70">Cleaning Services</span>
         </nav>
@@ -50,12 +53,12 @@ export default function HeroCleaningServices() {
         </p>
 
         <div className="flex items-center justify-center gap-[16px] flex-wrap mb-[38px]">
-          <Link
-            href="/contact-us"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] hover:-translate-y-[2px] transition-all duration-[250ms]"
-          >
-            Get a Free Quote →
-          </Link>
+          <button
+          onClick={openModal}
+          className="cursor-pointer inline-flex items-center gap-2 bg-brand-orange text-white px-[30px] py-[14px] rounded-rs text-[15px] font-semibold shadow-[0_8px_28px_rgba(232,98,10,0.4)] hover:bg-[#CC5208] transition-all duration-[250ms] w-fit"
+        >
+          Get a Free Quote →
+        </button>
           <a
             href="#categories"
             className="inline-flex items-center gap-2 text-white px-[26px] py-[14px] rounded-rs text-[14.5px] font-semibold border-[1.5px] border-white/25 hover:border-white/50 hover:bg-white/[0.06] transition-all duration-[250ms]"
