@@ -5,28 +5,40 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Energyex saved us a significant amount and stayed with us throughout the whole contract. Every issue handled before we even noticed it.",
-    initials: 'JM',
-    name: 'To be confirmed',
-    role: 'Facilities Manager · NHS Trust',
+    quote: "We’ve been really happy with the support from Energyex. Our annual energy spend is over £1 million, so every saving makes a difference. They looked through our existing costs, found areas where we were paying more than we needed to, helped fix those issues, and also made sure we were getting competitive energy prices. They continue to keep an eye on our invoices and overall costs, which has been a big help to us.",
+    initials: 'AH',
+    name: 'Adrian Hill',
+    role: 'Director · Sovrin Plastics Limited',
   },
   {
-    quote: "Managing utilities across our 12 properties was a nightmare. Now we have one contact and we're paying far less. Transformative.",
-    initials: 'SR',
+    quote: "We look after around nine properties and our energy use is over a million units a year, so keeping costs under control is really important for us. Energyex has helped us reduce costs and made the whole process much easier to manage. If we have any issue with a supplier or an account, we just speak to Energyex and they deal with it for us. We’ve been with them for over three years and we’ve been very happy with the service.",
+    initials: 'HA',
     name: 'To be confirmed',
-    role: 'Property Developer · 12 sites',
+    role: 'Head of Accounts · Middle Eastern Embassy',
   },
   {
-    quote: "They took the time to understand our business before recommending anything. Genuine advice, not a sales pitch. We switched and saved.",
-    initials: 'RL',
-    name: 'To be confirmed',
-    role: 'Operations Director · Retail',
+    quote: "Managing energy across our property portfolio used to be a real headache. Energyex now takes care of the whole process for us, including contracts, supplier issues and change of tenancies. We also receive a monthly portfolio report, so we always know where everything stands. It’s made things much easier for us.",
+    initials: 'AR',
+    name: 'Angus Ross',
+    role: 'Director · Bath Lettings / Bath Block Management',
   },
   {
-    quote: "13 years and still the most straightforward broker we've worked with. The contract management alone is worth it — we never miss a renewal.",
-    initials: 'MP',
+    quote: "We reached out to Energyex when we needed to bring our energy costs down. They reviewed everything and found we were paying a lot more than we needed to in different areas. Our standing charges alone dropped from around £36 a day to £18, and with the other reductions they helped us make, the total saving came to around £56,000 over three years. We’ve been very happy with the result.",
+    initials: 'K',
+    name: 'Krzysztof',
+    role: 'General Manager · Kanpai London',
+  },
+  {
+    quote: "What impressed us most was the time Energyex took to properly analyse our energy usage and costs rather than just quote us a new contract. They found savings in areas we hadn’t really looked at before and, across the work they’ve done for us, have delivered over £200,000 in contract-value savings, including around £148,000 on our latest four-year agreement. They’re also helping us explore schemes such as BICS and other ways of reducing our costs further.",
+    initials: 'D',
     name: 'To be confirmed',
-    role: 'Finance Director · Manufacturing',
+    role: 'Director · Corvedale Fresh Limited',
+  },
+  {
+    quote: "With a number of hotels and B&B properties to manage, keeping on top of energy contracts and supplier issues can easily become time-consuming. Energyex manages that side for us, keeps everything organised and has helped us make significant savings across the portfolio. If there’s an issue with a supplier or an account, they deal with it and keep things moving. It has taken a lot of pressure off us.",
+    initials: 'D',
+    name: 'To be confirmed',
+    role: 'Director · Bridge Hotel',
   },
 ];
 
